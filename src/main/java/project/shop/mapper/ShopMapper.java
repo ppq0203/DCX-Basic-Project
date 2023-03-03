@@ -16,6 +16,7 @@ public interface ShopMapper {
 	void insertUser(UserDto user); //회원가입
 	void changePw(UserDto user); //비밀번호 변경
 	void deleteUser(UserDto user); //유저 제거
+	void findId(UserDto user); //아이디 찾기 
 	
 	
 	UserDto selectUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 

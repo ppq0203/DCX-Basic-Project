@@ -30,11 +30,7 @@ public class UserController {
 //        return "/boardWrite";
 //    }
 	
-	@GetMapping("/login")
-	public String loginPage()
-	{
-		return "/login.html";
-	}
+	
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
     public String postLogin(HttpSession session, UserDto userDto) throws Exception{
@@ -49,12 +45,6 @@ public class UserController {
     	
     	return "redirect:/login";	//로그인 창으로 이동
     }
-	
-	@GetMapping("/userInfoFind")
-	public String idFindPage()
-	{
-		return "/idFind.html";
-	}
 	
 	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
@@ -86,5 +76,15 @@ public class UserController {
 		userService.deleteUser(user);
 		System.out.println("deleted");
 		return "/login";
+	}
+	
+	// 아이디 찾기 컨트롤
+	@PostMapping("/findId.do")
+	public String findId(UserDto user) throws Exception
+	{
+		System.out.println("/findId.do");
+		userService.findId(user);
+		System.out.println("found");
+		return "/Found";
 	}
 }

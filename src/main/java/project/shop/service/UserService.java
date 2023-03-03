@@ -38,4 +38,9 @@ public class UserService {
 	public void deleteUser(UserDto user) throws Exception {
 		shopMapper.deleteUser(user);
 	}
+	
+	//아이디 찾기
+	public void findId(UserDto user) throws Exception {
+		shopMapper.findId(user);
+	}
 }
