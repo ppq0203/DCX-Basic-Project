@@ -1,13 +1,14 @@
 package project.shop.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
 import project.shop.service.UserService;
 
@@ -33,13 +34,40 @@ public class UserController {
 	}
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public String postLogin( UserDto userDto) throws Exception{
+    public String postLogin(HttpSession session, UserDto userDto) throws Exception{
     	System.out.println("postLogin::"+userDto);
-    	UserDto getUserDto = userService.selectUser(userDto);
-    	System.out.println("post" + getUserDto);
+    	UserDto getUserDto = userService.selectUserId(userDto);	//ID 정보로 유저정보 확인
+    	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
     	if (getUserDto != null && getUserDto == userDto)
+    	{
+    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
     		return "/";	//메인으로 이동
+    	}
     	
     	return "redirect:/login";	//로그인 창으로 이동
     }
+	
+	@GetMapping("/join")
+	public String joinPage()
+	{
+		return "/joinUser.html";
+	}
+	
+	@PostMapping("/postJoin")
+	public String postJoin()
+	{
+		return "redirect:/login";
+	}
+	
+	@GetMapping("/idFind")
+	public String idFindPage()
+	{
+		return "/idFind.html";
+	}
+	
+	@GetMapping("/pwdFind")
+	public String pwdFindPage()
+	{
+		return "/passworldFind.html";
+	}
 }
