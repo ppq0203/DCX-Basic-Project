@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
-<form>
-<h1>회원가입</h1>
-<br>
-ID : <input type="text" >
-<br>
-비밀번호 : <input type="text" >
-<br>
-비밀번호 확인 : <input type="text" >
-<br>
-이름 : <input type="text" >
-<br>
-E-mail : <input type="text" >
-<br>
-핸드폰 번호 : <input type="text" >
-<br>
-주소 : <input type="text" >
-<br>
-<input type="submit" value="회원가입">
-<input type="button" value="취소">
-</form>
+	<div class="container">
+		<form id="frm" name="frm" method="post" action="/postregi">
+			<h1>회원가입</h1> 
+			<table class="user_detail">
+				<tr>
+					<td>ID : </td> 
+					<td><input type="text" id="userId" name="userId"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 : </td>
+					<td><input type="text" id="userPw" name="userPw"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인 : </td>
+					<td><input type="text" ></td>
+				</tr>
+				<tr>
+					<td>이름 : </td>
+					<td><input type="text" id="userName" name="userName"></td>
+				</tr>
+				<tr>
+					<td>E-mail :  </td>
+					<td><input type="text" id="userEmail" name="userEmail"></td>
+				</tr>
+				<tr>
+					<td>핸드폰 번호 : </td>
+					<td><input type="text" id="userPhone" name="userPhone"></td>
+				</tr>
+				<tr>
+					<td>주소 : </td>
+					<td><input type="text" id="userAddress" name="userAddress"></td>
+				</tr>
+			</table>
+			<input type="submit" id="test" value="가입">
+			<input type="button" value="취소">
+		</form>
+	</div>
 </body>
 </html>

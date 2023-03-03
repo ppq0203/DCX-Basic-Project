@@ -1,11 +1,14 @@
 package project.shop.controller;
 
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,27 +50,38 @@ public class UserController {
     	return "redirect:/login";	//로그인 창으로 이동
     }
 	
-	@GetMapping("/join")
-	public String joinPage()
-	{
-		return "/joinUser.html";
-	}
-	
-	@PostMapping("/postJoin")
-	public String postJoin(UserDto userDto)
-	{
-		return "redirect:/login";
-	}
-	
-	@GetMapping("/idFind")
+	@GetMapping("/userInfoFind")
 	public String idFindPage()
 	{
 		return "/idFind.html";
 	}
 	
-	@GetMapping("/pwdFind")
-	public String pwdFindPage()
+	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
+    public String insertUser(UserDto user) throws Exception
 	{
-		return "/passworldFind.html";
+		//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
+        System.out.println("/regi");
+        userService.insertUser(user);
+        //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
+
+        return "/login";
+    }
+	
+	@PutMapping("/postPw")
+	public String changePw(UserDto user) throws Exception
+	{
+		System.out.println("/postPw");
+		userService.changePw(user);
+		System.out.println("changed");
+		return "/login";
+	}
+	
+	@DeleteMapping("/postdelete")
+	public String deleteUser(UserDto user) throws Exception
+	{
+		System.out.println("/postdelete");
+		userService.deleteUser(user);
+		System.out.println("deleted");
+		return "/login";
 	}
 }

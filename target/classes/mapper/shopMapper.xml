@@ -40,6 +40,41 @@
 		]]>
 	</insert>
 	
+	<insert id="insertUser" parameterType="UserDto">
+		<![CDATA[
+			INSERT INTO Users
+			(
+				user_no, user_id, user_pw, user_name, user_email, user_phone, user_address, access_rights
+			)
+			VALUES
+			(
+				users_seq.NEXTVAL,
+				#{userId},
+				#{userPw},
+				#{userName},
+				#{userEmail},
+				#{userPhone},
+				#{userAddress},
+				'user'
+			)
+		]]>
+	</insert>
+	
+	<update id="changePw" parameterType="UserDto">
+		<![CDATA[
+			UPDATE Users 
+			SET user_pw = #{userPw} 
+			WHERE user_no = '3'
+		]]>
+	</update>
+	
+	<delete id="deleteUser" parameterType="UserDto">
+		<![CDATA[ 
+			DELETE FROM Users 
+			WHERE user_pw = #{userPw}
+		]]>
+	</delete>
+	
 	<select id="selectUserList" resultType="int">	
 			SELECT 1
 			FROM
