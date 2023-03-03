@@ -16,12 +16,26 @@ public class UserService {
 	
 	public int selectUserList() throws Exception {
 		System.out.println("BoardService::"+shopMapper);
-		int resultList = shopMapper.selectUserList();
-		return resultList;
+//		int resultList = shopMapper.selectUserList();
+		return 0;
+	}
+	
+	//회원가입
+	public void insertUser(UserDto user) throws Exception {
+		shopMapper.insertUser(user);
 	}
 	
 	public UserDto selectUser(UserDto userDto) throws Exception {
-		int resultList = shopMapper.selectUserList();
-		return null;
+		return shopMapper.selectUser(userDto);
+	}
+	
+	//비밀번호 변경
+	public void changePw(UserDto user) throws Exception {
+		shopMapper.changePw(user);
+	}
+	
+	//유저 제거
+	public void deleteUser(UserDto user) throws Exception {
+		shopMapper.deleteUser(user);
 	}
 }
