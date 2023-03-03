@@ -82,6 +82,6 @@
 	<select id="selectUserList" resultType="int">	
 			SELECT 1
 			FROM
-				dual
+				dual 
 	</select>
 </mapper>
