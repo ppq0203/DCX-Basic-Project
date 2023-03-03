@@ -19,4 +19,5 @@ public class SalesDto {
 	private int productNo;
 	private String ProductName;
 	private String ProductCategory;
+	
 }
