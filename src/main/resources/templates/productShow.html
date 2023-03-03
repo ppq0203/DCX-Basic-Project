@@ -19,12 +19,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="itemDto, status: ${itemDtoList}">
-        <td th:text="${status.index}"></td>
-        <td th:text="${itemDto.itemNm}"></td>
-        <td th:text="${itemDto.itemDetail}"></td>
-        <td th:text="${itemDto.price}"></td>
-        <td th:text="${itemDto.regTime}"></td>
+    <tr th:each="itemDto, status: ${salesDtoList}">
+        <td th:text="${status.salesNo}"></td>
+        <td th:text="${salesDto.productNo}"></td>
+        <td th:text="${salesDto.salesContent}"></td>
+        <td th:text="${salesDto.salesPrice}"></td>
+        <td th:text="${salesDto.regTime}"></td>
     </tr>
     </tbody>
 </table>
