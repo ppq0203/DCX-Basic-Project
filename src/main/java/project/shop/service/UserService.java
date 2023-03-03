@@ -28,4 +28,12 @@ public class UserService {
 		int resultList = shopMapper.selectUserList();
 		return null;
 	}
+	
+	public void changePw(UserDto user) throws Exception {
+		shopMapper.changePw(user);
+	}
+	
+	public void deleteUser(UserDto user) throws Exception {
+		shopMapper.deleteUser(user);
+	}
 }

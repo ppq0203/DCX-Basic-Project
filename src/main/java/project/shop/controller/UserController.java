@@ -1,9 +1,12 @@
 package project.shop.controller;
 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,6 +54,24 @@ public class UserController {
         userService.insertUser(user);
         //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
 
-        return "/Login";
+        return "/login";
     }
+	
+	@PutMapping("/postPw")
+	public String changePw(UserDto user) throws Exception
+	{
+		System.out.println("/postPw");
+		userService.changePw(user);
+		System.out.println("changed");
+		return "/login";
+	}
+	
+	@DeleteMapping("/postdelete")
+	public String deleteUser(UserDto user) throws Exception
+	{
+		System.out.println("/postdelete");
+		userService.deleteUser(user);
+		System.out.println("deleted");
+		return "/login";
+	}
 }
