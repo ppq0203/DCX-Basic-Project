@@ -56,6 +56,7 @@ public class UserController {
 		return "/idFind.html";
 	}
 	
+	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
     public String insertUser(UserDto user) throws Exception
 	{
@@ -67,6 +68,7 @@ public class UserController {
         return "/login";
     }
 	
+	//비밀번호 변경 컨트롤
 	@PutMapping("/postPw")
 	public String changePw(UserDto user) throws Exception
 	{
@@ -76,6 +78,7 @@ public class UserController {
 		return "/login";
 	}
 	
+	//유저 제거 컨트롤
 	@DeleteMapping("/postdelete")
 	public String deleteUser(UserDto user) throws Exception
 	{

@@ -13,11 +13,11 @@ public interface ShopMapper {
 	List<BoardDto> selectBoardList() throws Exception;
 	int select() throws Exception;
 	void insertBoard(BoardDto board);
-	void insertUser(UserDto user);
-	void changePw(UserDto user);
+	void insertUser(UserDto user); //회원가입
+	void changePw(UserDto user); //비밀번호 변경
+	void deleteUser(UserDto user); //유저 제거
 	
 	
-	UserDto deleteUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo 정보로 유저삭제
 	UserDto selectUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
 //	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
 //	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return

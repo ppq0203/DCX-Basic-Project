@@ -20,6 +20,7 @@ public class UserService {
 		return 0;
 	}
 	
+	//회원가입
 	public void insertUser(UserDto user) throws Exception {
 		shopMapper.insertUser(user);
 	}
@@ -28,10 +29,12 @@ public class UserService {
 		return shopMapper.selectUser(userDto);
 	}
 	
+	//비밀번호 변경
 	public void changePw(UserDto user) throws Exception {
 		shopMapper.changePw(user);
 	}
 	
+	//유저 제거
 	public void deleteUser(UserDto user) throws Exception {
 		shopMapper.deleteUser(user);
 	}
