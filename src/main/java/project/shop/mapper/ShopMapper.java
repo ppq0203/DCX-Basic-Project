@@ -12,6 +12,7 @@ public interface ShopMapper {
 	List<BoardDto> selectBoardList() throws Exception;
 	int select() throws Exception;
 	void insertBoard(BoardDto board);
+	void insertUser(UserDto user);
 	
 	int selectUserList() throws Exception;
 }

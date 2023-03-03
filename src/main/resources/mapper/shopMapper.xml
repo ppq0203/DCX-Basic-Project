@@ -40,6 +40,26 @@
 		]]>
 	</insert>
 	
+	<insert id="insertUser" parameterType="UserDto">
+		<![CDATA[
+			INSERT INTO Users
+			(
+				user_no, user_id, user_pw, user_name, user_email, user_phone, user_address, access_rights
+			)
+			VALUES
+			(
+				users_seq.NEXTVAL,
+				#{userId},
+				#{userPw},
+				#{userName},
+				#{userEmail},
+				#{userPhone},
+				#{userAddress},
+				'user'
+			)
+		]]>
+	</insert>
+	
 	<select id="selectUserList" resultType="int">	
 			SELECT 1
 			FROM

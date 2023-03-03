@@ -20,6 +20,10 @@ public class UserService {
 		return resultList;
 	}
 	
+	public void insertUser(UserDto user) throws Exception {
+		shopMapper.insertUser(user);
+	}
+	
 	public UserDto selectUser(UserDto userDto) throws Exception {
 		int resultList = shopMapper.selectUserList();
 		return null;
