@@ -20,18 +20,18 @@ public class UserService {
 		return 0;
 	}
 	
-	//userNo로 user정보를 불러오는 함수
-	public UserDto selectUserNo(UserDto userDto) throws Exception {
-		return shopMapper.selectUserNo(userDto);
+	//userNo or userId or userEmail로 user정보를 불러오는 함수
+	public UserDto selectUser(UserDto userDto) throws Exception {
+		return shopMapper.selectUser(userDto);
 	}
 	
-	//userId로 user정보를 불러오는 함수
-	public UserDto selectUserId(UserDto userDto) throws Exception {
-		return shopMapper.selectUserId(userDto);
-	}
-	
-	//userEmail로 user정보를 불러오는 함수
-	public UserDto selectUserEmail(UserDto userDto) throws Exception {
-		return shopMapper.selectUserEmail(userDto);
-	}
+//	//userId로 user정보를 불러오는 함수
+//	public UserDto selectUserId(UserDto userDto) throws Exception {
+//		return shopMapper.selectUserId(userDto);
+//	}
+//	
+//	//userEmail로 user정보를 불러오는 함수
+//	public UserDto selectUserEmail(UserDto userDto) throws Exception {
+//		return shopMapper.selectUserEmail(userDto);
+//	}
 }

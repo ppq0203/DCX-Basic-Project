@@ -36,7 +36,7 @@ public class UserController {
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
     public String postLogin(HttpSession session, UserDto userDto) throws Exception{
     	System.out.println("postLogin::"+userDto);
-    	UserDto getUserDto = userService.selectUserId(userDto);	//ID 정보로 유저정보 확인
+    	UserDto getUserDto = userService.selectUser(userDto);	//ID 정보로 유저정보 확인
     	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
     	if (getUserDto != null && getUserDto == userDto)
     	{
