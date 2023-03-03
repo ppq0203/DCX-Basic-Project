@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-=======
-<!-- <!DOCTYPE html>
-<html>
->>>>>>> refs/remotes/origin/master
-<head>
-    <meta charset="UTF-8">
-    <title>상품 리스트</title>
-</head>
-<<<<<<< HEAD
-=======
-상품페이지
->>>>>>> refs/remotes/origin/master
-<body>
-
-<h1>상품 리스트</h1>
-
-<table border="1">
-    <thead>
-    <tr>
-        <td>순번</td>
-        <td>상품명</td>
-        <td>상품설명</td>
-        <td>가격</td>
-        <td>상품등록일</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="itemDto, status: ${itemDtoList}">
-        <td th:text="${status.index}"></td>
-        <td th:text="${itemDto.itemNm}"></td>
-        <td th:text="${itemDto.itemDetail}"></td>
-        <td th:text="${itemDto.price}"></td>
-        <td th:text="${itemDto.regTime}"></td>
-    </tr>
-    </tbody>
-</table>
-
-</body>
-<<<<<<< HEAD
-</html>
-=======
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -65,16 +19,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="itemDto, status: ${itemDtoList}">
-        <td th:text="${status.index}"></td>
-        <td th:text="${itemDto.itemNm}"></td>
-        <td th:text="${itemDto.itemDetail}"></td>
-        <td th:text="${itemDto.price}"></td>
-        <td th:text="${itemDto.regTime}"></td>
+    <tr th:each="itemDto, status: ${salesDtoList}">
+        <td th:text="${status.salesNo}"></td>
+        <td th:text="${salesDto.productNo}"></td>
+        <td th:text="${salesDto.salesContent}"></td>
+        <td th:text="${salesDto.salesPrice}"></td>
+        <td th:text="${salesDto.regTime}"></td>
     </tr>
     </tbody>
 </table>
 
 </body>
 </html>
->>>>>>> refs/remotes/origin/master
