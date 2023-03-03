@@ -2,16 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 등록 페이지</title>
 </head>
 <!-- 상품등록-->
 <body>
 <form>
-<p><input type="text" value="제목"></p>
+<div>
+    상품명 : <span th:text="${itemDto.ProductName}"></span>
+</div>
+<div>
+    상품사진 : <span th:text="${itemDto.ProductName}"></span>
+</div>
+	
+<div>
+    상품상세설명 : <span th:text="${itemDto.salesContent}" style="width:300px; height:200px;"></span>
+</div>	
+<div>
+    상품등록일 : <span th:text="${itemDto.regTime}"></span>
+</div>
+<div>
+    상품가격 : <span th:text="${itemDto.salesPrice}"></span>
+</div>
 
-
-<input type="text" placeholder="내용 및 사진" style="width:300px; height:200px;">
-<p>카테고리
+<p th:text="${itemDto.ProductCategory}">카테고리 
  <select name="job">
     <option value="">선택</option>
     <option value="의류">의류</option>

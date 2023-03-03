@@ -1,20 +1,47 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+=======
 <!-- <!DOCTYPE html>
 <html>
+>>>>>>> refs/remotes/origin/master
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>상품 리스트</title>
 </head>
+<<<<<<< HEAD
+=======
 상품페이지
+>>>>>>> refs/remotes/origin/master
 <body>
-<form>
-<p><input type="text" value="제목"></p>
-<p>가격</p>
-<p>내용</p>
-<p>
-<input type="submit" value="리뷰 보기">
-</p>
-</form>
+
+<h1>상품 리스트</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <td>순번</td>
+        <td>상품명</td>
+        <td>상품설명</td>
+        <td>가격</td>
+        <td>상품등록일</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="itemDto, status: ${itemDtoList}">
+        <td th:text="${status.index}"></td>
+        <td th:text="${itemDto.itemNm}"></td>
+        <td th:text="${itemDto.itemDetail}"></td>
+        <td th:text="${itemDto.price}"></td>
+        <td th:text="${itemDto.regTime}"></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
+<<<<<<< HEAD
+</html>
+=======
 </html> -->
 
 <!DOCTYPE html>
@@ -50,3 +77,4 @@
 
 </body>
 </html>
+>>>>>>> refs/remotes/origin/master
