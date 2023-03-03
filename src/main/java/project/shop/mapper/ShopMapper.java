@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import project.shop.dto.BoardDto;
+import project.shop.dto.UserDto;
 
 @Mapper		// Mapper라고 선언함
 public interface ShopMapper {
@@ -13,5 +14,10 @@ public interface ShopMapper {
 	int select() throws Exception;
 	void insertBoard(BoardDto board);
 	
-	int selectUserList() throws Exception;
+	
+	UserDto DeleteUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo 정보로 유저삭제
+	UserDto selectUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
+//	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
+//	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return
+	
 }
