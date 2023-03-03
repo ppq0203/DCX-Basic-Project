@@ -45,4 +45,5 @@ public class ShopController {
 	{
 		return "/joinUser";
 	}
+	
 }
