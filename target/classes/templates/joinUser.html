@@ -6,41 +6,35 @@
 </head>
 <body>
 	<div class="container">
-		<form id="frm" name="frm" method="post" action="/postregi">
+		<form th:action="@{/postregi}" th:object="${UserDto}" method="post">		 
 			<h1>회원가입</h1> 
-			<table class="user_detail">
-				<tr>
-					<td>ID : </td> 
-					<td><input type="text" id="userId" name="userId"></td>
-				</tr>
-				<tr>
-					<td>비밀번호 : </td>
-					<td><input type="text" id="userPw" name="userPw"></td>
-				</tr>
-				<tr>
-					<td>비밀번호 확인 : </td>
-					<td><input type="text" ></td>
-				</tr>
-				<tr>
-					<td>이름 : </td>
-					<td><input type="text" id="userName" name="userName"></td>
-				</tr>
-				<tr>
-					<td>E-mail :  </td>
-					<td><input type="text" id="userEmail" name="userEmail"></td>
-				</tr>
-				<tr>
-					<td>핸드폰 번호 : </td>
-					<td><input type="text" id="userPhone" name="userPhone"></td>
-				</tr>
-				<tr>
-					<td>주소 : </td>
-					<td><input type="text" id="userAddress" name="userAddress"></td>
-				</tr>
-			</table>
+		<div class="form-group">
+			<label th:for="userID">ID</label>
+			<input type="text" th:field="*{userID}" class="form-control" placeholder="ID">		
+		</div>
+		<div class="form-group">
+			<label th:for="password">비밀번호</label>
+			<input type="password" th:field="*{userPw}" class="form-control" placeholder="비밀번호">		
+		</div>
+		<div class="form-group">
+			<label th:for="password">비밀번호 확인</label>
+			<input type="password" th:field="*{userPw}" class="form-control" placeholder="비밀번호">		
+		</div>
+		<div class="form-group">
+			<label th:for="userName">이름</label>
+			<input type="text" th:field="*{userName}" class="form-control" placeholder="이름">		
+		</div>
+		<div class="form-group">
+			<label th:for="userEmail">E-mail</label>
+			<input type="text" th:field="*{userEmail}" class="form-control" placeholder="E-mail">		
+		</div>
+		<div class="form-group">
+			<label th:for="userAddress">주소</label>
+			<input type="text" th:field="*{userAddress}" class="form-control" placeholder="주소">		
+		</div>				
 			<input type="submit" id="test" value="가입">
 			<input type="button" value="취소">
 		</form>
-	</div>
+	</div>z
 </body>
 </html>

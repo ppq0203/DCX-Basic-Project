@@ -13,12 +13,11 @@
 		<form id="frm" name="frm" method="post" action="/board/insertBoard.do" >
 			<table class="board_detail">
 				<tr>
-					<td>제목</td>
-					<td><input type="text" id="title" name="title"></td>
+					<td th:text="${boardDto.title}">제목</td>
                     			<!-- 입력된 내용들은 name을 키로 이용해 서버에 전송됨 -->
 				</tr>
 				<tr>
-					<td>내용</td>
+					<td th:text="${boardDto.contents}">내용</td>
 					<td>
 						<textarea id="contents" name="contents"></textarea>
 					</td>
