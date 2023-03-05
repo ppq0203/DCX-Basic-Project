@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/test.css}"></link>
 </head>
 <body>
+<!-- 
 <table id = "findId_test">
 	<tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
 		<td>귀하의 아이디</td>
 		<td th:text="${list.userId}"></td>
 	</tr>
 </table>
+-->
+ 
+<form action="mailTest">
+	<input type="text" id="userEmail" name="userEmail">
+	<button>mail</button>
+</form>
+
+<label for="address2">아이디</label> 
+<input type="text" id="id" name="id">
+<button type="button" onclick="checkId()">check</button>
+							
+<!-- id ajax 중복체크 -->
+<span class="id_ok">사용 가능한 아이디입니다.</span>
+<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" th:src="@{/js/test.js}"></script>
 </body>
 </html>
