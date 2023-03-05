@@ -20,7 +20,7 @@
     </thead>
     <tbody>
     <tr th:each="itemDto, status: ${salesDtoList}">
-        <td th:text="${status.salesNo}"></td>
+        <td th:text="${salesDto.salesNo}"></td>
         <td th:text="${salesDto.productNo}"></td>
         <td th:text="${salesDto.salesContent}"></td>
         <td th:text="${salesDto.salesPrice}"></td>
