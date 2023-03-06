@@ -6,12 +6,17 @@
 <!-- 로그인 -->
 </head>
 <h1>ID 로그인</h1>
-<form action="postLogin" method="post">
-<br>
-아이디 : <input type="text" name="userId" placeholder="아이디 입력">
-<br>
-비밀번호 : <input type="text"name="userPw"placeholder="비밀번호 입력">
-<br>
+<form th:action="@{/postLogin}" th:object="${UserDto}" method="post">
+	<div class="form-group">
+		<label th:for="userID">ID</label>
+		<input type="text" th:field="*{userID}" class="form-control" placeholder="ID">		
+	</div>
+	<div class="form-group">
+		<label th:for="password">비밀번호</label>
+		<input type="password" th:field="*{userPw}" class="form-control" placeholder="비밀번호">		
+	</div>
+</form>	
+
 <input type="submit" value="로그인">'
 <a href="/joinUser">회원가입</a>
 <a href="/idFind">아이디찾기</a>
