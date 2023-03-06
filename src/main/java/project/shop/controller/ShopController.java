@@ -57,4 +57,16 @@ public class ShopController {
 		return "/joinUser2";
 	}
 	
+	@GetMapping("/header")
+	public String header()
+	{
+		return "/header";
+	}
+	
+	@GetMapping("/footer")
+	public String footer()
+	{
+		return "/footer";
+	}
+	
 }
