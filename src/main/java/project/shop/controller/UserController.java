@@ -1,7 +1,16 @@
 package project.shop.controller;
 
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
+import project.shop.function.CodeGeneration;
 import project.shop.mapper.ShopMapper;
 import project.shop.service.UserService;
 
@@ -101,6 +109,70 @@ public class UserController {
 		if(getUserDto != null)	//존재하는 id가 있으면 1 return
 			cnt = 1;
 		return cnt;
+	}
+	
+	@PostMapping("/mailCheck")
+	@ResponseBody
+	public int mailCheck(@RequestParam("mail") String mail) throws Exception {
+		System.out.println(mail);
+		UserDto user = new UserDto();	//userDto 생성
+		user.setUserEmail(mail);	//userDto의 email에 mail값저장
+		UserDto getUserDto = userService.findUser(user);
+		System.out.println("user : " + user);
+		System.out.println("get user : " + getUserDto);
+		
+		int cnt = 0;	//존재하는 mail가 없으면 0 return
+		if(getUserDto != null)	//존재하는 mail이 있으면 1 return
+			cnt = 1;
+		return cnt;
+	}
+	
+	@PostMapping("/sendConfirm")
+	@ResponseBody
+	public String sendConfirm(@RequestParam("mail") String mail) throws Exception {
+		System.out.println("sendConfirm!");
+		String recipient = mail;
+        String code = CodeGeneration.createKey();
+        
+        final String user = "pqp0203@gmail.com";
+        final String password = "fdngqxsodqrpvxwu";
+        
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", 465);
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.ssl.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+        
+        MimeMessage message = new MimeMessage(session);
+        try {
+            message.setFrom(new InternetAddress(user));
+ 
+            // 수신자 메일 주소
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+ 
+            // Subject
+            message.setSubject("PLAYDDIT verification code");
+ 
+            // Text
+            message.setText("Welcome to playddit. your code is ["+code+"]");
+ 
+            Transport.send(message);    // send message
+ 
+ 
+        } catch (AddressException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        
+        return code;
 	}
 	
 	//비밀번호 변경 컨트롤
