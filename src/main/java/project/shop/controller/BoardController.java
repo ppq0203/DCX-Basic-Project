@@ -29,6 +29,7 @@ public class BoardController {
 
         return mv;
     }
+    
     @GetMapping("/board/openBoardWrite.do")		//게시글 작성 화면 호출
     public String openBoardWrite() throws Exception{
     	return "/boardWrite";

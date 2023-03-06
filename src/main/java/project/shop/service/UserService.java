@@ -14,10 +14,16 @@ public class UserService {
 	@Autowired //Mapper와 연결
 	private ShopMapper shopMapper;
 	
-	public int selectUserList() throws Exception {
-		System.out.println("BoardService::"+shopMapper);
-//		int resultList = shopMapper.selectUserList();
-		return 0;
+	public int select() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("UserService::"+shopMapper);
+		return shopMapper.select();
+	}
+	
+	public List<UserDto> selectUserList(UserDto user) throws Exception {
+		System.out.println("UserService::"+shopMapper);
+		List<UserDto> resultList = shopMapper.findId(user);
+		return resultList;
 	}
 	
 	//회원가입
@@ -37,5 +43,10 @@ public class UserService {
 	//유저 제거
 	public void deleteUser(UserDto user) throws Exception {
 		shopMapper.deleteUser(user);
+	}
+	
+	//아이디 찾기
+	public void findId(UserDto user) throws Exception {
+		shopMapper.findId(user);
 	}
 }

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
+import project.shop.mapper.ShopMapper;
 import project.shop.service.UserService;
 
 
@@ -30,11 +32,6 @@ public class UserController {
 //        return "/boardWrite";
 //    }
 	
-	@GetMapping("/login")
-	public String loginPage()
-	{
-		return "/login.html";
-	}
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
     public String postLogin(HttpSession session, UserDto userDto) throws Exception{
@@ -49,12 +46,6 @@ public class UserController {
     	
     	return "redirect:/login";	//로그인 창으로 이동
     }
-	
-	@GetMapping("/userInfoFind")
-	public String idFindPage()
-	{
-		return "/idFind.html";
-	}
 	
 	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
@@ -87,4 +78,26 @@ public class UserController {
 		System.out.println("deleted");
 		return "/login";
 	}
+	
+	// 아이디 찾기 컨트롤
+	@PostMapping("/findId.do")
+	public ModelAndView findId(UserDto user) throws Exception
+	{
+		//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
+		System.out.println("/findId.do");
+    	ModelAndView mv = new ModelAndView("/test"); 
+    	System.out.println(userService.select());
+        //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
+        List<UserDto> list = userService.selectUserList(user);  
+        mv.addObject("list", list);
+		System.out.println("found");
+		
+		return mv;
+	}
+	
+	@GetMapping("/findId.do")		//찾은아이디 결과 화면 호출
+    public String findId() throws Exception{
+		System.out.println("/found");
+    	return "/test";
+    }
 }

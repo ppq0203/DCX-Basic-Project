@@ -23,4 +23,27 @@ public class ShopController {
 //        mv.addObject("list", list);
         return mv;
     }
+	
+	//아이디 찾기 페이지
+	@GetMapping("/idFind")
+	public String findId() throws Exception
+	{
+		System.out.println("/findId");
+		return "/idFind";
+	}
+	
+	//로그인 페이지
+	@GetMapping("/login")
+	public String loginPage()
+	{
+		return "/login";
+	}
+	
+	//회원가입 페이지
+	@GetMapping("/joinUser")
+	public String regiPage()
+	{
+		return "/joinUser";
+	}
+	
 }
