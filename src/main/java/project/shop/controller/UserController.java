@@ -80,11 +80,6 @@ public class UserController {
 	{
 		return "/joinUser";
 	}
-//	public String regiPage(@ModelAttribute UserDto user, Model model)
-//	{
-//		model.addAttribute("User", user);
-//		return "/joinUser";
-//	}
 	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
     public String insertUser(UserDto user) throws Exception
