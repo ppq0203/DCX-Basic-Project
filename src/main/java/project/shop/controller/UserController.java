@@ -35,14 +35,18 @@ public class UserController {
 	
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public String postLogin(HttpSession session, UserDto user) throws Exception{
+    public String postLogin(HttpSession session, UserDto user,
+    		//thymeleaf 파라메터 받아오기
+    		@RequestParam(value = "userId")String chkId,
+    		@RequestParam(value = "userPw")String chkPw) throws Exception{
     	System.out.println("postLogin::"+user);
     	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
     	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && getUserDto == user)
+    	//아이디와 비밀번호 정보 체크
+    	if (getUserDto != null && getUserDto.getUserId().equals(chkId) && getUserDto.getUserPw().equals(chkPw))
     	{
     		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
-    		return "/";	//메인으로 이동
+    		return "redirect:/main";	//메인으로 이동
     	}
     	
     	return "redirect:/login";	//로그인 창으로 이동
