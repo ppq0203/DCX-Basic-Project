@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,11 +35,12 @@ public class UserController {
 	
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public String postLogin(HttpSession session, UserDto user) throws Exception{
+    public String postLogin(HttpSession session, UserDto user, 
+    		@RequestParam(value = "userId") String chkId) throws Exception{
     	System.out.println("postLogin::"+user);
     	UserDto getUserDto = userService.loginUser(user);	//ID 정보로 유저정보 확인
     	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && getUserDto == user)
+    	if (getUserDto != null && getUserDto.getUserId() == chkId)
     	{
     		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
     		return "/";	//메인으로 이동
