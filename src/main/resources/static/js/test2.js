@@ -1,4 +1,4 @@
-function checklogin(){        
+function login(){        
 	var login = {
     bind: function() {
         $("#login_btn").on('click', function(){
@@ -34,22 +34,21 @@ function checklogin(){
 }
 };
 
-function checklogin() {
-
-    if($.trim($('#userId').val()) == '') {
-        alert("아이디를 입력해주세요."); 
-        return false;
-    }
-    if($.trim($('#userPw').val()) == '') {
-        alert("비밀번호를 입력해주세요.");
-        return false;
-    }
+function login() {
+	var id = document.getElementsByName('#userID');
+	var pw = document.getElementsByName('#userPw');
+	
+	if(id.value == "" || pw.value == "") {
+		alert("로그인을 할 수 없습니다.")
+	}
+	else {
+		location.href = 'mainPage.html';
+	}
 }
+	
 
-
-
-function checkjoinUser() {
-
+function joinUser() {
+	
     if($.trim($('#userId').val()) == '') {
         alert("아이디를 입력해주세요."); 
         return false;
@@ -81,7 +80,7 @@ function checkjoinUser() {
     }
 }
 
-function checkidFind() {
+function idFind() {
 		if (idFind.userName.value == "") {
 			alert("이름을 입력해 주세요.");
 			idFind.userName.focus();
@@ -94,5 +93,31 @@ function checkidFind() {
 			return;
 		}			
 	}
-	
-	
+
+function passwordFind() {
+		if (passwordFind.userID.value == "") {
+			alert("아이디를 입력해 주세요.");
+			idFind.userName.focus();
+			return;
+		}
+		
+		if (passwordFind.userEmail.value == "") {
+			alert("이메일을 입력해 주세요.");
+			idFind.userEmail.focus();
+			return;
+		}			
+	}	
+
+function userInfoChange() {
+	if (userInfoChange.userPhone.value == "") {
+			alert("휴대폰 번호를 입력해 주세요.");
+			idFind.userPhone.focus();
+			return;
+		}
+	if (userInfoChange.userAddress.value == "") {
+			alert("휴대폰 번호를 입력해 주세요.");
+			idFind.userPhone.focus();
+			return;
+		}				
+}
+

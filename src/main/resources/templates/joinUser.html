@@ -11,10 +11,13 @@
 </head>
 <!-- 사용자 CSS 추가 -->
 <body>
+<<<<<<< HEAD
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/test2.js}"></script></body>
 	
 	
+=======
+>>>>>>> refs/remotes/origin/hej
 	
 	<div class="container">
 		<form id="frm" name="frm" method="post" action="/postregi">
@@ -40,6 +43,7 @@
 				<label>이름</label>
 				<input type="text" th:id="userName" th:name="userName" class="form-control" placeholder="이름"/>
 			</div>
+<<<<<<< HEAD
 			<div class="form-group">
                 <label>이메일주소</label>
                 <input type="email" th:id="userEmail" th:name="userEmail" class="form-control" placeholder="이메일">
@@ -52,6 +56,12 @@
                 <input type="text" th:id="confirm" th:name="confirm" class="form-control" disabled="disabled" placeholder="인증번호">
             </div>	
 				
+=======
+			 <div class="form-group">
+                <label th:for="${email}">이메일주소</label>
+                <input type="email" th:field="${userDto.userEmail}" class="form-control" placeholder="이메일">
+            </div>					
+>>>>>>> refs/remotes/origin/hej
             <div class="form-group">
                 <label>휴대폰 번호</label>
                 <input type="tel" th:id="userPhone" th:name="userPhone" class="form-control" placeholder="휴대폰 번호">
@@ -65,9 +75,15 @@
 			<input type="button" value="취소" onClick="location.href='/login'"> 
 
 		</form>
+<<<<<<< HEAD
 	</div>
 	<script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 	<script type="text/javascript" th:src="@{/js/joinUser.js}"></script>
+=======
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" th:src="@{/js/test5.js}"></script>
+>>>>>>> refs/remotes/origin/hej
 </body>
 </html>
