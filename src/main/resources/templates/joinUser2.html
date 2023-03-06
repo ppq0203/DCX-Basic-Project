@@ -11,38 +11,39 @@
 			<h1>회원가입</h1> 
 			 <div class="form-group">
 				<label th:for="${userid}">ID</label>
-				<input type="text" th:field="${userDto.userId}" class="form-control" placeholder="ID를 입력하세요"/>
+				<input type="text" th:field="${userDto.userId}" class="form-control" placeholder="ID"/>
 			</div>
 			<div class="form-group">
 				<label th:for="${password}">비밀번호</label>
-				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호를 입력하세요"/>
+				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호"/>
 			</div>
 			<div class="form-group">
 				<label th:for="${password}">비밀번호 확인</label>
-				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호를 입력하세요"/>
+				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호 확인"/>
 			</div>
 			<div class="form-group">
 				<label th:for="${name}">이름</label>
-				<input type="text" th:field="${userDto.userName}" class="form-control" placeholder="이름을 입력하세요"/>
+				<input type="text" th:field="${userDto.userName}" class="form-control" placeholder="이름"/>
 			</div>
 			 <div class="form-group">
                 <label th:for="${email}">이메일주소</label>
-                <input type="email" th:field="${userDto.userEmail}" class="form-control" placeholder="이메일을 입력해주세요">
+                <input type="email" th:field="${userDto.userEmail}" class="form-control" placeholder="이메일">
             </div>	
 				
             <div class="form-group">
                 <label th:for="${phone}">휴대폰 번호</label>
-                <input type="email" th:field="${userDto.userPhone}" class="form-control" placeholder="휴대폰 번호를 입력해주세요">
+                <input type="email" th:field="${userDto.userPhone}" class="form-control" placeholder="휴대폰 번호">
             </div>
             <div class="form-group">
                 <label th:for="${password}">주소</label>
-                <input type="password" th:field="${userDto.userAddress}" class="form-control" placeholder="주소를 입력하세요">
+                <input type="password" th:field="${userDto.userAddress}" class="form-control" placeholder="주소">
             </div>
             
-			<input type="submit" id="test" value="가입">
+			<input type="submit" id="joinUSer2_btn" value="가입">
 			<input type="button" value="취소">
 		</form>
 	</div>
 
+<script type="text/javascript" th:src="@{/js/test2.js}"></script>
 </body>
 </html>

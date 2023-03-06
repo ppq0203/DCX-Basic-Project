@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 로그인 -->
 </head>
 <h1>ID 로그인</h1>
-<form action="/postLogin" method="post">
-	<table>
-		<tr>
-			<td>아이디 : </td>
-			<td><input type="text" name="userId" placeholder="아이디 입력"></td>
-		</tr>
-		<tr>
-			<td>비밀번호 : </td>
-			<td><input type="text"name="userPw"placeholder="비밀번호 입력"></td>
-		</tr>
-	</table>
-<input type="submit" value="로그인">'
+<form th:action="@{/postLogin}" th:object="${UserDto}" method="post">
+	<div class="form-group">
+		<label th:for="userID">ID</label>
+		<input type="text" th:field="*{userID}" class="form-control" placeholder="ID">		
+	</div>
+	<div class="form-group">
+		<label th:for="password">비밀번호</label>
+		<input type="password" th:field="*{userPw}" class="form-control" placeholder="비밀번호">		
+	</div>
+</form>	
+
+<button type="button" value="로그인"></button>
 <a href="/joinUser">회원가입</a>
 <a href="/idFind">아이디찾기</a>
 <a href="/pwdFind">비밀번호찾기</a>
 <input type="button" value="회원가입">
 <input type="button" value="아이디찾기">
 <input type="button" value="비밀번호찾기">
+
+<script type="text/javascript" th:src="@{/js/test2.js}"></script>
+
 </form>
 </body>
 </html>
