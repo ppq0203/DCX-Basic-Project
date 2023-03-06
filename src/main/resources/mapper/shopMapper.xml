@@ -81,12 +81,16 @@
 	
 	<!-- 아이디 찾기 쿼리문 -->
 	<select id="findUser" resultType="UserDto">
-		<![CDATA[
-			SELECT user_id FROM Users
-			WHERE NVL2(user_name, #{userName}, "")
-			OR NVL2(user_email, #{userEmail}, "")
-			OR NVL2(user_no, #{userNo}, -1)
-		]]>
+			SELECT * FROM Users 
+			WHERE user_no = #{userNo}
+			<if test = "userId != null">
+				OR user_id = #{userId}
+			</if>
+			<if test = "userEmail != null">
+				OR user_email = #{userEmail}
+			</if>
+			
+			
 	</select>
 	
 </mapper>
