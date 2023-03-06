@@ -1,8 +1,5 @@
 function checklogin(){        
 	var login = {
-    init: function() {
-        login.bind();
-    },
     bind: function() {
         $("#login_btn").on('click', function(){
            login.signin();
@@ -37,11 +34,24 @@ function checklogin(){
 }
 };
 
+function checklogin() {
+
+    if($.trim($('#userId').val()) == '') {
+        alert("아이디를 입력해주세요."); 
+        return false;
+    }
+    if($.trim($('#userPw').val()) == '') {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+    }
+}
+
+
 
 function checkjoinUser() {
 
     if($.trim($('#userId').val()) == '') {
-        alert("아이디를 입력해주세요.");
+        alert("아이디를 입력해주세요."); 
         return false;
     }
     if($.trim($('#userPw').val()) == '') {
@@ -67,6 +77,22 @@ function checkjoinUser() {
      
     if(confirm("회원가입을 하시겠습니까?")){
         alert("회원가입이 완료되었습니다.");
-         $("joinUSer2_btn").submit();    
+         $("joinUSer_btn").submit();    
     }
 }
+
+function checkidFind() {
+		if (idFind.userName.value == "") {
+			alert("이름을 입력해 주세요.");
+			idFind.userName.focus();
+			return;
+		}
+		
+		if (idFind.userEmail.value == "") {
+			alert("이메일을 입력해 주세요.");
+			idFind.userEmail.focus();
+			return;
+		}			
+	}
+	
+	
