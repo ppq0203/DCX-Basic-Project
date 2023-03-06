@@ -13,6 +13,14 @@
 		
 <!-- 로그인 -->
 </head>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" th:src="@{/js/test2.js}"></script>
+
 <h1>ID 로그인</h1>
 <form action="/postLogin" method="post">
 	<table>
@@ -25,14 +33,12 @@
 			<td><input type="text" th:name="userPw"placeholder="비밀번호 입력"></td>
 		</tr>
 	</table>
-<input type="submit" value="로그인">'
-<a href="/joinUser">회원가입</a>
-<a href="/idFind">아이디찾기</a>
-<a href="/pwdFind">비밀번호찾기</a>
-<input type="button" value="회원가입">
-<input type="button" value="아이디찾기">
-<input type="button" value="비밀번호찾기">
+<input type="submit" value="로그인">
+<input type="button" value="회원가입" onClick="location.href='joinUser.html'">
+<input type="button" value="아이디찾기" onClick="location.href='idFind.html'">
+<input type="button" value="비밀번호찾기" onClick="location.href='passwordFind.html'">
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/test2.js}"></script>
 
 </form>
