@@ -29,21 +29,4 @@ public class ShopController {
         return mv;
     }
 	
-	//아이디 찾기 페이지
-	@GetMapping("/idFind")
-	public String findId(@ModelAttribute UserDto user, BindingResult bind, Model model) throws Exception
-	{
-		model.addAttribute("User", user);
-		System.out.println("/findId");
-		return "/idFind";
-	}
-	
-	//회원가입 페이지
-	@GetMapping("/joinUser")
-	public String regiPage(@ModelAttribute UserDto user, Model model)
-	{
-		model.addAttribute("User", user);
-		return "/joinUser2";
-	}
-	
 }

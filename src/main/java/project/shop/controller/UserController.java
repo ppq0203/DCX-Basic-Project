@@ -6,8 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,17 +32,17 @@ public class UserController {
 	@GetMapping("/login")
 	public String loginPage(HttpSession session)
 	{
-		System.out.println(session.getAttribute("userDto"));
+		System.out.println(session.getAttribute("userDto"));	//로그인 세션이 남아있는지 확인
 		return "/login";
 	}
-	
+	//로그인 입력시 확인
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
     public String postLogin(HttpSession session, UserDto user) throws Exception{
 //    	System.out.println("postLogin::"+user);
     	String src = null;
     	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
 //        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && user.getUserPw().equals(getUserDto.getUserPw()))
+    	if (getUserDto != null && user.getUserPw().equals(getUserDto.getUserPw()))	//해당id정보있는지 확인후 비밀번호 비교
     	{
     		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
     		src = "redirect:/main"; 		//메인 창으로 이동
@@ -51,14 +54,23 @@ public class UserController {
 //    	System.out.println(session.getAttribute("userDto"));	//세션에 저장되었는지 확인
     	return src;
     }
-	
-	@GetMapping("/login.fail")
+	//로그인 실패시 나올 페이지
+	@GetMapping("/login.fail")	// 아이디 비밀번호를 잘못 입력했을때.
 	public ModelAndView loginFail()
 	{
-		ModelAndView mv = new ModelAndView("/login");
-		mv.addObject("alertOption", 1);
-		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+		ModelAndView mv = new ModelAndView("/login");	//login.html을 view로 이용
+		mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
+		mv.addObject("message", "아이디 비밀번호를 확인하세요");	// 알람에 작성할 메시지
 		return mv;
+	}
+	
+
+	//회원가입 페이지
+	@GetMapping("/joinUser")
+	public String regiPage(@ModelAttribute UserDto user, Model model)
+	{
+		model.addAttribute("User", user);
+		return "/joinUser2";
 	}
 	
 	//회원가입 컨트롤
@@ -92,6 +104,17 @@ public class UserController {
 		System.out.println("deleted");
 		return "/login";
 	}
+	
+	
+	//아이디 찾기 페이지
+	@GetMapping("/idFind")
+	public String findId(@ModelAttribute UserDto user, BindingResult bind, Model model) throws Exception
+	{
+		model.addAttribute("User", user);
+		System.out.println("/findId");
+		return "/idFind";
+	}
+	
 	
 	// 아이디 찾기 컨트롤
 	@PostMapping("/findId.do")
