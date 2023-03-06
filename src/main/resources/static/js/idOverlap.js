@@ -27,12 +27,15 @@ function checkId(){
 };
 
 // userId의 input내용이 변경되면 실행하는 함수
-$("#userId").on("propertychange change keyup paste input", function() {
-    var currentVal = $(this).val();	// 변경된 아이디 변수
-    if(currentVal == oldValId) {	//	변경하기전과 동일하면
-        return;	//아래코드를 실행하지 않음
-    }
-    oldValId = currentVal;	// 변경된 값을 기존값으로 저장
-    id_overlap = 2;	// id가 변경되었으므로 아이디 중복체크 다시해야함.
+$(document).ready(function() {
+	$("#userId").on("propertychange change keyup paste input", function() {
+	    var currentVal = $(this).val();	// 변경된 아이디 변수
+	    if(currentVal == oldValId) {	//	변경하기전과 동일하면
+	        return;	//아래코드를 실행하지 않음
+	    }
+	    oldValId = currentVal;	// 변경된 값을 기존값으로 저장
+	    id_overlap = 2;	// id가 변경되었으므로 아이디 중복체크 다시해야함.
+	});
 });
+
 

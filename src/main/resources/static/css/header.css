@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.header{
+	position: fixed;
+	top: 0px;
+	left: 0;
+	right: 0;
+	
+}
+
+.login{
+	position: relative;
+	float : right;
+	width: 100px;
+	height : 100px;
+	color:black;
+	background-color : white;
+	text-align: center;
+}
+.my{
+	position: relative;
+	width: 200px;
+	height : 100px;
+	color:black;
+	text-align: center;
+}
+a{
+	text-decoration-line: none;
+}

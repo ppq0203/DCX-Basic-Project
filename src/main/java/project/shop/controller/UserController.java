@@ -15,11 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +25,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.UserDto;
 import project.shop.function.CodeGeneration;
-import project.shop.mapper.ShopMapper;
 import project.shop.service.UserService;
 
 
@@ -190,16 +186,21 @@ public class UserController {
 		return "/login";
 	}
 	
-	
 	//아이디 찾기 페이지
 	@GetMapping("/idFind")
-	public String findId(@ModelAttribute UserDto user, BindingResult bind, Model model) throws Exception
+	public String idFind() throws Exception
 	{
-		model.addAttribute("User", user);
-		System.out.println("/findId");
+		System.out.println("/idFind");
 		return "/idFind";
 	}
 	
+	//비밀번호 찾기 페이지
+	@GetMapping("/passwordFind")
+	public String passwordFind() throws Exception
+	{
+		System.out.println("/passwordFind");
+		return "/passwordFind";
+	}
 	
 	// 아이디 찾기 컨트롤
 	@PostMapping("/findId.do")

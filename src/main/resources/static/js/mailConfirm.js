@@ -3,14 +3,17 @@ var oldValMail = "";	//기존 이메일 저장해둘 변수
 var confirm_code = "";	//인증 코드를 저장해둘 변수
 
 // userEmail의 input내용이 변경되면 실행하는 함수
-$("#userEmail").on("propertychange change keyup paste input", function() {
-    var currentVal = $(this).val();	// 변경된 아이디 변수
-    if(currentVal == oldValMail) {	//	변경하기전과 동일하면
-        return;	//아래코드를 실행하지 않음
-    }
-    oldValMail = currentVal;	// 변경된 값을 기존값으로 저장
-    mail_overlap = 2;	// id가 변경되었으므로 아이디 중복체크 다시해야함.
+$(document).ready(function() {
+	$("#userEmail").on("propertychange change keyup paste input", function() {
+	    var currentVal = $(this).val();	// 변경된 아이디 변수
+	    if(currentVal == oldValMail) {	//	변경하기전과 동일하면
+	        return;	//아래코드를 실행하지 않음
+	    }
+	    oldValMail = currentVal;	// 변경된 값을 기존값으로 저장
+	    mail_overlap = 2;	// id가 변경되었으므로 아이디 중복체크 다시해야함.
+	});
 });
+
 
 function sendConfirm(){
 	var mail = $('#userEmail').val(); //id값이 "id"인 입력란의 값을 저장
