@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<!-- jquery 라이브러리 -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<!-- 중복체크 CSS -->
+	<link rel="stylesheet" th:href="@{/css/idOverlap.css}"></link>
 </head>
 <!-- 사용자 CSS 추가 -->
 <body>
@@ -21,37 +25,44 @@
 			<h1>회원가입</h1> 
 			 <div class="form-group">
 				<label th:for="${userid}">ID</label>
-				<input type="text" th:field="${userDto.userId}" class="form-control" placeholder="ID"/>
+				<input type="text" th:id="userId" th:name="userId" class="form-control" placeholder="ID"/>
+				<!-- 중복확인 -->
+				<button type="button" onclick="checkId()">중복 확인</button>
+				<span class="id_ok">사용 가능한 아이디입니다.</span>
+				<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
+				
 			</div>
 			<div class="form-group">
 				<label th:for="${password}">비밀번호</label>
-				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호"/>
+				<input type="password" th:id="userPw" th:name="userPw" class="form-control" placeholder="비밀번호"/>
 			</div>
 			<div class="form-group">
 				<label th:for="${password}">비밀번호 확인</label>
-				<input type="password" th:field="${userDto.userPw}" class="form-control" placeholder="비밀번호 확인"/>
+				<input type="password" th:id="userPwCheck" th:name="userPwCheck" class="form-control" placeholder="비밀번호 확인"/>
 			</div>
 			<div class="form-group">
 				<label th:for="${name}">이름</label>
-				<input type="text" th:field="${userDto.userName}" class="form-control" placeholder="이름"/>
+				<input type="text" th:id="userName" th:name="userName" class="form-control" placeholder="이름"/>
 			</div>
 			 <div class="form-group">
                 <label th:for="${email}">이메일주소</label>
-                <input type="email" th:field="${userDto.userEmail}" class="form-control" placeholder="이메일">
+                <input type="email" th:id="userEmail" th:name="userEmail" class="form-control" placeholder="이메일">
             </div>	
 				
             <div class="form-group">
                 <label th:for="${phone}">휴대폰 번호</label>
-                <input type="email" th:field="${userDto.userPhone}" class="form-control" placeholder="휴대폰 번호">
+                <input type="tel" th:id="userPhone" th:name="userPhone" class="form-control" placeholder="휴대폰 번호">
             </div>
             <div class="form-group">
                 <label th:for="${password}">주소</label>
-                <input type="password" th:field="${userDto.userAddress}" class="form-control" placeholder="주소">
+                <input type="text" th:id="userAddress" th:name="userAddress" class="form-control" placeholder="주소">
             </div>
             
 			<input type="submit" id="joinUSer_btn" value="가입">
-			<input type="button" value="취소" onClick="location.href='Login.html'"> 
+			<input type="button" value="취소" onClick="location.href='/login'"> 
 
 		</form>
 	</div>
+	<script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
+</body>
 </html>
