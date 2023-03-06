@@ -80,7 +80,7 @@
 	</delete>
 	
 	<!-- 아이디 찾기 쿼리문 -->
-	<select id="findId" resultType="UserDto">
+	<select id="findUser" resultType="UserDto">
 		<![CDATA[
 			SELECT user_id FROM Users
 			WHERE user_name = #{userName}
@@ -88,4 +88,14 @@
 			OR user_no = #{userNo}
 		]]>
 	</select>
+	
+	<!-- 로그인 쿼리문 -->
+	<select id="loginUser" resultType="UserDto">
+		<![CDATA[
+			SELECT * FROM Users
+			WHERE user_id = #{userId}
+			AND user_pw = #{userPw}
+		]]>
+	</select>
+	
 </mapper>

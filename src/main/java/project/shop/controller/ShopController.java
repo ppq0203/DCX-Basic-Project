@@ -3,9 +3,13 @@ package project.shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.UserDto;
 import project.shop.service.ShopService;
 
 @Controller // 컨트롤러라고 선언함
@@ -26,8 +30,9 @@ public class ShopController {
 	
 	//아이디 찾기 페이지
 	@GetMapping("/idFind")
-	public String findId() throws Exception
+	public String findId(@ModelAttribute UserDto user, BindingResult bind, Model model) throws Exception
 	{
+		model.addAttribute("User", user);
 		System.out.println("/findId");
 		return "/idFind";
 	}
@@ -41,9 +46,10 @@ public class ShopController {
 	
 	//회원가입 페이지
 	@GetMapping("/joinUser")
-	public String regiPage()
+	public String regiPage(@ModelAttribute UserDto user, Model model)
 	{
-		return "/joinUser";
+		model.addAttribute("User", user);
+		return "/joinUser2";
 	}
 	
 }

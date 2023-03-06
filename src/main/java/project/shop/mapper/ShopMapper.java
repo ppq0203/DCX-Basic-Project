@@ -11,7 +11,7 @@ import project.shop.dto.UserDto;
 public interface ShopMapper {
 	// 여기서 지정한 메서드의 이름은 쿼리의 이름과 동일해야 함 (selectBoardList)
 	List<BoardDto> selectBoardList() throws Exception;
-	List<UserDto> findId(UserDto user) throws Exception;
+	List<UserDto> findUser(UserDto user) throws Exception;
 	int select() throws Exception;
 	void insertBoard(BoardDto board);
 	void insertUser(UserDto user); //회원가입
@@ -20,7 +20,7 @@ public interface ShopMapper {
 	 
 	
 	
-	UserDto selectUser(UserDto userDto) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
+	UserDto loginUser(UserDto user) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
 //	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
 //	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return
 	
