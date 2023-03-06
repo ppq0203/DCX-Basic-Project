@@ -1,7 +1,16 @@
 package project.shop.controller;
 
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +22,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
+import project.shop.function.CodeGeneration;
 import project.shop.mapper.ShopMapper;
 import project.shop.service.UserService;
 
@@ -67,23 +76,99 @@ public class UserController {
 
 	//회원가입 페이지
 	@GetMapping("/joinUser")
-	public String regiPage(@ModelAttribute UserDto user, Model model)
+	public String regiPage()
 	{
-		model.addAttribute("User", user);
-		return "/joinUser2";
+		return "/joinUser";
 	}
-	
 	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
     public String insertUser(UserDto user) throws Exception
 	{
-		//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
         System.out.println("/regi");
+        System.out.println(user);
+        
         userService.insertUser(user);
         //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
 
         return "/login";
     }
+	
+	//아이디 중복체크
+	@PostMapping("/idCheck")
+	@ResponseBody
+	public int idCheck(@RequestParam("id") String id) throws Exception {
+		UserDto user = new UserDto();	//userDto 생성
+		user.setUserId(id);	//userDto의 id에 id값저장
+		UserDto getUserDto = userService.findUser(user);
+		int cnt = 0;	//존재하는 id가 없으면 0 return
+		if(getUserDto != null)	//존재하는 id가 있으면 1 return
+			cnt = 1;
+		return cnt;
+	}
+	
+	@PostMapping("/mailCheck")
+	@ResponseBody
+	public int mailCheck(@RequestParam("mail") String mail) throws Exception {
+		System.out.println(mail);
+		UserDto user = new UserDto();	//userDto 생성
+		user.setUserEmail(mail);	//userDto의 email에 mail값저장
+		UserDto getUserDto = userService.findUser(user);
+		System.out.println("user : " + user);
+		System.out.println("get user : " + getUserDto);
+		
+		int cnt = 0;	//존재하는 mail가 없으면 0 return
+		if(getUserDto != null)	//존재하는 mail이 있으면 1 return
+			cnt = 1;
+		return cnt;
+	}
+	
+	@PostMapping("/sendConfirm")
+	@ResponseBody
+	public String sendConfirm(@RequestParam("mail") String mail) throws Exception {
+		System.out.println("sendConfirm!");
+		String recipient = mail;
+        String code = CodeGeneration.createKey();
+        
+        final String user = "pqp0203@gmail.com";
+        final String password = "fdngqxsodqrpvxwu";
+        
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", 465);
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.ssl.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+        
+        MimeMessage message = new MimeMessage(session);
+        try {
+            message.setFrom(new InternetAddress(user));
+ 
+            // 수신자 메일 주소
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+ 
+            // Subject
+            message.setSubject("PLAYDDIT verification code");
+ 
+            // Text
+            message.setText("Welcome to playddit. your code is ["+code+"]");
+ 
+            Transport.send(message);    // send message
+ 
+ 
+        } catch (AddressException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        
+        return code;
+	}
 	
 	//비밀번호 변경 컨트롤
 	@PutMapping("/postPw")

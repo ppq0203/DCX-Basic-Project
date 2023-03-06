@@ -106,15 +106,15 @@ public class TestController {
         return "/test";
 	}
 
-	//아이디 중복체크
-	@PostMapping("/idCheck")
-	@ResponseBody
-	public int idCheck(@RequestParam("id") String id) {
-		
-		int cnt = 0;
-		return cnt;
-		
-	}
+//	//아이디 중복체크
+//	@PostMapping("/idCheck")
+//	@ResponseBody
+//	public int idCheck(@RequestParam("id") String id) {
+//		
+//		int cnt = 1;
+//		return cnt;
+//		
+//	}
 		
 	
 }
