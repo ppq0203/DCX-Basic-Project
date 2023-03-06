@@ -83,9 +83,9 @@
 	<select id="findUser" resultType="UserDto">
 		<![CDATA[
 			SELECT user_id FROM Users
-			WHERE user_name = #{userName}
-			OR user_email = #{userEmail}
-			OR user_no = #{userNo}
+			WHERE NVL2(user_name, #{userName}, "")
+			OR NVL2(user_email, #{userEmail}, "")
+			OR NVL2(user_no, #{userNo}, -1)
 		]]>
 	</select>
 	

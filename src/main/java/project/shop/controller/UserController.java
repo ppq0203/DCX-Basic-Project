@@ -38,7 +38,7 @@ public class UserController {
     public String postLogin(HttpSession session, UserDto user, 
     		@RequestParam(value = "userId") String chkId) throws Exception{
     	System.out.println("postLogin::"+user);
-    	UserDto getUserDto = userService.loginUser(user);	//ID 정보로 유저정보 확인
+    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
     	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
     	if (getUserDto != null && getUserDto.getUserId() == chkId)
     	{
