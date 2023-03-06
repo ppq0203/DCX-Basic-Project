@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<!-- 아이디 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
+		<th:block th:if="${alertOption == 1}">
+			<script>
+				top.alert("[[${message}]]");
+			</script>
+		</th:block>
+		
 <!-- 로그인 -->
 </head>
 <h1>ID 로그인</h1>

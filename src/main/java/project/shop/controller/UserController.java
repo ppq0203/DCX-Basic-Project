@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
@@ -26,56 +27,39 @@ public class UserController {
 	
 	//로그인 페이지
 	@GetMapping("/login")
-	public String loginPage()
+	public String loginPage(HttpSession session)
 	{
+		System.out.println(session.getAttribute("userDto"));
 		return "/login";
 	}
 	
-//	public ModelAndView openBoardList() throws Exception{
-//	//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
-//	System.out.println("/board/openBoardList.do");
-//	ModelAndView mv = new ModelAndView("/boardList"); 
-//	System.out.println(boardService.select());
-//    //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
-//    List<BoardDto> list = boardService.selectBoardList();  
-//    mv.addObject("list", list);
-//
-//    return mv;
-//}
-	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public ModelAndView postLogin(HttpSession session, UserDto user) throws Exception{
-    	System.out.println("postLogin::"+user);
-    	ModelAndView mv = null;
+    public String postLogin(HttpSession session, UserDto user) throws Exception{
+//    	System.out.println("postLogin::"+user);
+    	String src = null;
     	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
-        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && getUserDto.getUserPw() == user.getUserPw())
+//        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
+    	if (getUserDto != null && user.getUserPw().equals(getUserDto.getUserPw()))
     	{
     		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
-    		mv = new ModelAndView("/main");
+    		src = "redirect:/main"; 		//메인 창으로 이동
     	}
     	else
     	{
-    		mv = new ModelAndView("/login");
-    		mv.addObject("alertOption", 1);
-    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+    		src = "redirect:/login.fail"; 	//로그인 창으로 이동
     	}
-    	System.out.println(session.getAttribute("userDto"));
-/*	  //test code	
-    	if(user.getUserId().equals("1"))
-    	{
-    		mv = new ModelAndView("/test");
-    		mv.addObject("alertOption", 1);
-    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
-    	}
-    	else
-    	{
-    		session.setAttribute("session", "session!");
-    		mv = new ModelAndView("redirect:/main");
-    	}
-*/  	
-    	return mv;	//로그인 창으로 이동
+//    	System.out.println(session.getAttribute("userDto"));	//세션에 저장되었는지 확인
+    	return src;
     }
+	
+	@GetMapping("/login.fail")
+	public ModelAndView loginFail()
+	{
+		ModelAndView mv = new ModelAndView("/login");
+		mv.addObject("alertOption", 1);
+		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+		return mv;
+	}
 	
 	//회원가입 컨트롤
 	@PostMapping("/postregi") //노테이션의 값으로 주소 지정
