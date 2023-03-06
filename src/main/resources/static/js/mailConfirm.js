@@ -26,7 +26,6 @@ function sendConfirm(){
 	        alert("에러입니다");
 	    }
 	});
-	//console.log(id_overlap);	//id중복체크 확인
 };
 
 function checkMail()
@@ -49,11 +48,23 @@ function checkMail()
 	            alert("이메일을 다시 입력해주세요");
 	            $('#userEmail').val('');
 	        }
-	        id_overlap = cnt;
+	        mail_overlap = cnt;
 	    },
 	    error:function(){
 	        alert("에러입니다");
 	    }
 	});
-	//console.log(id_overlap);	//id중복체크 확인
+}
+
+function confirmCheck()
+{
+	if (confirm_code == $('#confirm').val())
+	{
+		$('#frm').submit();		
+	}
+	else
+	{
+		alert("인증번호가 잘못되었습니다.");
+		$('#confirm').val('');
+	}
 }

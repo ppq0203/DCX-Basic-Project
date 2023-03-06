@@ -92,7 +92,7 @@ public class UserController {
         System.out.println("/regi");
         System.out.println(user);
         
-//        userService.insertUser(user);
+        userService.insertUser(user);
         //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
 
         return "/login";
