@@ -22,7 +22,7 @@ public class UserService {
 	
 	public List<UserDto> selectUserList(UserDto user) throws Exception {
 		System.out.println("UserService::"+shopMapper);
-		List<UserDto> resultList = shopMapper.findUser(user);
+		List<UserDto> resultList = shopMapper.findAllUser(user);
 		return resultList;
 	}
 	
@@ -46,7 +46,7 @@ public class UserService {
 	}
 	
 	//아이디 찾기
-	public void findUser(UserDto user) throws Exception {
-		shopMapper.findUser(user);
+	public UserDto findUser(UserDto user) throws Exception {
+		return shopMapper.findUser(user);
 	}
 }

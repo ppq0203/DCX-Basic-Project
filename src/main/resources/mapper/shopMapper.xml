@@ -89,13 +89,4 @@
 		]]>
 	</select>
 	
-	<!-- 로그인 쿼리문 -->
-	<select id="loginUser" resultType="UserDto">
-		<![CDATA[
-			SELECT * FROM Users
-			WHERE user_id = #{userId}
-			AND user_pw = #{userPw}
-		]]>
-	</select>
-	
 </mapper>
