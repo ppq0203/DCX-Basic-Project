@@ -49,19 +49,19 @@ public class UserController {
     	ModelAndView mv = null;
     	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
         System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-//    	if (getUserDto != null && getUserDto.getUserPw() == user.getUserPw())
-//    	{
-//    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
-//    		mv = new ModelAndView("/main");
-//    	}
-//    	else
-//    	{
-//    		mv = new ModelAndView("/login");
-//    		mv.addObject("alertOption", 1);
-//    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
-//    	}
-    	
-	  //test code	
+    	if (getUserDto != null && getUserDto.getUserPw() == user.getUserPw())
+    	{
+    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
+    		mv = new ModelAndView("/main");
+    	}
+    	else
+    	{
+    		mv = new ModelAndView("/login");
+    		mv.addObject("alertOption", 1);
+    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+    	}
+    	System.out.println(session.getAttribute("userDto"));
+/*	  //test code	
     	if(user.getUserId().equals("1"))
     	{
     		mv = new ModelAndView("/test");
@@ -73,7 +73,7 @@ public class UserController {
     		session.setAttribute("session", "session!");
     		mv = new ModelAndView("redirect:/main");
     	}
-    	
+*/  	
     	return mv;	//로그인 창으로 이동
     }
 	
