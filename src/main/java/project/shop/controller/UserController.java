@@ -23,28 +23,57 @@ public class UserController {
 	@Autowired
     private UserService userService; //서비스와 연결
 	
-//	@GetMapping("/test") //노테이션의 값으로 주소 지정
-//    public String openBoardList() throws Exception{
-//    	//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
-//    	System.out.println("/test");
-//    	System.out.println(userService.selectUserList());
-//        //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
-//        return "/boardWrite";
-//    }
+	//로그인 페이지
+	@GetMapping("/login")
+	public String loginPage()
+	{
+		return "/login";
+	}
 	
+//	public ModelAndView openBoardList() throws Exception{
+//	//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
+//	System.out.println("/board/openBoardList.do");
+//	ModelAndView mv = new ModelAndView("/boardList"); 
+//	System.out.println(boardService.select());
+//    //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
+//    List<BoardDto> list = boardService.selectBoardList();  
+//    mv.addObject("list", list);
+//
+//    return mv;
+//}
 	
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public String postLogin(HttpSession session, UserDto user) throws Exception{
+    public ModelAndView postLogin(HttpSession session, UserDto user) throws Exception{
     	System.out.println("postLogin::"+user);
-    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
-    	System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && getUserDto == user)
+    	ModelAndView mv = null;
+//    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
+//        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
+//    	if (getUserDto != null && getUserDto.getUserPw() == user.getUserPw())
+//    	{
+//    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
+//    		mv = new ModelAndView("/main");
+//    	}
+//    	else
+//    	{
+//    		mv = new ModelAndView("/login");
+//    		mv.addObject("alertOption", 1);
+//    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+//    	}
+    	
+	  //test code	
+    	if(user.getUserId().equals("1"))
     	{
-    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
-    		return "/";	//메인으로 이동
+    		mv = new ModelAndView("/test");
+    		mv.addObject("alertOption", 1);
+    		mv.addObject("message", "아이디 비밀번호를 확인하세요");
+    	}
+    	else
+    	{
+    		session.setAttribute("session", "session!");
+    		mv = new ModelAndView("redirect:/main");
     	}
     	
-    	return "redirect:/login";	//로그인 창으로 이동
+    	return mv;	//로그인 창으로 이동
     }
 	
 	//회원가입 컨트롤

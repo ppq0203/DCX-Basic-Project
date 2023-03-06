@@ -20,3 +20,8 @@ function checkId(){
             }
         });
         };
+
+$(document).load(function(){
+	if(session.getAttribute("session") != null)
+		consol.log(session.getAttribute("session"));
+})

@@ -44,8 +44,9 @@ public class TestController {
 //    }
 	
 	@GetMapping("/test")
-	public String test(UserDto userDto)
+	public String test(HttpSession session, UserDto userDto)
 	{
+		System.out.println(session.getAttribute("session"));
 		return "/test";
 	}
 	
