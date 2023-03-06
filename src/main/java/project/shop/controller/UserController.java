@@ -47,8 +47,8 @@ public class UserController {
     public ModelAndView postLogin(HttpSession session, UserDto user) throws Exception{
     	System.out.println("postLogin::"+user);
     	ModelAndView mv = null;
-//    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
-//        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
+    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
+        System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
 //    	if (getUserDto != null && getUserDto.getUserPw() == user.getUserPw())
 //    	{
 //    		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
