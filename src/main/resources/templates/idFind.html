@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ID 찾기</title>
+	<link rel="stylesheet" th:href="@{/css/idFind.css}"></link>
 <!-- id찾기 -->
 </head>
 <body>
@@ -14,26 +15,28 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/test2.js}"></script></body>
 	
-	
+
+<div id="Test">
 <h1>아이디 찾기</h1>
 <form>
 	<table>
 		<tr>
-			<td>이름 : </td>
-			<td><input type="text" th:name="userName" placeholder="이름"></td>
+			<td><label>이름 : </label></td>
+			<td><input type="text" th:name="userName" placeholder="이름"class= "text"></td>
 		</tr>
 		<tr>
-			<td>E-mail: </td>
-			<td><input type="text" th:name="userEmail" placeholder="이메일"></td>
+			<td><label>E-mail: </label></td>
+			<td><input type="text" th:name="userEmail" placeholder="이메일"class= "text"></td>
 		</tr>
 		<tr>
-			<td>인증코드: </td>
-			<td><input type="text" placeholder="인증코드"></td>
+			<td><label>인증코드: </label></td>
+			<td><input type="text" placeholder="인증코드"class= "text"></td>
 		</tr>
 	</table>	
 
-<input type="submit" value="찾기">
-<input type="button" value="취소" onClick="location.href='Login.html'"> 
+<input type="submit" value="찾기"class="button1">
+<input type="button" value="취소" onClick="location.href='Login.html'"class="button2"> 
 </form>
+</div>
 </body>
 </html>
