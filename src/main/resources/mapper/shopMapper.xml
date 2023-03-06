@@ -89,8 +89,30 @@
 			<if test = "userEmail != null">
 				OR user_email = #{userEmail}
 			</if>
-			
-			
+	</select>
+	
+	<!-- 상품 등록 쿼리문 -->
+	<insert id="insertProduct" parameterType="SalesDto" >
+		INSERT ALL
+		INTO product(product_no, product_name, product_category)
+		values(prod_seq.NEXTVAL, #{productName}, #{productCategory})
+		INTO Sales(sales_no, sales_price, sales_img, sales_title, sales_content, sales_count, user_no, product_no)
+		values(sales_seq.NEXTVAL,
+			#{salesPrice}, 
+			#{salesImg}, 
+			#{salesTitle}, 
+			#{salesContent}, 
+			#{salesCount},
+			(SELECT user_no FROM users WHERE user_id = '3e'), 
+			(SELECT product_no FROM product WHERE product_no = 3))
+		SELECT * FROM dual
+	</insert>
+	
+	<!-- 상품 찾기 쿼리문 -->
+	<select id="findProd" resultType="SalesDto">
+			SELECT * FROM Sales 
+			UNION ALL
+			SELECT * FROM product
 	</select>
 	
 </mapper>
