@@ -5,9 +5,8 @@
     <title>상품 리스트</title>
 </head>
 <body>
-
-<h1>상품 리스트</h1>
-<table id = "dbtest" border="1">
+<h1>db 테스트</h1>
+<!--table id = "dbtest" border="1">
     <tr>
         <td>순번</td>
         <td>상품명</td>
@@ -19,8 +18,30 @@
 		<td th:text="${list.productName}"></td>
 		<td th:text="${list.salesContent}"></td>
 		<td th:text="${list.salesPrice}"></td>
-	</tr>
-</table>
+	</tr-->
+<form id="reviewfrm" name="reviewfrm" method="post" action="writereview.do">
+	<table>
+		<tr>
+			<td>제목 : </td>
+			<td colspan = "4"><input type="text" th:name="reviewTitle"></input></td>
+		</tr>
+		<tr>
+			<td>리뷰 : </td>
+			<td colspan = "4"><textarea type="text" th:name="reviewContent"></textarea></td>
+		</tr>
+		<tr>
+			<td>평점</td>
+		</tr>
+		<tr>
+			<td><input type="radio" th:name="reviewScore" value=1 checked> 1점 </td>
+			<td><input type="radio" th:name="reviewScore" value=2 > 2점 </td>
+			<td><input type="radio" th:name="reviewScore" value=3 > 3점 </td>
+			<td><input type="radio" th:name="reviewScore" value=4 > 4점 </td>
+			<td><input type="radio" th:name="reviewScore" value=5 > 5점 </td>
+		</tr>
+	</table>
+<input type="submit" value="작성">
+<input type="submit" value="취소"> 
 </form>
 </body>
 </html>

@@ -67,7 +67,7 @@
 		<![CDATA[
 			UPDATE Users 
 			SET user_pw = #{userPw} 
-			WHERE user_no = '3'
+			WHERE user_no = #{userNo}
 		]]>
 	</update>
 	
@@ -81,14 +81,14 @@
 	
 	<!-- 아이디 찾기 쿼리문 -->
 	<select id="findUser" resultType="UserDto">
-			SELECT * FROM Users 
-			WHERE user_no = #{userNo}
-			<if test = "userId != null">
-				OR user_id = #{userId}
-			</if>
-			<if test = "userEmail != null">
-				OR user_email = #{userEmail}
-			</if>
+		SELECT * FROM Users 
+		WHERE user_no = #{userNo}
+		<if test = "userId != null">
+			OR user_id = #{userId}
+		</if>
+		<if test = "userEmail != null">
+			OR user_email = #{userEmail}
+		</if>
 	</select>
 	
 	<!-- 상품 등록 쿼리문 -->
@@ -110,8 +110,27 @@
 	
 	<!-- 상품 찾기 쿼리문 -->
 	<select id="findAllProd" resultType="SalesDto">
-			SELECT * FROM Sales 
-			LEFT OUTER JOIN
-			product ON sales.product_no = product.product_no
+		SELECT * FROM Sales 
+		LEFT OUTER JOIN
+		product ON sales.product_no = product.product_no
+	</select>
+	
+	<!-- 리뷰 작성 쿼리문 -->
+	<insert id="insertReview" parameterType="ReviewDto">
+		INSERT INTO Review(user_no, sales_no, review_title, review_content, review_score)
+		VALUES(
+			9,
+			6,
+			#{reviewTitle},
+			#{reviewContent},
+			#{reviewScore})
+	</insert>
+	
+	<select id="findReviewList" resultType="ReviewDto">
+		SELECT * FROM Review
+		LEFT OUTER JOIN
+		users ON Review.user_no = users.user_no 
+		JOIN
+		sales ON Review.sales_no = sales.sales_no
 	</select>
 </mapper>
