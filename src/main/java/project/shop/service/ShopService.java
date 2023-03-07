@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.shop.dto.BoardDto;
+import project.shop.dto.CustomerServiceDto;
 import project.shop.dto.ReviewDto;
 import project.shop.mapper.ShopMapper;
 
@@ -21,6 +22,11 @@ public class ShopService {
 		return resultList;
 	}
 	
+	public List<CustomerServiceDto> findCustomerList(CustomerServiceDto customer) {
+		List<CustomerServiceDto> resultList = shopMapper.findCustomerList(customer);
+		return resultList;
+	}
+	
 	public int select() throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("BoardService::"+shopMapper);
@@ -30,4 +36,10 @@ public class ShopService {
 	public void insertReview(ReviewDto review) {
 		shopMapper.insertReview(review);
 	}
+
+	public void insertCustomer(CustomerServiceDto customer) {
+		shopMapper.insertCustomer(customer);
+		
+	}
+
 }

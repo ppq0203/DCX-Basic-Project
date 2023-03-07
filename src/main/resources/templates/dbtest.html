@@ -18,17 +18,6 @@
 		<td th:text="${list.productName}"></td>
 		<td th:text="${list.salesContent}"></td>
 		<td th:text="${list.salesPrice}"></td>
-	</tr-->
-<form id="reviewfrm" name="reviewfrm" method="post" action="writereview.do">
-	<table>
-		<tr>
-			<td>제목 : </td>
-			<td colspan = "4"><input type="text" th:name="reviewTitle"></input></td>
-		</tr>
-		<tr>
-			<td>리뷰 : </td>
-			<td colspan = "4"><textarea type="text" th:name="reviewContent"></textarea></td>
-		</tr>
 		<tr>
 			<td>평점</td>
 		</tr>
@@ -38,6 +27,17 @@
 			<td><input type="radio" th:name="reviewScore" value=3 > 3점 </td>
 			<td><input type="radio" th:name="reviewScore" value=4 > 4점 </td>
 			<td><input type="radio" th:name="reviewScore" value=5 > 5점 </td>
+		</tr>
+	</tr-->
+<form id="reviewfrm" name="reviewfrm" method="post" action="customer.do">
+	<table>
+		<tr>
+			<td>제목 : </td>
+			<td colspan = "4"><input type="text" th:name="serviceTitle"></input></td>
+		</tr>
+		<tr>
+			<td>내용 : </td>
+			<td colspan = "4"><textarea type="text" th:name="serviceContent"></textarea></td>
 		</tr>
 	</table>
 <input type="submit" value="작성">

@@ -9,40 +9,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.BoardDto;
+import project.shop.dto.CustomerServiceDto;
 import project.shop.dto.ReviewDto;
 import project.shop.dto.SalesDto;
 import project.shop.service.ShopService;
 
 @Controller // 컨트롤러라고 선언함
-public class ReviewController {
+public class ShopBoardController {
 
     @Autowired
-    private ShopService reviewService; //서비스와 연결
+    private ShopService boardService; //서비스와 연결
     
-    @GetMapping("/writereview")		//게시글 작성 화면 호출
+    @GetMapping("/writereview")		//리뷰 작성 페이지
     public String openReviewWrite() throws Exception{
     	return "/dbtest";
     }
     
-    @PostMapping("/writereview.do")
+    @PostMapping("/writereview.do") //리뷰 작성 및 호출
     public ModelAndView openReview(ReviewDto review) throws Exception
     {
-    	reviewService.insertReview(review);
+    	boardService.insertReview(review);
     	System.out.println("/writereview.do");
     	ModelAndView mv = new ModelAndView("/dbtest2");
-        List<ReviewDto> list = reviewService.findReviewList(review);  
+        List<ReviewDto> list = boardService.findReviewList(review);  
         mv.addObject("list", list);
 		System.out.println("found");
 		
 		return mv;
     }
     
-   
-    
-    @GetMapping("/writereview.do")
-    public String openReview()
+    //문의 작성 페이지
+    @GetMapping("/customer")
+    public String opencustomer()
     {
-    	return "/dbtest2";
+    	return "/dbtest";
+    }
+    
+    //문의 작성 및 호출
+    @PostMapping("/customer.do")
+    public ModelAndView openCustomerList(CustomerServiceDto customer) throws Exception
+    {
+    	boardService.insertCustomer(customer);
+    	ModelAndView mv = new ModelAndView("dbtest");
+    	List<CustomerServiceDto> list = boardService.findCustomerList(customer);
+    	mv.addObject("list", list);
+    	return mv;
     }
     
 }

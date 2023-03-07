@@ -7,5 +7,5 @@ public class CustomerServiceDto {
 	private String serviceTitle;
 	private String serviceContent;
 	private int writer;
-	private int redeiver;
+	private int receiver;
 }

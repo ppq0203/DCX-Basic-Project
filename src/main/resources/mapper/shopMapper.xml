@@ -40,7 +40,6 @@
 		]]>
 	</insert>
 	
-	
 	<!-- 회원가입 쿼리문 -->
 	<insert id="insertUser" parameterType="UserDto">
 		<![CDATA[
@@ -62,6 +61,20 @@
 		]]>
 	</insert>
 	
+	<!-- 유저정보 변경 쿼리문 -->
+	<update id="changeUser" parameterType="UserDto">
+		<![CDATA[
+			UPDATE Users 
+			SET (user_name, user_email, user_phone, user_address, access_rights)
+			 = (NVL(#{userName}, user_name), 
+			 	NVL(#{userEmail}, user_email), 
+			 	NVL(#{userPhone}, user_phone), 
+			 	NVL(#{userAddress}, user_address),
+			 	NVL(#{accessRights}, access_rights))
+			WHERE user_no = #{userNo}
+		]]>
+	</update>
+	
 	<!-- 비밀번호 변경 쿼리문 -->
 	<update id="changePw" parameterType="UserDto">
 		<![CDATA[
@@ -79,7 +92,7 @@
 		]]>
 	</delete>
 	
-	<!-- 아이디 찾기 쿼리문 -->
+	<!-- 유저 찾기 쿼리문 -->
 	<select id="findUser" resultType="UserDto">
 		SELECT * FROM Users 
 		WHERE user_no = #{userNo}
@@ -126,11 +139,29 @@
 			#{reviewScore})
 	</insert>
 	
+	<!-- 리뷰 리스트 데이터 조회 쿼리문 -->
 	<select id="findReviewList" resultType="ReviewDto">
 		SELECT * FROM Review
 		LEFT OUTER JOIN
 		users ON Review.user_no = users.user_no 
 		JOIN
 		sales ON Review.sales_no = sales.sales_no
+	</select>
+	
+	<!-- 문의 작성 쿼리문 -->
+	<insert id="insertCustomer" parameterType="CustomerServiceDto">
+		INSERT INTO customer_service(service_title, service_content, writer, receiver)
+		VALUES(
+			#{serviceTitle},
+			#{serviceContent},
+			14,
+			3)
+	</insert>
+	
+	<!-- 문의 리스트 -->
+	<select id="findCustomerList" resultType="CustomerServiceDto">
+		SELECT * FROM customer_service
+		LEFT OUTER JOIN
+		users ON Review.user_no = users.user_no
 	</select>
 </mapper>

@@ -176,6 +176,16 @@ public class UserController {
 		return "/login";
 	}
 	
+	//유저정보 변경 컨트롤
+		@PutMapping("/postUser")
+		public String changeUser(UserDto user) throws Exception
+		{
+			System.out.println("/postPw");
+			userService.changeUser(user);
+			System.out.println("changed");
+			return "/login";
+		}
+	
 	//유저 제거 컨트롤
 	@DeleteMapping("/postdelete")
 	public String deleteUser(UserDto user) throws Exception
@@ -206,11 +216,9 @@ public class UserController {
 	@PostMapping("/findId.do")
 	public ModelAndView findId(UserDto user) throws Exception
 	{
-		//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
 		System.out.println("/findId.do");
     	ModelAndView mv = new ModelAndView("/test"); 
     	System.out.println(userService.select());
-        //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
         List<UserDto> list = userService.selectUserList(user);  
         mv.addObject("list", list);
 		System.out.println("found");
@@ -218,9 +226,8 @@ public class UserController {
 		return mv;
 	}
 	
-	@GetMapping("/findId.do")		//찾은아이디 결과 화면 호출
-    public String findId() throws Exception{
-		System.out.println("/found");
-    	return "/test";
-    }
+	//유저 정보 변
+	
+	
+	
 }
