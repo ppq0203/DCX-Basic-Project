@@ -239,4 +239,11 @@ public class UserController {
 		return mv;
 	}
 	
+	//유저 정보 변경 페이지
+	@GetMapping("/changeUser")
+	public String chagenUser()
+	{
+		return"/userinfoChange";
+	}
+	
 }

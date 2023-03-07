@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.OrderDto;
 import project.shop.dto.SalesDto;
 import project.shop.service.SalesService;
 
@@ -26,7 +27,8 @@ public class SalesController {
 		model.addAttribute("Sales", sales);
 		return "/dbtest2";
 	}
-		
+	
+	//판매정보 호출 기반
 	@GetMapping("/showprod")
 	public ModelAndView prodPage(SalesDto sales) throws Exception
 	{
@@ -39,11 +41,20 @@ public class SalesController {
 		return mv;
 	}
 	
-	@PostMapping("insertProduct")
+	//판매정보 및 상품등록
+	@PostMapping("/insertProduct")
 	public String insertProduct(SalesDto sales) throws Exception
 	{
 		System.out.println(" [+] post "+sales);
 		salesService.insertProduct(sales);
 		return "redirect:/showprod";
+	}
+	
+	@PostMapping("/orderdate")
+	public String insertOrder(OrderDto order)
+	{
+		salesService.insertOrder(order);
+		System.out.println("date inputed");
+		return "";
 	}
 }

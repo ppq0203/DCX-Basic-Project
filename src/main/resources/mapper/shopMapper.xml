@@ -164,4 +164,12 @@
 		LEFT OUTER JOIN
 		users ON customer_service.writer = users.user_no
 	</select>
+	
+	<insert id="insertOrder" parameterType="OrderDto">
+		INSERT INTO orders(user_no, sales_no, order_date)
+		VALUES(
+			8,
+			5,
+			SYSDATE)
+	</insert>
 </mapper>

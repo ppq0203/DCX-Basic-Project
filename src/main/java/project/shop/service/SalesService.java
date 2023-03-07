@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.shop.dto.BoardDto;
+import project.shop.dto.OrderDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
 import project.shop.mapper.ShopMapper;
@@ -23,6 +24,11 @@ public class SalesService {
 	public List<SalesDto> selectProdList(SalesDto sales) throws Exception {
 		List<SalesDto> resultList = shopMapper.findAllProd(sales);
 		return resultList;
+	}
+
+	public void insertOrder(OrderDto order) {
+		shopMapper.insertOrder(order);
+		
 	}
 	
 }
