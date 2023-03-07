@@ -190,16 +190,54 @@ public class UserController {
 		return mv;
 	}
 	//비밀번호 변경 컨트롤
-	@PostMapping("/PwChange.control")
+	@PostMapping("/pwChange.control")
 	public String PwChange(HttpSession session, UserDto user) throws Exception
 	{
 		System.out.println("/postPw");
 		user.setUserNo((int)session.getAttribute("userNo"));
 		System.out.println(user);
-		userService.changePw(user);
+//		userService.changePw(user);
 		System.out.println("changed");
 		session.removeAttribute("userNo");	//세션에 저장된 유저넘버 삭제
-		return "/login";
+		
+		Object userO = session.getAttribute("userDto");
+		if(userO != null)
+			return "redirect:/myPage";
+		System.out.println("bug?");
+		return "redirect:/login";
+	}
+	//비밀번호 변경 페이지
+	@GetMapping("/myPagePwdChange")
+	public String myPagePwdChange(HttpSession session)
+	{
+		Object userO = session.getAttribute("userDto");
+		if(userO == null)
+			return "/login";
+		
+		return "/myPagePwdChange";
+	}
+	//비밀번호 변경페이지 비밀번호 입력시
+	@PostMapping("/myPagePwdChange")
+	public ModelAndView PostMyPagePwdChange(HttpSession session, UserDto userDto)
+	{
+		ModelAndView mv;
+		Object userO = session.getAttribute("userDto");
+		if(userO == null)
+			return new ModelAndView("redirect:/login");
+		UserDto user = (UserDto)userO;
+		if(user.getUserPw().equals(userDto.getUserPw()))
+		{
+			session.setAttribute("userNo", user.getUserNo());
+			mv = new ModelAndView("/passwordChange");	//비밀번호 변경페이지 이동
+		}
+		else
+		{
+			mv = new ModelAndView("/myPagePwdChange");
+			mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
+			mv.addObject("message", "비밀번호가 잘못되었습니다.");	// 알람에 작성할 메시지
+			
+		}
+		return mv;
 	}
 
 	//유저 제거 컨트롤
@@ -207,16 +245,12 @@ public class UserController {
 	public String myPage(HttpSession session) throws Exception
 	{
 		System.out.println("myPage");
-		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
 		String src = "";
-		if(user != null)	//세션에 정보가 있으면
-		{
-			src = "/myPage";	//마이페지로 이동
-		}
-		else	//세션에 정보가 없으면
-		{
-			src = "/login";		//로그인페이지로 이동
-		}
+		if(userO == null)	//세션에 정보가 없으면
+			return "/login";	//로그인 페이지로 이동
+
+		src = "/myPage";		//마이 페이지로 이동
 		return src;
 	}
 	//유저 정보 변경 페이지
@@ -226,41 +260,73 @@ public class UserController {
 		ModelAndView mv;
 		System.out.println("/userInfoChange");
 		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
-		if(user != null)	//세션에 정보가 있으면
-		{
-			mv = new ModelAndView("/userInfoChange");	//마이페지로 이동
-			mv.addObject("phone", ((UserDto)user).getUserPhone() );
-			mv.addObject("address", ((UserDto)user).getUserAddress() );
-		}
-		else	//세션에 정보가 없으면
-		{
-			mv = new ModelAndView("/login");	//로그인페이지로 이동
-		}
+		if(user == null)	//세션에 정보가 없으면
+			return new ModelAndView("/login");			//로그인 페이지로 이동
+	
+		mv = new ModelAndView("/userInfoChange");	//마이페지로 이동
+		mv.addObject("phone", ((UserDto)user).getUserPhone() );
+		mv.addObject("address", ((UserDto)user).getUserAddress() );
+
 		System.out.println(user);
 		return mv;
 	}
+	//유저 정보 변경 전송
 	@PostMapping("/userInfoChange")
 	public String PostUserInfoChange(HttpSession session, UserDto userDto) throws Exception
 	{
 		System.out.println("post/userInfoChange");
-		UserDto user = (UserDto)session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		if(userO == null)	//세션에 정보가 없으면
+			return "redirect:/login";		//로그인 페이지로 이동
+		
+		UserDto user = (UserDto)userO;
 		System.out.println(userDto);
 		System.out.println(user);
 		user.setUserPhone(userDto.getUserPhone());
 		user.setUserAddress(userDto.getUserAddress());
 		System.out.println(user);
 //		userService.changeUser(user);	//유저정보 갱신
-		return "/userInfoChange";
+		return "redirect:/myPage";
 	}
 	
-	//유저 제거 컨트롤
-	@DeleteMapping("/postdelete")
-	public String deleteUser(UserDto user) throws Exception
+	//회원 탈퇴 페이지
+	@GetMapping("/deleteUser")
+	public String deleteUser(HttpSession session) throws Exception
 	{
-		System.out.println("/postdelete");
-		userService.deleteUser(user);
-		System.out.println("deleted");
-		return "/login";
+		System.out.println("/deleteUser");
+		String src = "";
+		Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		if(userO == null)	//세션에 정보가 없으면
+			return "/login";			//로그인 페이지로 이동
+
+		src = "/deleteUser";	//회원탈퇴 페이지로 이동
+		return src;
+	}
+	//회원 탈퇴 전송
+	@PostMapping("/deleteUser")
+	public ModelAndView postDeleteUser(HttpSession session, UserDto userDto) throws Exception
+	{
+		ModelAndView mv;
+		System.out.println("/postDeleteUser");
+		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		if(user == null)	//세션에 정보가 없으면
+			return new ModelAndView("redirect:/login");			//로그인 페이지로 이동
+		
+		if(((UserDto)user).getUserPw().equals(userDto.getUserPw()))	//입력된 비밀번호가 회원정보와 일치하면
+		{
+			System.out.println("delete");
+			System.out.println(user);
+//			userService.deleteUser((UserDto)user);	//회원정보 제거
+			mv = new ModelAndView("redirect:/main");	//
+		}
+		else
+		{
+			System.out.println("deleteFail");
+			mv = new ModelAndView("/deleteUser");
+			mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
+			mv.addObject("message", "잘못된 비밀번호 입니다.");	// 알람에 작성할 메시지
+		}
+		return mv;
 	}
 /*
 	// 아이디 찾기 컨트롤
