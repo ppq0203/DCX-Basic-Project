@@ -5,5 +5,12 @@ function idFind() {
 			  alert("이메일을 정확하게 입력해주세요");
 			  return;
 		 }
+		 
+		 if(confirm_code == "")
+		{
+			alert("인증코드 발송을 클릭해주세요");
+			return;
+		}
+		
 		 confirmCheck(); 
 	 }

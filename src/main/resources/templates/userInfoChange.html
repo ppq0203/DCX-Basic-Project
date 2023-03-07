@@ -8,24 +8,24 @@
 <!-- 회원정보 변경 -->
 </head>
 <body>	
-
-<h1>회원정보 변경</h1>
-<form name="userInfoChange" method="post" action="/userInfoChange">
-	<table>
-		<tr>
-			<td> 휴대폰 번호 : </td>
-			<td><input type="text" th:name="userPhone" placeholder="휴대폰 번호"></td>
-		</tr>
-		<tr>
-			<td> 주소 : </td>
-			<td><input type="text" th:name="userAddress" placeholder="주소"></td>
-		</tr>		  
-   </table>
-	 
-<input type="submit" value="회원정보 변경" onClick="location.href='myPage.html'">
-<input type="button" value="취소" onClick="location.href='myPage.html'">
-
-</form>
+	<div id="userChange">
+	<form name="userInfoChange" method="post" action="/userInfoChange">
+	<h1>회원정보 변경</h1>
+		<div class="form-group">
+			<label>휴대폰 번호</label>
+			<input type="text" th:name="userPhone" placeholder="휴대폰 번호" class= "text">
+		</div>
+		<div class="form-group">
+			<label>주소</label>
+			<input type="text" th:name="userAddress" placeholder="주소" class= "text">
+		</div>	
+			   
+		<input type="submit" value="회원정보 변경" onClick="location.href='myPage.html'">
+		<input type="button" value="취소" onClick="location.href='myPage.html'">
+	</form>
+	</div>
+	<script type="text/javascript" th:src="@{/js/userInfoChange.js}"></script>
+	
 </body>
 </html>
 
