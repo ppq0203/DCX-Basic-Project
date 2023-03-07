@@ -66,11 +66,11 @@
 		<![CDATA[
 			UPDATE Users 
 			SET (user_name, user_email, user_phone, user_address, access_rights)
-			 = (NVL(#{userName}, user_name), 
+			 = (SELECT NVL(#{userName}, user_name), 
 			 	NVL(#{userEmail}, user_email), 
 			 	NVL(#{userPhone}, user_phone), 
 			 	NVL(#{userAddress}, user_address),
-			 	NVL(#{accessRights}, access_rights))
+			 	NVL(#{accessRights}, access_rights) FROM Users WHERE user_no = #{userNo})
 			WHERE user_no = #{userNo}
 		]]>
 	</update>
@@ -88,7 +88,7 @@
 	<delete id="deleteUser" parameterType="UserDto">
 		<![CDATA[ 
 			DELETE FROM Users 
-			WHERE user_pw = #{userPw}
+			WHERE user_no = #{userNo}
 		]]>
 	</delete>
 	

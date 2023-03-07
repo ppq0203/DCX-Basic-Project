@@ -176,16 +176,23 @@ public class UserController {
 		return "/login";
 	}
 	
-	//유저정보 변경 컨트롤
-		@PutMapping("/postUser")
-		public String changeUser(UserDto user) throws Exception
-		{
-			System.out.println("/postPw");
-			userService.changeUser(user);
-			System.out.println("changed");
-			return "/login";
-		}
+	//유저정보 변경 페이지
+	@GetMapping("/chUser")
+	public String ChangeUser()
+	{
+		return "/dbtest";
+	}
 	
+	//유저정보 변경 컨트롤
+	@PostMapping("/postUser")
+	public String changeUser(UserDto user) throws Exception
+	{
+		System.out.println("/postUser");
+		userService.changeUser(user);
+		System.out.println("changed");
+		return "/login";
+	}
+
 	//유저 제거 컨트롤
 	@DeleteMapping("/postdelete")
 	public String deleteUser(UserDto user) throws Exception
