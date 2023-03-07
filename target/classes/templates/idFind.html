@@ -19,10 +19,6 @@
 <form action="/postIdFind" name="idFindscreen" method="post" class="confirm">
 	<table>
 		<tr>
-			<td><label>이름 : </label></td>
-			<td><input type="text" th:name="userName" placeholder="이름"class= "text"></td>
-		</tr>
-		<tr>
 			<td><label>E-mail: </label></td>
 			<td><input type="text" th:id="userEmail" th:name="userEmail" placeholder="이메일"class= "text"> <button type="button" onclick="sendConfirm()">인증코드 발송</button></td>
 		</tr>
@@ -30,12 +26,11 @@
 			<td><label>인증코드: </label></td>
 			<td><input type="text" th:id="confirm" placeholder="인증코드"class= "text"></td>
 		</tr>
-	</table>	
+	</table>
+</form>
 <input type="button" value="찾기" onClick="confirmCheck()" class="button1">
 <input type="button" value="취소" onClick="location.href='/login'" class="button2"> 
 <script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
-	
-</form>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/test2.js}"></script></body>
