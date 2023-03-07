@@ -170,6 +170,6 @@
 		VALUES(
 			8,
 			5,
-			SYSDATE)
+			(to_date(SYSDATE,'YYYY-MM-DD HH24:mi:SS')))
 	</insert>
 </mapper>
