@@ -11,23 +11,13 @@
 				top.alert("[[${message}]]");
 			</script>
 		</th:block>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		
 <!-- 로그인 -->
 </head>
 <body>
-
-
-<<<<<<< HEAD
-<h1>로그인</h1>
-=======
-
-
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" th:src="@{/js/test2.js}"></script>
 <div id="login">
-<h1>ID 로그인</h1>
->>>>>>> refs/remotes/origin/YBchoi
+<h1>로그인</h1>
 <form action="/postLogin" method="post">
 	<table>
 		<tr>
@@ -35,33 +25,15 @@
 			<td><input type="text" th:name="userId" placeholder="아이디 입력" class= "text"></td>
 		</tr>
 		<tr>
-<<<<<<< HEAD
-			<td>비밀번호 : </td>
-			<td><input type="text" th:name="userPw" placeholder="비밀번호 입력"></td>
-=======
 			<td><label>비밀번호 : </label></td>
-			<td><input type="text" th:name="userPw"placeholder="비밀번호 입력" class= "text"></td>
->>>>>>> refs/remotes/origin/YBchoi
+			<td><input type="text" th:name="userPw" placeholder="비밀번호 입력" class= "text"></td>
 		</tr>
 	</table>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <input type="submit" value="로그인">
-<input type="button" value="회원가입" onClick="location.href='/joinUser'">
-=======
-<input type="submit" value="로그인" name="login">
-<input type="button" value="회원가입" onClick="location.href='joinUser.html'">
->>>>>>> refs/remotes/origin/hej
-<input type="button" value="아이디찾기" onClick="location.href='idFind.html'">
-<input type="button" value="비밀번호찾기" onClick="location.href='passwordFind.html'">
-=======
-<input type="submit" value="로그인" class= "button">
-<input type="button" value="회원가입" onClick="location.href='joinUser.html'" class="button2">
-<input type="button" value="아이디찾기" onClick="location.href='idFind.html'" class="button3">
-<input type="button" value="비밀번호찾기" onClick="location.href='passwordFind.html'" class="button4">
->>>>>>> refs/remotes/origin/YBchoi
+<input type="button" value="회원가입" onClick="location.href='/joinUser'" class="button2">
+<input type="button" value="아이디찾기" onClick="location.href='/idFind'" class="button3">
+<input type="button" value="비밀번호찾기" onClick="location.href='/passwordFind'" class="button4">
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/test4.js}"></script>
 
 </form>

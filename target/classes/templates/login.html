@@ -12,33 +12,31 @@
 			</script>
 		</th:block>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		
 <!-- 로그인 -->
 </head>
 <body>
-
 <div id="login">
-	<h1>로그인</h1>
-	<form action="/postLogin" method="post">
-		<table>
-			<tr>
-				<td><label>아이디 : </label></td>
-				<td><input type="text" th:name="userId" placeholder="아이디 입력" class= "text"></td>
-			</tr>
-			<tr>
-				<td><label>비밀번호 : </label></td>
-				<td><input type="text" th:name="userPw" placeholder="비밀번호 입력" class= "text"></td>
-			</tr>
-		</table>
+<h1>로그인</h1>
+<form action="/postLogin" method="post">
+	<table>
+		<tr>
+			<td><label>아이디 : </label></td>
+			<td><input type="text" th:name="userId" placeholder="아이디 입력" class= "text"></td>
+		</tr>
+		<tr>
+			<td><label>비밀번호 : </label></td>
+			<td><input type="text" th:name="userPw" placeholder="비밀번호 입력" class= "text"></td>
+		</tr>
+	</table>
+<input type="submit" value="로그인">
+<input type="button" value="회원가입" onClick="location.href='/joinUser'" class="button2">
+<input type="button" value="아이디찾기" onClick="location.href='/idFind'" class="button3">
+<input type="button" value="비밀번호찾기" onClick="location.href='/passwordFind'" class="button4">
 
-		<input type="submit" value="로그인" name="login" class= "button">
-		<input type="button" value="회원가입" onClick="location.href='/joinUser'" class="button2">
-		<input type="button" value="아이디찾기" onClick="location.href='/idFind'" class="button3">
-		<input type="button" value="비밀번호찾기" onClick="location.href='/passwordFind'" class="button4">
-	</form>
-</div>
-
-<!-- testcode -->
 <script type="text/javascript" th:src="@{/js/test4.js}"></script>
 
+</form>
+</div>
 </body>
 </html>
