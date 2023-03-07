@@ -219,6 +219,12 @@ public class UserController {
 		return "/passwordFind";
 	}
 	
+	//비밀번호 찾기 페이지
+	@GetMapping("/pwdChange")
+	public String changePw()
+	{
+		return "/passwordChange";
+	}
 	// 아이디 찾기 컨트롤
 	@PostMapping("/findId.do")
 	public ModelAndView findId(UserDto user) throws Exception
@@ -232,9 +238,5 @@ public class UserController {
 		
 		return mv;
 	}
-	
-	//유저 정보 변
-	
-	
 	
 }
