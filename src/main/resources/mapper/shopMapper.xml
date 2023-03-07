@@ -92,7 +92,7 @@
 	</select>
 	
 	<!-- 상품 등록 쿼리문 -->
-	<insert id="insertProduct" parameterType="SalesDto" >
+	<insert id="insertProduct" parameterType="SalesDto">
 		INSERT ALL
 		INTO product(product_no, product_name, product_category)
 		values(prod_seq.NEXTVAL, #{productName}, #{productCategory})
@@ -104,15 +104,14 @@
 			#{salesContent}, 
 			#{salesCount},
 			(SELECT user_no FROM users WHERE user_id = '3e'), 
-			(SELECT product_no FROM product WHERE product_no = 3))
+			prod_seq.CURRVAL)
 		SELECT * FROM dual
 	</insert>
 	
 	<!-- 상품 찾기 쿼리문 -->
-	<select id="findProd" resultType="SalesDto">
+	<select id="findAllProd" resultType="SalesDto">
 			SELECT * FROM Sales 
-			UNION ALL
-			SELECT * FROM product
+			LEFT OUTER JOIN
+			product ON sales.product_no = product.product_no
 	</select>
-	
 </mapper>
