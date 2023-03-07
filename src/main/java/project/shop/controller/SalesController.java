@@ -55,6 +55,6 @@ public class SalesController {
 	{
 		salesService.insertOrder(order);
 		System.out.println("date inputed");
-		return "";
+		return "redirect:/main";
 	}
 }
