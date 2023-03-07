@@ -162,6 +162,6 @@
 	<select id="findCustomerList" resultType="CustomerServiceDto">
 		SELECT * FROM customer_service
 		LEFT OUTER JOIN
-		users ON Review.user_no = users.user_no
+		users ON customer_service.writer = users.user_no
 	</select>
 </mapper>

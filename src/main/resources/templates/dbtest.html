@@ -29,31 +29,15 @@
 			<td><input type="radio" th:name="reviewScore" value=5 > 5점 </td>
 		</tr>
 	</tr-->
-<form id="reviewfrm" name="reviewfrm" method="post" action="/postUser">
+<form id="reviewfrm" name="reviewfrm" method="post" action="/customer.do">
 	<table>
 		<tr>
-			<td>넘버 : </td>
-			<td><input type="text" th:name="userNo"></input></td>
+			<td>제목 : </td>
+			<td><input type="text" th:name="serviceTitle"></input></td>
 		</tr>
 		<tr>
-			<td>이름 : </td>
-			<td><input type="text" th:name="userName"></input></td>
-		</tr>
-		<tr>
-			<td>메일 : </td>
-			<td><input type="text" th:name="userEmail"></input></td>
-		</tr>
-		<tr>
-			<td>폰 : </td>
-			<td><input type="text" th:name="userPhone"></input></td>
-		</tr>
-		<tr>
-			<td>주소 : </td>
-			<td><input type="text" th:name="userAddress"></input></td>
-		</tr>
-		<tr>
-			<td>권한 : </td>
-			<td><input type="text" th:name="accessRights"></input></td>
+			<td>내용 : </td>
+			<td><textarea type="text" th:name="serviceContent"></textarea></td>
 		</tr>
 	</table>
 <input type="submit" value="작성">

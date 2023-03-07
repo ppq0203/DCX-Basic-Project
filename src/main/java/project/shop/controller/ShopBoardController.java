@@ -50,7 +50,7 @@ public class ShopBoardController {
     public ModelAndView openCustomerList(CustomerServiceDto customer) throws Exception
     {
     	boardService.insertCustomer(customer);
-    	ModelAndView mv = new ModelAndView("dbtest");
+    	ModelAndView mv = new ModelAndView("dbtest2");
     	List<CustomerServiceDto> list = boardService.findCustomerList(customer);
     	mv.addObject("list", list);
     	return mv;

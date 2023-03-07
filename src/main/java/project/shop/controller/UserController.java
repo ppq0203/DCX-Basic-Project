@@ -180,7 +180,7 @@ public class UserController {
 	@GetMapping("/chUser")
 	public String ChangeUser()
 	{
-		return "/dbtest";
+		return " ";
 	}
 	
 	//유저정보 변경 컨트롤
