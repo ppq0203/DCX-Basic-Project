@@ -11,5 +11,12 @@ function loginFunc() {
 	}
 	if(!Pw) {
 		alert("비밀번호를 입력해주세요")
+		return;
+	}
+	if(Id.value || Pw.value) {
+		alert("아이디와 비밀번호를 다시 입력해주세요")
+	}
+	else {
+		location.href = 'mainPage.html'
 	}		
 }

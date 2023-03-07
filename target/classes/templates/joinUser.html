@@ -53,14 +53,11 @@
             </div>
          	<div class="form-group">
                 <label>인증코드</label>
-                <input type="text" th:id="confirm" th:name="confirm" class="form-control text" disabled="disabled" placeholder="인증번호">
-            </div>	
- <!--           
- 			 <div class="timer">
-            	<div id="timeLimit">05:00</div>
+                <input type="text" disabled th:id="confirm" th:name="confirm" class="form-control text"  placeholder="인증번호">            	
+            	<span id="timer">05:00</span>
             	<button disabled id="completion" onclick="checkCompletion()">인증확인</button>
-       		 </div>	
- -->
+       		</div>
+
             <div class="form-group">
                 <label>휴대폰 번호</label>
                 <input type="tel" th:id="userPhone" th:name="userPhone" class="form-control text" placeholder="휴대폰 번호">
@@ -74,8 +71,9 @@
 		</form>
 	</div>
 	</div>
-	<script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
-	<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
-	<script type="text/javascript" th:src="@{/js/joinUser.js}"></script>
+<script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
+<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
+<script type="text/javascript" th:src="@{/js/joinUser.js}"></script>
+<script type="text/javascript" th:src="@{/js/timer.js}"></script>
 </body>
 </html>

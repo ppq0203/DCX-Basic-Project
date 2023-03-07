@@ -16,3 +16,8 @@ function pswFind() {
 		}
 		confirmCheck();
 	 }
+
+function sendConfirm()  {
+  const target = document.getElementById('confirm');
+  target.disabled = false;
+}		 
