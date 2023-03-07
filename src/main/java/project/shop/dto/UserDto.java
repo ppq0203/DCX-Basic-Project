@@ -11,5 +11,5 @@ public class UserDto {
 	private String userEmail;
 	private String userPhone;
 	private String userAddress;
-	private String Access_rights;
+	private String accessRights;
 }

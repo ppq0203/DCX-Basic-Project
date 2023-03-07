@@ -40,7 +40,6 @@
 		]]>
 	</insert>
 	
-	
 	<!-- 회원가입 쿼리문 -->
 	<insert id="insertUser" parameterType="UserDto">
 		<![CDATA[
@@ -62,12 +61,26 @@
 		]]>
 	</insert>
 	
+	<!-- 유저정보 변경 쿼리문 -->
+	<update id="changeUser" parameterType="UserDto">
+		<![CDATA[
+			UPDATE Users 
+			SET (user_name, user_email, user_phone, user_address, access_rights)
+			 = (SELECT NVL(#{userName}, user_name), 
+			 	NVL(#{userEmail}, user_email), 
+			 	NVL(#{userPhone}, user_phone), 
+			 	NVL(#{userAddress}, user_address),
+			 	NVL(#{accessRights}, access_rights) FROM Users WHERE user_no = #{userNo})
+			WHERE user_no = #{userNo}
+		]]>
+	</update>
+	
 	<!-- 비밀번호 변경 쿼리문 -->
 	<update id="changePw" parameterType="UserDto">
 		<![CDATA[
 			UPDATE Users 
 			SET user_pw = #{userPw} 
-			WHERE user_no = '3'
+			WHERE user_no = #{userNo}
 		]]>
 	</update>
 	
@@ -75,24 +88,24 @@
 	<delete id="deleteUser" parameterType="UserDto">
 		<![CDATA[ 
 			DELETE FROM Users 
-			WHERE user_pw = #{userPw}
+			WHERE user_no = #{userNo}
 		]]>
 	</delete>
 	
-	<!-- 아이디 찾기 쿼리문 -->
+	<!-- 유저 찾기 쿼리문 -->
 	<select id="findUser" resultType="UserDto">
-			SELECT * FROM Users 
-			WHERE user_no = #{userNo}
-			<if test = "userId != null">
-				OR user_id = #{userId}
-			</if>
-			<if test = "userEmail != null">
-				OR user_email = #{userEmail}
-			</if>
+		SELECT * FROM Users 
+		WHERE user_no = #{userNo}
+		<if test = "userId != null">
+			OR user_id = #{userId}
+		</if>
+		<if test = "userEmail != null">
+			OR user_email = #{userEmail}
+		</if>
 	</select>
 	
 	<!-- 상품 등록 쿼리문 -->
-	<insert id="insertProduct" parameterType="SalesDto" >
+	<insert id="insertProduct" parameterType="SalesDto">
 		INSERT ALL
 		INTO product(product_no, product_name, product_category)
 		values(prod_seq.NEXTVAL, #{productName}, #{productCategory})
@@ -104,15 +117,59 @@
 			#{salesContent}, 
 			#{salesCount},
 			(SELECT user_no FROM users WHERE user_id = '3e'), 
-			(SELECT product_no FROM product WHERE product_no = 3))
+			prod_seq.CURRVAL)
 		SELECT * FROM dual
 	</insert>
 	
 	<!-- 상품 찾기 쿼리문 -->
-	<select id="findProd" resultType="SalesDto">
-			SELECT * FROM Sales 
-			UNION ALL
-			SELECT * FROM product
+	<select id="findAllProd" resultType="SalesDto">
+		SELECT * FROM Sales 
+		LEFT OUTER JOIN
+		product ON sales.product_no = product.product_no
 	</select>
 	
+	<!-- 리뷰 작성 쿼리문 -->
+	<insert id="insertReview" parameterType="ReviewDto">
+		INSERT INTO Review(user_no, sales_no, review_title, review_content, review_score)
+		VALUES(
+			9,
+			6,
+			#{reviewTitle},
+			#{reviewContent},
+			#{reviewScore})
+	</insert>
+	
+	<!-- 리뷰 리스트 데이터 조회 쿼리문 -->
+	<select id="findReviewList" resultType="ReviewDto">
+		SELECT * FROM Review
+		LEFT OUTER JOIN
+		users ON Review.user_no = users.user_no 
+		JOIN
+		sales ON Review.sales_no = sales.sales_no
+	</select>
+	
+	<!-- 문의 작성 쿼리문 -->
+	<insert id="insertCustomer" parameterType="CustomerServiceDto">
+		INSERT INTO customer_service(service_title, service_content, writer, receiver)
+		VALUES(
+			#{serviceTitle},
+			#{serviceContent},
+			14,
+			3)
+	</insert>
+	
+	<!-- 문의 리스트 -->
+	<select id="findCustomerList" resultType="CustomerServiceDto">
+		SELECT * FROM customer_service
+		LEFT OUTER JOIN
+		users ON customer_service.writer = users.user_no
+	</select>
+	
+	<insert id="insertOrder" parameterType="OrderDto">
+		INSERT INTO orders(user_no, sales_no, order_date)
+		VALUES(
+			8,
+			5,
+			(to_date(SYSDATE,'YYYY-MM-DD HH24:mi:SS')))
+	</insert>
 </mapper>

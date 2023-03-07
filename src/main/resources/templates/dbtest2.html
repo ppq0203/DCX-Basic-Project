@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+<meta charset="UTF-8">
+<title>상품 등록 페이지</title>
+</head>
+<!-- 상품등록-->
+<body>
+<form id="addprod" name="addprod" method="post" action="insertProduct">
+	<table>
+		<!--tr>
+			<td>판매제목</td>
+			<td><input type="text" th:name="salesTitle" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품명</td>
+			<td><input type="text" th:name="productName" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품사진</td>
+			<td><input type="text" th:name="salesImg" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상세설명</td>
+			<td><input type="text" th:name="salesContent" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품가격</td>
+			<td><input type="text" th:name="salesPrice" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>재고량</td>
+			<td><input type="text" th:name="salesCount" placeholder="이름"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품종류</td>
+			<td><select th:name="productCategory">
+    			<option value="">종류선택</option>
+    			<option value="food">음식</option>
+   				<option value="it">가전</option>
+    			<option value="cloth">의류</option>
+			</select></td>
+		</tr-->
+	<tr>
+        <td>작성자</td>
+        <td>제목</td>
+        <td>내용</td>
+    </tr>
+	<tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
+		<td th:text="${list.writer}"></td>
+		<td th:text="${list.serviceTitle}"></td>
+		<td th:text="${list.serviceContent}"></td>
+	</tr>
+	</table>
+<input type="submit" value="등록">
+<input type="submit" value="취소">
+</form>
+</body>
+</html>

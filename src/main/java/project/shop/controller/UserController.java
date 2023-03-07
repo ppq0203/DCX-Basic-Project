@@ -125,7 +125,6 @@ public class UserController {
 		SendMail.sendMessage(mail, code);
         return code;
 	}
-		
 	//아이디 찾기 페이지
 	@GetMapping("/idFind")
 	public String idFind() throws Exception
@@ -224,15 +223,22 @@ public class UserController {
 		return "/login";
 	}
 /*
+=======
+	
+	//비밀번호 찾기 페이지
+	@GetMapping("/pwdChange")
+	public String changePw()
+	{
+		return "/passwordChange";
+	}
+>>>>>>> refs/remotes/origin/SMchoi
 	// 아이디 찾기 컨트롤
 	@PostMapping("/findId.do")
 	public ModelAndView findId(UserDto user) throws Exception
 	{
-		//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
 		System.out.println("/findId.do");
     	ModelAndView mv = new ModelAndView("/test"); 
     	System.out.println(userService.select());
-        //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
         List<UserDto> list = userService.selectUserList(user);  
         mv.addObject("list", list);
 		System.out.println("found");
@@ -240,6 +246,7 @@ public class UserController {
 		return mv;
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/findId.do")		//찾은아이디 결과 화면 호출
     public String findId() throws Exception{
 		System.out.println("/found");

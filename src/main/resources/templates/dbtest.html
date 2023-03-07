@@ -5,26 +5,45 @@
     <title>상품 리스트</title>
 </head>
 <body>
-
-<h1>상품 리스트</h1>
-<table border="1">
-    <thead>
+<h1>db 테스트</h1>
+<!--table id = "dbtest" border="1">
     <tr>
         <td>순번</td>
         <td>상품명</td>
         <td>상품설명</td>
         <td>가격</td>
     </tr>
-    </thead>
-    <tbody>
-		<tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
-			<td th:text="${list.salesNo}"></td>
-			<td th:text="${list.productName}"></td>
-			<td th:text="${list.salesContent}"></td>
-			<td th:text="${list.salesPrice}"></td>
+	<tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
+		<td th:text="${list.salesNo}"></td>
+		<td th:text="${list.productName}"></td>
+		<td th:text="${list.salesContent}"></td>
+		<td th:text="${list.salesPrice}"></td>
+		<tr>
+			<td>평점</td>
 		</tr>
-    </tbody>
-</table>
+		<tr>
+			<td><input type="radio" th:name="reviewScore" value=1 checked> 1점 </td>
+			<td><input type="radio" th:name="reviewScore" value=2 > 2점 </td>
+			<td><input type="radio" th:name="reviewScore" value=3 > 3점 </td>
+			<td><input type="radio" th:name="reviewScore" value=4 > 4점 </td>
+			<td><input type="radio" th:name="reviewScore" value=5 > 5점 </td>
+		</tr>
+		
+		<tr>
+			<td>제목 : </td>
+			<td><input type="text" th:name="serviceTitle"></input></td>
+		</tr>
+		<tr>
+			<td>내용 : </td>
+			<td><textarea type="text" th:name="serviceContent"></textarea></td>
+		</tr>
+	</tr-->
+<form id="reviewfrm" name="reviewfrm" method="post" action="/orderdate">
+	<table>
+		
+	</table>
+<input type="submit" value="작성">
+<input type="submit" value="취소"> 
 </form>
 </body>
 </html>

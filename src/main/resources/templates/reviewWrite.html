@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
-<html>
 <head>
 <meta charset="UTF-8">
 <title>리뷰 페이지</title>
 </head>
 <body>
-<div id="review">
-	<h1>리뷰 작성하기</h1>
+<form  id="reviewfrm" name="reviewfrm" method="post" action="/writereview.do">
 	<table>
 		<tr>
-			<td><label>제목</label></td>
-			<td><input type="text" name="name"class="text"></td>
+			<td>제목 : </td>
+			<td colspan = "4"><input type="text" th:name="reviewTitle"></input></td>
 		</tr>
 		<tr>
-			<td><label>리뷰 쓰기</label></td>
-			<td><textarea name="textarea" rows="10"cols="40" placeholder="작성해주세요"></textarea></td>
+			<td>리뷰 : </td>
+			<td colspan = "4"><textarea th:name="reviewContent"></textarea></td>
 		</tr>
-	</table>
-	<input type="submit" value="작성" class="button">
-	<input type="submit" value="취소" class="button1">
-</div>
+		<tr>
+			<td>평점</td>
+		</tr>
+		<tr>
+			<td><input type="radio" th:name="reviewScore" value="1" checked> 1점 </td>
+			<td><input type="radio" th:name="reviewScore" value="2" > 2점 </td>
+			<td><input type="radio" th:name="reviewScore" value="3" > 3점 </td>
+			<td><input type="radio" th:name="reviewScore" value="4" > 4점 </td>
+			<td><input type="radio" th:name="reviewScore" value="5" > 5점 </td>
+		</tr>
+	</table> 
+</form>
+<input type="submit" value="작성" class="button">
+<input type="submit" value="취소" class="button1">
 </body>
 </html>

@@ -49,4 +49,11 @@ public class UserService {
 	public UserDto findUser(UserDto user) throws Exception {
 		return shopMapper.findUser(user);
 	}
+	
+	//유저 정보변경
+	public void changeUser(UserDto user) throws Exception
+	{
+		shopMapper.changeUser(user);
+	}
+	
 }
