@@ -42,6 +42,16 @@ label{
 	right: -35px;
 	background-color: #ff7f00;
 }
+.emailbutton{
+	width:150px;
+	height:45px;
+	background-color: #50bcdf;
+	border: none;
+	border-radius: 5px;
+	position: absolute;
+	right: -115px;
+	background-color: #ff7f00;
+}
 .button1{
 	font-size:17px;
 	width:90px;

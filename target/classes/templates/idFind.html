@@ -14,13 +14,13 @@
 <!-- id찾기 -->
 </head>
 <body>
-	<div class= "idFind1">
-		<form id="idFindscreen"  name="idFindscreen" method="post" action="/postIdFind" class="idFind confirm">
+	<div class= "idFind1" id="Test">
+		<form id="idFindscreen"  name="idFindscreen" method="post" action="/postIdFind" class="idFind confirm id">
 		<h1>아이디 찾기</h1>
 			<div class="form-group">
 				<label>E-mail</label>
 				<input type="text" th:id="userEmail" th:name="userEmail" placeholder="이메일" class= "text"> 
-				<button type="button" onclick="sendConfirm()">인증코드 발송</button>
+				<button type="button" onclick="sendConfirm()" class="button">인증코드 발송</button>
 			</div>
 			<div class="form-group">
 				<label>인증코드</label>

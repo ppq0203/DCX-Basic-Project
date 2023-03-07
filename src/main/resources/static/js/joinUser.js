@@ -61,5 +61,9 @@ function submitCheck() {
 	 confirmCheck();
 }
 
-
-
+/* 타이머
+function initButton(){
+	 document.getElementById("completion").disabled = true;
+	 document.getElementById("timeLimit").innerHTML = "05:00";
+}	
+*/
