@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.UserDto;
 import project.shop.function.CodeGeneration;
+import project.shop.function.SendMail;
 import project.shop.service.UserService;
 
 
@@ -87,8 +87,7 @@ public class UserController {
         //게시글 목록을 조회하기 위해 ServiceImpl 클래스의 selectBoardList 메서드 호출
 
         return "/login";
-    }
-	
+    }	
 	//아이디 중복체크
 	@PostMapping("/idCheck")
 	@ResponseBody
@@ -101,7 +100,7 @@ public class UserController {
 			cnt = 1;
 		return cnt;
 	}
-	
+	//이메일 중복체크
 	@PostMapping("/mailCheck")
 	@ResponseBody
 	public int mailCheck(@RequestParam("mail") String mail) throws Exception {
@@ -117,75 +116,16 @@ public class UserController {
 			cnt = 1;
 		return cnt;
 	}
-	
+	//이메일 전송
 	@PostMapping("/sendConfirm")
 	@ResponseBody
 	public String sendConfirm(@RequestParam("mail") String mail) throws Exception {
 		System.out.println("sendConfirm!");
-		String recipient = mail;
         String code = CodeGeneration.createKey();
-        
-        final String user = "pqp0203@gmail.com";
-        final String password = "fdngqxsodqrpvxwu";
-        
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", 465);
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.ssl.enable", "true");
-        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
-        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(user, password);
-            }
-        });
-        
-        MimeMessage message = new MimeMessage(session);
-        try {
-            message.setFrom(new InternetAddress(user));
- 
-            // 수신자 메일 주소
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
- 
-            // Subject
-            message.setSubject("PLAYDDIT verification code");
- 
-            // Text
-            message.setText("Welcome to playddit. your code is ["+code+"]");
- 
-            Transport.send(message);    // send message
- 
- 
-        } catch (AddressException e) {
-            e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-        
+		SendMail.sendMessage(mail, code);
         return code;
 	}
-	
-	//비밀번호 변경 컨트롤
-	@PutMapping("/postPw")
-	public String changePw(UserDto user) throws Exception
-	{
-		System.out.println("/postPw");
-		userService.changePw(user);
-		System.out.println("changed");
-		return "/login";
-	}
-	
-	//유저 제거 컨트롤
-	@DeleteMapping("/postdelete")
-	public String deleteUser(UserDto user) throws Exception
-	{
-		System.out.println("/postdelete");
-		userService.deleteUser(user);
-		System.out.println("deleted");
-		return "/login";
-	}
-	
+		
 	//아이디 찾기 페이지
 	@GetMapping("/idFind")
 	public String idFind() throws Exception
@@ -193,7 +133,6 @@ public class UserController {
 		System.out.println("/idFind");
 		return "/idFind";
 	}
-	
 	//이메일 인증후 아이디 찾기 진행시
 	@PostMapping("/postIdFind")
 	public ModelAndView postIdFind(UserDto user) throws Exception
@@ -211,6 +150,7 @@ public class UserController {
 		}
 		return mv;
 	}
+	//아이디 찾기 실패시
 	@GetMapping("/idFind.fail")	// 해당이메일로 존재하는 아이디가 없을 때
 	public ModelAndView idFindFail()
 	{
@@ -227,7 +167,63 @@ public class UserController {
 		System.out.println("/passwordFind");
 		return "/passwordFind";
 	}
-	
+	//비밀번호 찾기 전송
+	@PostMapping("/postPwFind")
+	public String postPwFind(HttpSession session ,UserDto user) throws Exception
+	{
+		System.out.println("/postPwFind");
+		String src;
+		UserDto getUserDto = userService.findUser(user);	//해당 아이디로 존재하는 유저 정보 받기
+		System.out.println(user);
+		System.out.println(getUserDto);
+		if(getUserDto == null 
+				|| !( 
+						user.getUserId().equals(getUserDto.getUserId())
+						&& user.getUserEmail().equals(getUserDto.getUserEmail()) 
+					) 
+			)	//검색한 아이디와 입력한 정보가 다르면
+		{
+			src = "redirect:/passwordFind.fail";	//비밀번호찾기 실패
+		}
+		else
+		{
+			session.setAttribute("userNo", getUserDto.getUserNo());	//세션에 유저넘버 저장
+			src= "/passwordChange";	//비밀번호 변경페이지 이동
+		}
+		return src;
+	}
+	//비밀번호 찾기 실패시
+	@GetMapping("/passwordFind.fail")	// 해당이메일로 존재하는 아이디가 없을 때
+	public ModelAndView pwFindFail()
+	{
+		ModelAndView mv = new ModelAndView("/passwordFind");	//idFind.html을 view로 이용
+		mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
+		mv.addObject("message", "해당 정보에 해당하는 유저정보가 없습니다.");	// 알람에 작성할 메시지
+		return mv;
+	}
+
+	//비밀번호 변경 컨트롤
+	@PostMapping("/PwChange.control")
+	public String PwChange(HttpSession session, UserDto user) throws Exception
+	{
+		System.out.println("/postPw");
+		user.setUserNo((int)session.getAttribute("userNo"));
+		System.out.println(user);
+		userService.changePw(user);
+		System.out.println("changed");
+		session.removeAttribute("userNo");	//세션에 저장된 유저넘버 삭제
+		return "/login";
+	}
+	//유저 제거 컨트롤
+	@DeleteMapping("/postdelete")
+	public String deleteUser(UserDto user) throws Exception
+	{
+		System.out.println("/postdelete");
+		userService.deleteUser(user);
+		System.out.println("deleted");
+		return "/login";
+	}
+/*
 	// 아이디 찾기 컨트롤
 	@PostMapping("/findId.do")
 	public ModelAndView findId(UserDto user) throws Exception
@@ -249,4 +245,5 @@ public class UserController {
 		System.out.println("/found");
     	return "/test";
     }
+   */
 }
