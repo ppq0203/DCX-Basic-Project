@@ -199,7 +199,6 @@ public class UserController {
 	public ModelAndView postIdFind(UserDto user) throws Exception
 	{
 		ModelAndView mv;
-		String src = "";
 		UserDto getUserDto = userService.findUser(user);	//해당 이메일로 존재하는 아이디 정보 받기
 		if(getUserDto == null)	//해당 이메일로 존재하는 아이디가 없으면
 		{
@@ -208,7 +207,7 @@ public class UserController {
 		else
 		{
 			mv = new ModelAndView("/idFindSuccess");	//아이디찾기 성공
-			mv.addObject("ID", getUserDto.getUserId());
+			mv.addObject("ID", getUserDto.getUserId());	//아이디정보 전달
 		}
 		return mv;
 	}
