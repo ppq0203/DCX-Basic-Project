@@ -11,21 +11,5 @@ function loginFunc() {
 	}
 	if(!Pw) {
 		alert("비밀번호를 입력해주세요")
-		return;
 	}		
-	$('.submitForm').submit();
 }
-
-function userInfoChange() { 
-	 	var pswFind = document.pswFindscreen;
-
-	 	if (pswFind.userID.value.length < 1) {
-		  alert("아이디를 입력해주세요");
-		  return;
-		 }
-		 if (pswFind.userEmail.value.length < 1) {
-			  alert("이메일을 정확하게 입력해주세요");
-			  return;
-		 }
-		confirmCheck();
-	 }

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
-<html>
 <head>
 <meta charset="UTF-8">
 <title>리뷰 페이지</title>
 </head>
 <body>
-<form>
-	<table id = "reviewfrm" name = "reviewfrm" method="post" action = "/writereview.do">
+<form  id="reviewfrm" name="reviewfrm" method="post" action="/writereview.do">
+	<table>
 		<tr>
 			<td>제목 : </td>
 			<td colspan = "4"><input type="text" th:name="reviewTitle"></input></td>
 		</tr>
 		<tr>
 			<td>리뷰 : </td>
-			<td colspan = "4"><textarea type="text" th:name="reviewContent"></textarea></td>
+			<td colspan = "4"><textarea th:name="reviewContent"></textarea></td>
 		</tr>
 		<tr>
 			<td>평점</td>
@@ -28,7 +27,7 @@
 		</tr>
 	</table> 
 </form>
-<input type="submit" value="작성">
-<input type="submit" value="취소">
+<input type="submit" value="작성" class="button">
+<input type="submit" value="취소" class="button1">
 </body>
 </html>

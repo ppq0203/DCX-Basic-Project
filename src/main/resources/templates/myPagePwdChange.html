@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+<meta charset="UTF-8">
+<title>비밀번호 수정</title>
+<!-- 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
+	<th:block th:if="${alertOption == 1}">
+		<script>
+			top.alert("[[${message}]]");
+		</script>
+	</th:block>
+</head>
+<body>
+비밀번호 확인
+	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">
+	
+		<br>비밀번호 확인
+		<input type="password" id="userPw" name="userPw">
+		<button id="change-btn">확인</button>
+		<input type="button" value="취소" onClick="location.href='/myPage'">
+	</form>
+</body>
+</html>

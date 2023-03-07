@@ -9,16 +9,24 @@
 	<link rel="stylesheet" th:href="@{/css/idOverlap.css}"></link>
 	<link rel="stylesheet" th:href="@{/css/mailConfirm.css}"></link>
 	<link rel="stylesheet" th:href="@{/css/joinUser1.css}"></link>
+	
+	<!-- 알람 -->
+	<th:block th:if="${alertOption == 1}">
+			<script>
+				top.alert("[[${message}]]");
+			</script>
+	</th:block>
 </head>
 <!-- 사용자 CSS 추가 -->
 <body>
 	<div class= "Test">
 	<div class="container">
-		<form id="frm" name="frm" method="post" action="/postregi" class="join">
+		<form id="frm" name="frm" method="post" action="/postregi" class="join confirm">
 			<h1>회원가입</h1> 
 			 <div class="form-group">
 				<label>ID</label>
 				<input type="text" th:id="userId" th:name="userId" class="form-control" placeholder="ID"/>
+				&nbsp 20자 이내 입력
 				<!-- 중복확인 -->
 				<button type="button" onclick="checkId()">중복 확인</button>
 				<span class="id_ok">사용 가능한 아이디입니다.</span>
@@ -26,8 +34,9 @@
 				
 			</div>
 			<div class="form-group">
-				<label>비밀번호</label>
+				<label>비밀번호</label> 
 				<input type="password" th:id="userPw" th:name="userPw" class="form-control" placeholder="비밀번호"/>
+				&nbsp 20자 이내 입력
 			</div>
 			<div class="form-group">
 				<label>비밀번호 확인</label>
@@ -64,8 +73,5 @@
 	<script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
 	<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 	<script type="text/javascript" th:src="@{/js/joinUser.js}"></script>
-
-	<!-- testcode -->
-	<script type="text/javascript" th:src="@{/js/test5.js}"></script>
 </body>
 </html>
