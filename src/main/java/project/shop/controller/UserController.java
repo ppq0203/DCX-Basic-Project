@@ -1,16 +1,5 @@
 package project.shop.controller;
 
-import java.util.List;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +58,6 @@ public class UserController {
 		return mv;
 	}
 	
-
 	//회원가입 페이지
 	@GetMapping("/joinUser")
 	public String regiPage()
@@ -201,7 +189,6 @@ public class UserController {
 		mv.addObject("message", "해당 정보에 해당하는 유저정보가 없습니다.");	// 알람에 작성할 메시지
 		return mv;
 	}
-
 	//비밀번호 변경 컨트롤
 	@PostMapping("/PwChange.control")
 	public String PwChange(HttpSession session, UserDto user) throws Exception
@@ -214,6 +201,58 @@ public class UserController {
 		session.removeAttribute("userNo");	//세션에 저장된 유저넘버 삭제
 		return "/login";
 	}
+
+	//유저 제거 컨트롤
+	@GetMapping("/myPage")
+	public String myPage(HttpSession session) throws Exception
+	{
+		System.out.println("myPage");
+		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		String src = "";
+		if(user != null)	//세션에 정보가 있으면
+		{
+			src = "/myPage";	//마이페지로 이동
+		}
+		else	//세션에 정보가 없으면
+		{
+			src = "/login";		//로그인페이지로 이동
+		}
+		return src;
+	}
+	//유저 정보 변경 페이지
+	@GetMapping("/userInfoChange")
+	public ModelAndView userInfoChange(HttpSession session) throws Exception
+	{
+		ModelAndView mv;
+		System.out.println("/userInfoChange");
+		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		if(user != null)	//세션에 정보가 있으면
+		{
+			mv = new ModelAndView("/userInfoChange");	//마이페지로 이동
+			mv.addObject("phone", ((UserDto)user).getUserPhone() );
+			mv.addObject("address", ((UserDto)user).getUserAddress() );
+		}
+		else	//세션에 정보가 없으면
+		{
+			mv = new ModelAndView("/login");	//로그인페이지로 이동
+		}
+		System.out.println(user);
+		return mv;
+	}
+	@PostMapping("/userInfoChange")
+	public String PostUserInfoChange(HttpSession session, UserDto userDto) throws Exception
+	{
+		System.out.println("post/userInfoChange");
+		UserDto user = (UserDto)session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		System.out.println(userDto);
+		System.out.println(user);
+		user.setUserPhone(userDto.getUserPhone());
+		user.setUserAddress(userDto.getUserAddress());
+		System.out.println(user);
+//		userService.changeUser(user);	//유저정보 갱신
+		return "/userInfoChange";
+	}
+	
 	//유저 제거 컨트롤
 	@DeleteMapping("/postdelete")
 	public String deleteUser(UserDto user) throws Exception
