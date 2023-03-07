@@ -1,5 +1,6 @@
 function submitCheck()
-{
+{	if($('userID').val() !)
+}
 	if(id_overlap!=0)
 	{
 		alert("아이디 중복확인을 해주세요");
@@ -17,3 +18,4 @@ function submitCheck()
 	}
 	confirmCheck();
 }
+

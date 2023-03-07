@@ -16,22 +16,24 @@
 <body>
 
 <h1>아이디 찾기</h1>
-<form action="/postIdFind" name="idFindscreen" method="post" class="confirm">
+<form name="idFindscreen" action="/postIdFind"  method="post" class="confirm">
 	<table>
 		<tr>
 			<td><label>E-mail: </label></td>
-			<td><input type="text" th:id="userEmail" th:name="userEmail" placeholder="이메일"class= "text"> <button type="button" onclick="sendConfirm()">인증코드 발송</button></td>
+			<td><input type="text" th:id="userEmail" th:name="userEmail" placeholder="이메일"class= "text"> 
+				<button type="button" onclick="sendConfirm()">인증코드 발송</button></td>
 		</tr>
 		<tr>
 			<td><label>인증코드: </label></td>
 			<td><input type="text" th:id="confirm" placeholder="인증코드"class= "text"></td>
 		</tr>
 	</table>
-</form>
-<input type="button" value="찾기" onClick="confirmCheck()" class="button1">
-<input type="button" value="취소" onClick="location.href='/login'" class="button2"> 
-<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 
+<input type="button" value="찾기" onClick="idFind()" class="button1">
+<input type="button" value="취소" onClick="location.href='/login'" class="button2"> 
+</form>
+
+<script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/idFind.js}"></script></body>
 </body>

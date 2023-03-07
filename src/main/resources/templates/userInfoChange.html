@@ -2,17 +2,15 @@
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" th:src="@{/js/test3.js}"></script>
+<script type="text/javascript" th:src="@{/js/test2.js}"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 회원정보 변경 -->
 </head>
 <body>	
 
-
-
 <h1>회원정보 변경</h1>
-<form>
+<form name="userInfoChange" method="post" action="/userInfoChange">
 	<table>
 		<tr>
 			<td> 휴대폰 번호 : </td>
@@ -28,11 +26,6 @@
 <input type="button" value="취소" onClick="location.href='myPage.html'">
 
 </form>
-
-<!--  
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" th:src="@{/js/test3.js}"></script>
--->
 </body>
 </html>
 
