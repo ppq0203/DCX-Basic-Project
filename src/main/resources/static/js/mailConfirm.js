@@ -63,7 +63,7 @@ function confirmCheck()
 {
 	if (confirm_code == $('#confirm').val())
 	{
-		$('#frm').submit();		
+		$('.confirm').submit();		
 	}
 	else
 	{

@@ -194,6 +194,32 @@ public class UserController {
 		return "/idFind";
 	}
 	
+	//이메일 인증후 아이디 찾기 진행시
+	@PostMapping("/postIdFind")
+	public ModelAndView postIdFind(UserDto user) throws Exception
+	{
+		ModelAndView mv;
+		UserDto getUserDto = userService.findUser(user);	//해당 이메일로 존재하는 아이디 정보 받기
+		if(getUserDto == null)	//해당 이메일로 존재하는 아이디가 없으면
+		{
+			mv = new ModelAndView("redirect:/idFind.fail");	//아이디찾기 실패
+		}
+		else
+		{
+			mv = new ModelAndView("/idFindSuccess");	//아이디찾기 성공
+			mv.addObject("ID", getUserDto.getUserId());	//아이디정보 전달
+		}
+		return mv;
+	}
+	@GetMapping("/idFind.fail")	// 해당이메일로 존재하는 아이디가 없을 때
+	public ModelAndView idFindFail()
+	{
+		ModelAndView mv = new ModelAndView("/idFind");	//idFind.html을 view로 이용
+		mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
+		mv.addObject("message", "해당 이메일로 존재하는 아이디가 없습니다");	// 알람에 작성할 메시지
+		return mv;
+	}
+	
 	//비밀번호 찾기 페이지
 	@GetMapping("/passwordFind")
 	public String passwordFind() throws Exception
