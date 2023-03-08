@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -55,6 +54,14 @@ public class UserController {
 		mv.addObject("alertOption", 1);	//	html에서 javascript를 이용해 알람을 해주기 위해 전달
 		mv.addObject("message", "아이디 비밀번호를 확인하세요");	// 알람에 작성할 메시지
 		return mv;
+	}
+	//로그아웃
+	@GetMapping("/logout")	// 로그아웃
+	public String logout(HttpSession session)
+	{
+		System.out.println("/logout");
+		session.invalidate();
+		return "redirect:/main";
 	}
 	
 	//회원가입 페이지
