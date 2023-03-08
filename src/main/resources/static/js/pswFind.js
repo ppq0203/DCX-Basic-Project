@@ -17,6 +17,14 @@ function pswFind() {
 		confirmCheck();
 }
 
+$(document).ready(function() {
+    $('button[id=Btn2]').prop('disabled', true);
+    $('input[id=userEmail]').on('input', function() {
+    	$('button[id=Btn2]').prop('disabled', !$(this).val());
+    });
+  
+});
+
 /*function sendConfirm()  {
   	const target = document.getElementById('confirm');
   	target.disabled = false;

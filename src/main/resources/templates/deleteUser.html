@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
+<!-- 음성 -->
+	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
 <!-- 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
 	<th:block th:if="${alertOption == 1}">
 		<script>
@@ -20,4 +22,4 @@
 		<input type="button" value="취소" onClick="location.href='/myPage'">
 	</form>
 </body>
-</htmlx>
+</html>

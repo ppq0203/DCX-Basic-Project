@@ -11,13 +11,6 @@ function submitCheck() {
 		alert("아이디를 20자 이내 입력해주세요");
 		return;
 	}	
-	/*if(frmFind.userId.value.length>1) {
-		button.disabled = false; // 활성화
-	}
-	else {
-		button.disabled = true; // 비활성화
-	}*/
-
 	if(id_overlap!=0)
 	{
 		alert("아이디 중복확인을 해주세요");
@@ -53,8 +46,7 @@ function submitCheck() {
 	{
 		alert("이메일 인증을 진행해주세요");
 		return;
-	}
-	
+	}	
 	if(frmFind.userPhone.value.length > 12 )
 	{
 		alert("휴대폰 번호를 입력해주세요");
@@ -69,16 +61,29 @@ function submitCheck() {
 }
 
 $(document).ready(function() {
+    $('button[id=Btn1]').prop('disabled', true);
+    $('input[id=userId]').on('input', function() {
+    	$('button[id=Btn1]').prop('disabled', !$(this).val());
+    });
+    $('button[id=Btn2]').prop('disabled', true);
+    $('input[id=userEmail]').on('input', function() {
+    	$('button[id=Btn2]').prop('disabled', !$(this).val());
+    });
+  
+});
+
+/*$(document).ready(function() {
     $('button').prop('disabled', true);
     $('input[type=text]').on('input', function() {
         $('button').prop('disabled', !$(this).val());
     });
-});
+});*/
+
 
 /*document.getElementById('userId').addEventListener('input', function(event) {
-    document.getElementById('Btn').disabled = !this.value;
-}, false);*/
-
+    document.getElementById('Btn1').disabled = !this.value;
+}, false);
+*/
 
 
 /*function Btn() {
