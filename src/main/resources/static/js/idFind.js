@@ -1,6 +1,3 @@
-// 인증 버튼 활성화
-//  document.getElementById("completion")
-//  document.getElementById("completion").disabled = false;
 
 function idFind() { 
 	 	var idFind = document.idFindscreen;
@@ -16,3 +13,11 @@ function idFind() {
 		}		
 		 confirmCheck(); 
 	 }
+	 
+$(document).ready(function() {
+    $('button[id=Btn2]').prop('disabled', true);
+    $('input[id=userEmail]').on('input', function() {
+    	$('button[id=Btn2]').prop('disabled', !$(this).val());
+    });
+  
+});

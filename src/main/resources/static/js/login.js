@@ -15,3 +15,5 @@ function loginFunc() {
 	}
 	$('.submitForm').submit();
 }
+
+
