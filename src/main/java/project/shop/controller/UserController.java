@@ -314,7 +314,7 @@ public class UserController {
 		{
 			System.out.println("delete");
 			System.out.println(user);
-//			userService.deleteUser((UserDto)user);	//회원정보 제거
+			userService.deleteUser((UserDto)user);	//회원정보 제거
 			session.removeAttribute("userDto");
 			mv = new ModelAndView("redirect:/main");	//
 		}

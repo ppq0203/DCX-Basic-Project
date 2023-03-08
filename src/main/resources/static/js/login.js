@@ -11,5 +11,7 @@ function loginFunc() {
 	}
 	if(!Pw) {
 		alert("비밀번호를 입력해주세요")
-	}		
+		return;
+	}
+	$('.submitForm').submit();
 }
