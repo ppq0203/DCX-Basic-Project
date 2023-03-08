@@ -168,8 +168,8 @@
 	<insert id="insertOrder" parameterType="OrderDto">
 		INSERT INTO orders(user_no, sales_no, order_date)
 		VALUES(
-			8,
-			5,
+			#{uesrNo},
+			#{salesNo},
 			(to_date(SYSDATE,'YYYY-MM-DD HH24:mi:SS')))
 	</insert>
 </mapper>

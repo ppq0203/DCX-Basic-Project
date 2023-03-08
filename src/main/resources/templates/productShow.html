@@ -10,20 +10,18 @@
 <table border="1">
     <thead>
     <tr>
-        <td>순번</td>
+        <td>판매제목</td>
         <td>상품명</td>
         <td>상품설명</td>
         <td>가격</td>
-        <td>상품등록일</td>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="itemDto, status: ${salesDtoList}">
-        <td th:text="${salesDto.salesNo}"></td>
-        <td th:text="${salesDto.productNo}"></td>
-        <td th:text="${salesDto.salesContent}"></td>
-        <td th:text="${salesDto.salesPrice}"></td>
-        <td th:text="${salesDto.regTime}"></td>
+    <tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
+        <td th:text="${list.salesTitle}"></td>
+        <td th:text="${list.productName}"></td>
+        <td th:text="${list.salesContent}"></td>
+        <td th:text="${list.salesPrice}"></td>
     </tr>
     </tbody>
 </table>

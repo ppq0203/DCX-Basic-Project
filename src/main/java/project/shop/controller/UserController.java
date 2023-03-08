@@ -327,35 +327,5 @@ public class UserController {
 		}
 		return mv;
 	}
-/*
-=======
-	
-	//비밀번호 찾기 페이지
-	@GetMapping("/pwdChange")
-	public String changePw()
-	{
-		return "/passwordChange";
-	}
->>>>>>> refs/remotes/origin/SMchoi
-	// 아이디 찾기 컨트롤
-	@PostMapping("/findId.do")
-	public ModelAndView findId(UserDto user) throws Exception
-	{
-		System.out.println("/findId.do");
-    	ModelAndView mv = new ModelAndView("/test"); 
-    	System.out.println(userService.select());
-        List<UserDto> list = userService.selectUserList(user);  
-        mv.addObject("list", list);
-		System.out.println("found");
-		
-		return mv;
-	}
-	
-<<<<<<< HEAD
-	@GetMapping("/findId.do")		//찾은아이디 결과 화면 호출
-    public String findId() throws Exception{
-		System.out.println("/found");
-    	return "/test";
-    }
-   */
+
 }

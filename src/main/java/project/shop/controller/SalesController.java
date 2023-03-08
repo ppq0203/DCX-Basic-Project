@@ -25,7 +25,7 @@ public class SalesController {
 	public String addprodPage(@ModelAttribute SalesDto sales, Model model)
 	{
 		model.addAttribute("Sales", sales);
-		return "/dbtest2";
+		return "/productWrite";
 	}
 	
 	//판매정보 호출 기반
@@ -33,7 +33,7 @@ public class SalesController {
 	public ModelAndView prodPage(SalesDto sales) throws Exception
 	{
 		System.out.println("/showprod");
-    	ModelAndView mv = new ModelAndView("/dbtest");
+    	ModelAndView mv = new ModelAndView("/productShow");
         List<SalesDto> list = salesService.selectProdList(sales);  
         mv.addObject("list", list);
 		System.out.println("found");
@@ -42,7 +42,7 @@ public class SalesController {
 	}
 	
 	//판매정보 및 상품등록
-	@PostMapping("/insertProduct")
+	@PostMapping("/addprod.do")
 	public String insertProduct(SalesDto sales) throws Exception
 	{
 		System.out.println(" [+] post "+sales);
@@ -55,6 +55,6 @@ public class SalesController {
 	{
 		salesService.insertOrder(order);
 		System.out.println("date inputed");
-		return "";
+		return "redirect:/main";
 	}
 }
