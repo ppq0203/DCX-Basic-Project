@@ -2,8 +2,10 @@ package project.shop.service;
 
 import java.util.List;
 
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import project.shop.dto.BoardDto;
 import project.shop.dto.OrderDto;
@@ -28,7 +30,5 @@ public class SalesService {
 
 	public void insertOrder(OrderDto order) {
 		shopMapper.insertOrder(order);
-		
 	}
-	
 }

@@ -1,5 +1,8 @@
 package project.shop.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.OrderDto;
@@ -48,6 +54,27 @@ public class SalesController {
 		System.out.println(" [+] post "+sales);
 		salesService.insertProduct(sales);
 		return "redirect:/showprod";
+	}
+	
+	//파일 업로드 테스트
+	@PostMapping("/upload")
+	public String upload(@RequestParam("files") MultipartFile files) throws Exception
+	{
+		String imageFileName = files.getOriginalFilename();
+		System.out.println("done :: "+imageFileName);
+		String path = "";//파일이 저장될 디렉토리 url
+		
+		Path imagePath = Paths.get(path + imageFileName);
+		
+		try {
+			System.out.println("try");
+			Files.write(imagePath, files.getBytes());
+			System.out.println("tried");
+		} catch(Exception e) {
+			
+		}
+		
+		return imageFileName;
 	}
 	
 	@PostMapping("/orderdate")
