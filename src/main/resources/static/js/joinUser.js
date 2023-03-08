@@ -61,10 +61,7 @@ function submitCheck() {
 	 confirmCheck();
 }
 
-function sendConfirm()  {
-  const target = document.getElementById('confirm');
-  target.disabled = false;
-}	
+	
 /* 타이머
 function initButton(){
 	 document.getElementById("completion").disabled = true;

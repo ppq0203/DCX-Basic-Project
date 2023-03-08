@@ -16,15 +16,3 @@ function idFind() {
 		}		
 		 confirmCheck(); 
 	 }
-function sendConfirm()  {
-  const target = document.getElementById('confirm');
-  target.disabled = false;
-}	 
-	 
-	 
-/*function initButton(){
-	document.getElementById("completion").disabled = true;
-	document.getElementById("timeLimit").innerHTML = "05:00";
-	document.getElementById("completion")
-
-}	*/
