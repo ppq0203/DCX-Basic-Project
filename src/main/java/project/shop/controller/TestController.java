@@ -47,7 +47,7 @@ public class TestController {
 	public String test(HttpSession session, UserDto userDto)
 	{
 		System.out.println(session.getAttribute("session"));
-		return "/test";
+		return "/test/test";
 	}
 	
 	@GetMapping("/insertTest")
@@ -55,7 +55,7 @@ public class TestController {
 	{
 		
 		System.out.println(userDto);
-		return "/test";
+		return "/test/test";
 	}
 	
 	@GetMapping("/mailTest")
@@ -103,19 +103,101 @@ public class TestController {
             e.printStackTrace();
         }
         
-        return "/test";
+        return "/test/test";
 	}
 
-//	//아이디 중복체크
-//	@PostMapping("/idCheck")
-//	@ResponseBody
-//	public int idCheck(@RequestParam("id") String id) {
-//		
-//		int cnt = 1;
-//		return cnt;
-//		
-//	}
-		
+	//css작업을 위한 경로설정
+	@GetMapping("/deleteUser.css")
+	public String deleteUserCSS() {
+		return "/deleteUser";
+	}
+	
+	@GetMapping("/footer.css")
+	public String footerCSS() {
+		return "/footer";
+	}
+	
+	@GetMapping("/headear.css")
+	public String headearCSS() {
+		return "/headear";
+	}
+	
+	@GetMapping("/idFind.css")
+	public String idFindCSS() {
+		return "/idFind";
+	}
+	
+	@GetMapping("/idFindSuccess.css")
+	public String idFindSuccessCSS() {
+		return "/idFindSuccess";
+	}
+	
+	@GetMapping("/joinUser.css")
+	public String joinUserCSS() {
+		return "/joinUser";
+	}
+	
+	@GetMapping("/login.css")
+	public String loginCSS() {
+		return "/login";
+	}
+	
+	@GetMapping("/mainPage.css")
+	public String mainPageCSS() {
+		return "/mainPage";
+	}
+	
+	@GetMapping("/myPage.css")
+	public String myPageCSS() {
+		return "/myPage";
+	}
+	
+	@GetMapping("/myPagePwdChange.css")
+	public String myPagePwdChangeCSS() {
+		return "/myPagePwdChange";
+	}
+	
+	@GetMapping("/passwordChange.css")
+	public String passwordChangeCSS() {
+		return "/passwordChange";
+	}
+	
+	@GetMapping("/passwordFind.css")
+	public String passwordFindCSS() {
+		return "/passwordFind";
+	}
+	
+	@GetMapping("/paymentPage.css")
+	public String paymentPageCSS() {
+		return "/paymentPage";
+	}
+	
+	@GetMapping("/productShow.css")
+	public String productShowCSS() {
+		return "/productShow";
+	}
+	
+	@GetMapping("/productWrite.css")
+	public String productWriteCSS() {
+		return "/productWrite";
+	}
+	
+	@GetMapping("/reviewWrite.css")
+	public String reviewWriteCSS() {
+		return "/reviewWrite";
+	}
+	
+	@GetMapping("/shoppingBasket.css")
+	public String shoppingBasketCSS() {
+		return "/shoppingBasket";
+	}
+	
+	@GetMapping("/userInfoChange.css")
+	public String userInfoChangeCSS() {
+		return "/userInfoChange";
+	}
+	
+	
 	
 }
 
