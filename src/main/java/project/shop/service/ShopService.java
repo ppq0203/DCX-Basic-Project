@@ -27,11 +27,11 @@ public class ShopService {
 		return resultList;
 	}
 	
-	public int select() throws Exception {
-		// TODO Auto-generated method stub
-		System.out.println("BoardService::"+shopMapper);
-		return shopMapper.select();
-	}
+//	public int select() throws Exception {
+//		// TODO Auto-generated method stub
+//		System.out.println("BoardService::"+shopMapper);
+//		return shopMapper.select();
+//	}
 
 	public void insertReview(ReviewDto review) {
 		shopMapper.insertReview(review);

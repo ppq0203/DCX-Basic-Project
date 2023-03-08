@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.CustomerServiceDto;
 import project.shop.dto.ReviewDto;
 import project.shop.dto.SalesDto;
@@ -22,7 +21,7 @@ public class ShopBoardController {
     
     @GetMapping("/writereview")		//리뷰 작성 페이지
     public String openReviewWrite() throws Exception{
-    	return "/dbtest";
+    	return "test/dbtest";
     }
     
     @PostMapping("/writereview.do") //리뷰 작성 및 호출
@@ -42,7 +41,7 @@ public class ShopBoardController {
     @GetMapping("/customer")
     public String opencustomer()
     {
-    	return "/dbtest";
+    	return "test/dbtest";
     }
     
     //문의 작성 및 호출
@@ -50,7 +49,7 @@ public class ShopBoardController {
     public ModelAndView openCustomerList(CustomerServiceDto customer) throws Exception
     {
     	boardService.insertCustomer(customer);
-    	ModelAndView mv = new ModelAndView("dbtest2");
+    	ModelAndView mv = new ModelAndView("test/dbtest2");
     	List<CustomerServiceDto> list = boardService.findCustomerList(customer);
     	mv.addObject("list", list);
     	return mv;
