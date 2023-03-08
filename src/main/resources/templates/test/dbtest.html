@@ -38,9 +38,9 @@
 			<td><textarea type="text" th:name="serviceContent"></textarea></td>
 		</tr>
 	</tr-->
-<form id="reviewfrm" name="reviewfrm" method="post" action="/orderdate">
+<form id="reviewfrm" name="reviewfrm" method="post" action="/upload" enctype="multipart/form-data">
 	<table>
-		<input type="file" multiple="multiple" name="files">
+		<input type="file" multiple="multiple" accept="image/*" th:name="files">
 	</table>
 <input type="submit" value="작성">
 <input type="submit" value="취소"> 
