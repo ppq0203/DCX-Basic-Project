@@ -22,7 +22,7 @@ public class ShopBoardController {
     
     @GetMapping("/writereview")		//리뷰 작성 페이지
     public String openReviewWrite() throws Exception{
-    	return "/dbtest";
+    	return "/reviewWrite";
     }
     
     @PostMapping("/writereview.do") //리뷰 작성 및 호출

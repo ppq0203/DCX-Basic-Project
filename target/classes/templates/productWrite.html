@@ -6,39 +6,47 @@
 </head>
 <!-- 상품등록-->
 <body>
-<form>
-<div>
-    상품명 : <span th:text="${salesDto.ProductName}"></span>
-</div>
-<div>
-    상품사진 : <span th:text="${salesDto.salesImg}"></span>
-</div>
-	
-<div>
-    상품상세설명 : <span th:text="${salesDto.salesContent}" style="width:300px; height:200px;"></span>
-</div>	
-<div>
-    상품등록일 : <span th:text="${salesDto.regTime}"></span>
-</div>
-<div>
-    상품가격 : <span th:text="${salesDto.salesPrice}"></span>
-</div>
-
-<p th:text="${salesDto.ProductCategory}">카테고리 
- <select name="job">
-    <option value="">선택</option>
-    <option value="의류">의류</option>
-    <option value="뷰티">뷰티/잡화</option>
-    <option value="식품">식품/생필품</option>
-    <option value="기구">기구</option>
-    <option value="가전제품">가전제품</option>
-    <option value="가전제품">스포츠 장비</option>
- </select>
-</p>
-<p>
+<form id="addprod" name="addprod" method="post" action="/addprod.do">
+	<table>
+		<tr>
+			<td>판매제목</td>
+			<td><input type="text" th:name="salesTitle" placeholder="제목"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품명</td>
+			<td><input type="text" th:name="productName" placeholder="상품명"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품사진</td>
+			<td><input type="text" th:name="salesImg" placeholder="상품이미지"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상세설명</td>
+			<td><textarea type="text" th:name="salesContent" placeholder="상세설명"class= "text"></textarea></td>
+		</tr>
+		<tr>
+			<td>상품가격</td>
+			<td><input type="text" th:name="salesPrice" placeholder="가격"class= "text"></td>
+		</tr>
+		<tr>
+			<td>재고량</td>
+			<td><input type="text" th:name="salesCount" placeholder="재고"class= "text"></td>
+		</tr>
+		<tr>
+			<td>상품종류</td>
+			<td><select th:name="productCategory">
+				<option value="">선택</option>
+			    <option value="cloth">의류</option>
+			    <option value="beauty">뷰티/잡화</option>
+			    <option value="food">식품/생필품</option>
+			    <option value="tools">기구</option>
+			    <option value="it">가전제품</option>
+			    <option value="sports">스포츠 장비</option>
+			</select></td>
+		</tr>
+	</table>
 <input type="submit" value="등록">
-<input type="submit" value="취소">
-</p>
+<input type="reset" value="취소">
 </form>
 </body>
 </html>
