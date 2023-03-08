@@ -74,7 +74,7 @@ public class SalesController {
 			
 		}
 		
-		return imageFileName;
+		return "redirect:/upload";
 	}
 	
 	@PostMapping("/orderdate")
