@@ -58,23 +58,25 @@ public class SalesController {
 	
 	//파일 업로드 테스트
 	@PostMapping("/upload")
-	public String upload(@RequestParam("files") MultipartFile files) throws Exception
+	public String upload(@RequestParam("files") List<MultipartFile> files) throws Exception
 	{
-		String imageFileName = files.getOriginalFilename();
-		System.out.println("done :: "+imageFileName);
-		String path = "";//파일이 저장될 디렉토리 url
-		
-		Path imagePath = Paths.get(path + imageFileName);
-		
-		try {
-			System.out.println("try");
-			Files.write(imagePath, files.getBytes());
-			System.out.println("tried");
-		} catch(Exception e) {
+		for(MultipartFile file : files)
+		{
+			String imageFileName = file.getOriginalFilename();
+			System.out.println("done :: "+imageFileName);
+			String path = "/Users/kasher/git/DCX-Basic-Project/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
 			
+			Path imagePath = Paths.get(path + imageFileName);
+			
+			try {
+				System.out.println("try");
+				Files.write(imagePath, file.getBytes());
+				System.out.println("tried");
+			} catch(Exception e) {
+				
+			}
 		}
-		
-		return "redirect:/upload";
+		return "redirect:/main";
 	}
 	
 	@PostMapping("/orderdate")
