@@ -1,7 +1,13 @@
 @charset "UTF-8";
 #review{
+	width:400px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
 	position: absolute;
-	top: 40%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
@@ -33,6 +39,7 @@ label{
 	position: absolute;
 	left: 75px;
 	background-color: #50bcdf;
+	bottom: -70px;
 }
 .button1{
 	font-size:17px;
@@ -45,6 +52,11 @@ label{
 	position: absolute;
 	right: 75px;
 	background-color: #50bcdf;
+	bottom: -70px;
+}
+table,tr,td{
+	word-break:break-all;
+	table-layout:fixed;
 }
 table{
 	width: 100%;
@@ -52,5 +64,5 @@ table{
 td{
 	padding:10px;
 	text-align: left;
-	 vertical-align : top;
+	vertical-align : top;
 }
