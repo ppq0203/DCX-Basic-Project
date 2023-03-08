@@ -64,7 +64,7 @@ public class SalesController {
 		{
 			String imageFileName = file.getOriginalFilename();
 			System.out.println("done :: "+imageFileName);
-			String path = "/Users/kasher/git/DCX-Basic-Project/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
+			String path = "";//파일이 저장될 디렉토리 url
 			
 			Path imagePath = Paths.get(path + imageFileName);
 			
