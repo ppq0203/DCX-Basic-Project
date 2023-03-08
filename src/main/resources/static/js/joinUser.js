@@ -10,7 +10,14 @@ function submitCheck() {
 	{
 		alert("아이디를 20자 이내 입력해주세요");
 		return;
-	} 
+	}	
+	/*if(frmFind.userId.value.length>1) {
+		button.disabled = false; // 활성화
+	}
+	else {
+		button.disabled = true; // 비활성화
+	}*/
+
 	if(id_overlap!=0)
 	{
 		alert("아이디 중복확인을 해주세요");
@@ -61,10 +68,36 @@ function submitCheck() {
 	 confirmCheck();
 }
 
+$(document).ready(function() {
+    $('button').prop('disabled', true);
+    $('input[type=text]').on('input', function() {
+        $('button').prop('disabled', !$(this).val());
+    });
+});
+
+/*document.getElementById('userId').addEventListener('input', function(event) {
+    document.getElementById('Btn').disabled = !this.value;
+}, false);*/
+
+
+
+/*function Btn() {
+	if($('#userID') = "") {
+		button.disabled = false; // 활성화
+	}
+	else {
+		button.disabled = true; // 비활성화
+	}
+}*/
+
+/*$(function() {
+	$("#userId").on('input', function(){
+		if($("#userId").val() =='')
+			$("#Btn").arr("disabled", true);
+		else
+			$("#Btn").arr("disabled", false);
+		});
 	
-/* 타이머
-function initButton(){
-	 document.getElementById("completion").disabled = true;
-	 document.getElementById("timeLimit").innerHTML = "05:00";
-}	
-*/
+})*/
+
+	

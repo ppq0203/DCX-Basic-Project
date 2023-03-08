@@ -1,4 +1,4 @@
-function sendConfirm()  {
+function confirmTimer()  {
   	const target = document.getElementById('confirm');
   	target.disabled = false;
   
@@ -10,6 +10,9 @@ function sendConfirm()  {
 	// 이미 타이머가 작동중이면 중지
 	if (isRunning){
 	   clearInterval(timer);
+	   alert("인증시간이 초과하였습니다. 다시 인증해주시기 바랍니다.");
+	   window.close();
+       window.opener.location = "/index.do"
 	} else {
     	isRunning = true;
     }
