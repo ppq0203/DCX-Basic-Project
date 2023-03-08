@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>상품 리스트</title>
+	<link rel="stylesheet" th:href="@{/css/productShow.css}"></link>
 </head>
 <body>
-
-<h1>상품 리스트</h1>
-<table border="1">
-    <thead>
-    <tr>
-        <td>판매제목</td>
-        <td>상품명</td>
-        <td>상품설명</td>
-        <td>가격</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
-        <td th:text="${list.salesTitle}"></td>
-        <td th:text="${list.productName}"></td>
-        <td th:text="${list.salesContent}"></td>
-        <td th:text="${list.salesPrice}"></td>
-    </tr>
-    </tbody>
-</table>
+<div>
+	<h1>상품 리스트</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<td class="td1">순번</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="td1">상품명</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="td1">상품설명</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="td1">가격</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td  class="td1">상품등록일</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="itemDto, status: ${salesDtoList}">
+				<td th:text="${salesDto.salesNo}"></td>
+				<td th:text="${salesDto.productNo}"></td>
+				<td th:text="${salesDto.salesContent}"></td>
+				<td th:text="${salesDto.salesPrice}"></td> 
+				<td th:text="${salesDto.regTime}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>

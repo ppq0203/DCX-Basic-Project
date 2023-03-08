@@ -1,0 +1,33 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/*움직이게하는놈*/
+.wrapper{
+	width:1170px;
+	margin:0 auto;
+}
+
+/*머리*/
+#main{
+	height: 75px;
+	background-color: firebrick;
+	border: 1px;
+	border-color: #253342;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+	top: 75px;
+	left: 0;
+}
+#main ul li{
+	float: left;
+	
+}
