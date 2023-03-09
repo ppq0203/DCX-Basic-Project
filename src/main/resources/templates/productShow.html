@@ -6,41 +6,29 @@
 	<link rel="stylesheet" th:href="@{/css/productShow.css}"></link>
 </head>
 <body>
-<div>
-	<h1>상품 리스트</h1>
-	<table border="1">
-		<thead>
-			<tr>
-				<td class="td1">순번</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="td1">상품명</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="td1">상품설명</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="td1">가격</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td  class="td1">상품등록일</td>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="itemDto, status: ${salesDtoList}">
-				<td th:text="${salesDto.salesNo}"></td>
-				<td th:text="${salesDto.productNo}"></td>
-				<td th:text="${salesDto.salesContent}"></td>
-				<td th:text="${salesDto.salesPrice}"></td> 
-				<td th:text="${salesDto.regTime}"></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<h1>상품 리스트</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <td  class="td1">판매제목</td>
+        <td  class="td1">상품명</td>
+        <td  class="td1">상품설명</td>
+        <td  class="td1">가격</td>
+        <td  class="td1">이미지</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+		<td th:text="${list.salesTitle}"></td>
+        <td th:text="${list.productName}"></td>
+        <td th:text="${list.salesContent}"></td>
+        <td th:text="${list.salesPrice}"></td>
+        <td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}"></img></td>
+        <th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
+			<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
+		</th:block>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
