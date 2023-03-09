@@ -38,9 +38,11 @@ public class SalesController {
 	{
 		System.out.println("/showprod");
     	ModelAndView mv = new ModelAndView("/productShow");
-        List<SalesDto> list = salesService.selectProdList(sales);  
+        List<SalesDto> list = salesService.selectProdList(sales);
+        System.out.println(list);
+        
         mv.addObject("list", list);
-		System.out.println("found");
+		System.out.println(mv);
 		
 		return mv;
 	}
@@ -52,8 +54,7 @@ public class SalesController {
 		String imageFileName = "";
 		for(MultipartFile file : sales.getImageFile())
 		{
-			imageFileName = imageFileName + "$%$" + file.getOriginalFilename();
-			System.out.println("done :: "+imageFileName);
+			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
 			String path = "";//파일이 저장될 디렉토리 url
 			
 			Path imagePath = Paths.get(path + imageFileName);

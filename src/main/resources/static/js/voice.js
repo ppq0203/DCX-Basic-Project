@@ -67,7 +67,7 @@ $(document).ready(function(){
         }
     });
     
-	$(".hoverVoice").hover(function(e){
+	$(".hoverVoice").mouseenter(function(e){
 		if(voiceState == 0)
 		{
 			voiceState = 1;
@@ -77,6 +77,5 @@ $(document).ready(function(){
 	        speech(input.innerHTML, finishVoice);
 		}
     });
-    
     
 });

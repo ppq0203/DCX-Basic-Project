@@ -31,12 +31,12 @@ public class UserController {
 	}
 	//로그인 입력시 확인
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
-    public String postLogin(HttpSession session, UserDto user) throws Exception{
+    public String postLogin(HttpSession session, UserDto userDto) throws Exception{
 			System.out.println("postLogin");
     	String src = null;
-    	UserDto getUserDto = userService.findUser(user);	//ID 정보로 유저정보 확인
+    	UserDto getUserDto = userService.findUser(userDto);	//ID 정보로 유저정보 확인
         System.out.println("post" + getUserDto);	//유저정보 제대로 받아왔는지 확인
-    	if (getUserDto != null && user.getUserPw().equals(getUserDto.getUserPw()))	//해당id정보있는지 확인후 비밀번호 비교
+    	if (getUserDto != null && userDto.getUserPw().equals(getUserDto.getUserPw()))	//해당id정보있는지 확인후 비밀번호 비교
     	{
     		session.setAttribute("userDto", getUserDto);	//세션에 유저정보 저장
     		src = "redirect:/main"; 		//메인 창으로 이동
@@ -306,7 +306,8 @@ public class UserController {
 	{
 		ModelAndView mv;
 		System.out.println("/postDeleteUser");
-		Object user = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		Object user = session.getAttribute("userDto"); //세션에 저장된 유저정보 불러옮
+		System.out.println("user :: " +user);
 		if(user == null)	//세션에 정보가 없으면
 			return new ModelAndView("redirect:/login");			//로그인 페이지로 이동
 		

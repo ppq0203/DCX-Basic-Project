@@ -126,6 +126,7 @@
 		SELECT * FROM Sales 
 		LEFT OUTER JOIN
 		product ON sales.product_no = product.product_no
+		ORDER BY sales_no asc
 	</select>
 	
 	<!-- 리뷰 작성 쿼리문 -->

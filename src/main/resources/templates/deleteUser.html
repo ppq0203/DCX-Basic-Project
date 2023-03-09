@@ -9,6 +9,8 @@
 			top.alert("[[${message}]]");
 		</script>
 	</th:block>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
 </head>
 <body>
 회원탈퇴
@@ -16,6 +18,8 @@
 	
 		<br>비밀번호 입력
 		<input type="password" id="userPw" name="userPw">
+		
+		<span class="voiceExplain">테스트</span>
 		<button id="change-btn">탈퇴</button>
 		<input type="button" value="취소" onClick="location.href='/myPage'">
 	</form>
