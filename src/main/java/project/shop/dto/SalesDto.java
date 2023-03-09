@@ -1,5 +1,9 @@
 package project.shop.dto;
 
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 /**
@@ -19,5 +23,6 @@ public class SalesDto {
 	private int productNo;
 	private String ProductName;
 	private String ProductCategory;
+	private List<MultipartFile> imageFile;
 	
 }

@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,20 +47,12 @@ public class SalesController {
 	
 	//판매정보 및 상품등록
 	@PostMapping("/addprod.do")
-	public String insertProduct(SalesDto sales) throws Exception
+	public String insertProduct(@ModelAttribute SalesDto sales) throws Exception
 	{
-		System.out.println(" [+] post "+sales);
-		salesService.insertProduct(sales);
-		return "redirect:/showprod";
-	}
-	
-	//파일 업로드 테스트
-	@PostMapping("/upload")
-	public String upload(@RequestParam("files") List<MultipartFile> files) throws Exception
-	{
-		for(MultipartFile file : files)
+		String imageFileName = "";
+		for(MultipartFile file : sales.getImageFile())
 		{
-			String imageFileName = file.getOriginalFilename();
+			imageFileName = imageFileName + "$%$" + file.getOriginalFilename();
 			System.out.println("done :: "+imageFileName);
 			String path = "";//파일이 저장될 디렉토리 url
 			
@@ -76,7 +66,11 @@ public class SalesController {
 				
 			}
 		}
-		return "redirect:/main";
+		sales.setSalesImg(imageFileName);
+		System.out.println(" [+] post :: "+sales);
+		salesService.insertProduct(sales);
+		
+		return "redirect:/showprod";
 	}
 	
 	@PostMapping("/orderdate")
