@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<meta charset="UTF-8">
-<title>ID 찾기</title>
+	<meta charset="UTF-8">
+	<title>ID 찾기</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" th:href="@{/css/idFind.css}"></link>
 	<!-- 음성 -->
 	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
@@ -29,17 +29,16 @@
 				<label>인증코드</label>
 				<span class="voiceExplain">인증코드를 5분 이내로 입력해주세요</span>	
 				<input type=text disabled th:id="confirm" th:name="confirm" placeholder="인증코드" class= "focusVoice text">
-				<span id="timer">05:00</span>
-<!--  			<button disabled id="completion" onclick="checkCompletion()"></button>
--->	           	
+				<span id="timer">05:00</span>          	
        		</div>
 			
-			<input type="button" value="찾기" onClick="idFind()" class="button1">
-			<input type="button" value="취소" onClick="location.href='/login'" class="button2"> 
+			<span class="voiceExplain">아이디찾기 버튼입니다</span>
+			<input type="button" value="찾기" onClick="idFind()" class="hoverVoice button1">
+			<span class="voiceExplain">취소 버튼입니다</span>
+			<input type="button" value="취소" onClick="location.href='/login'" class="hoverVoice button2"> 
 		</form>
 	</div>
 <script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" th:src="@{/js/idFind.js}"></script>
 <script type="text/javascript" th:src="@{/js/timer.js}"></script>
 </body>

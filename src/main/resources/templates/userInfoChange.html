@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" th:href="@{/css/userInfoChange.css}"></link>
 <!-- 회원정보 변경 -->
 </head>
 <body>	
 	<div id="userChange">
-	<form name="userInfoChange" method="post" action="/userInfoChange">
+	<form name="userInfoChange" method="post" action="/userInfoChange" class="uc">
 	<h1>회원정보 변경</h1>
 		<div class="form-group">
 			<label>휴대폰 번호</label>
@@ -18,8 +19,8 @@
 			<input type="text" th:name="userAddress" th:value="${address}" placeholder="주소" class= "text">
 		</div>	
 			   
-		<input type="submit" value="회원정보 변경" onClick="location.href='myPage.html'">
-		<input type="button" value="취소" onClick="location.href='/myPage'">
+		<input type="submit" value="회원정보 변경" onClick="location.href='myPage.html'" class="button1">
+		<input type="button" value="취소" onClick="location.href='/myPage'" class="button2">
 	</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>

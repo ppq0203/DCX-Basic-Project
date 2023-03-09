@@ -16,7 +16,6 @@ if (window.speechSynthesis.onvoiceschanged !== undefined) {
 }
 
 function speech(txt, callback) {
-	console.log("speech");
   	if(!window.speechSynthesis) {
     	alert("음성 재생을 지원하지 않는 브라우저입니다. 크롬, 파이어폭스 등의 최신 브라우저를 이용하세요");
     	return;
@@ -45,8 +44,6 @@ function speech(txt, callback) {
   	utterThis.pitch = 1;
   	utterThis.rate = 1;  //속도
   	window.speechSynthesis.speak(utterThis);
-  	
-	console.log("speechend");
 }
 
 // document.addEventListener("click", function(e) {
@@ -70,7 +67,7 @@ $(document).ready(function(){
         }
     });
     
-	$(".hoverVoice").hover(function(e){
+	$(".hoverVoice").mouseenter(function(e){
 		if(voiceState == 0)
 		{
 			voiceState = 1;
@@ -81,15 +78,4 @@ $(document).ready(function(){
 		}
     });
     
-    
 });
-
-// 여기시부터
-
-/*const span = document.getElementById('voiceExplain');
-
-const result = document.getElementById('result');
-
-div.addEventListener('mousemove', (event) => {
-  result.innerHTML+= '<div>mousemove</div>';
-});*/

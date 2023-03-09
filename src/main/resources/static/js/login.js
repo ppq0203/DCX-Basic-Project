@@ -15,5 +15,54 @@ function loginFunc() {
 	}
 	$('.submitForm').submit();
 }
+/*
+$(document).on('mouseenter', '.button2,.button3.button4', function(e){
+		if(voiceState == 0)
+		{
+			voiceState = 1;
+			console.log("hover");
+	        var t = e.target;	//포커스 이벤트가 발생한 해당태그 저장
+	        var input = t.previousElementSibling;	//포커스 잡힌 앞의 태그 저장
+	        speech(input.innerHTML, finishVoice);
+		}
+});*/
+/*
+$(document).on('mouseenter', '.button3', function(e){
+		if(voiceState == 0)
+		{
+			voiceState = 1;
+			console.log("hover");
+	        var t = e.target;	//포커스 이벤트가 발생한 해당태그 저장
+	        var input = t.previousElementSibling;	//포커스 잡힌 앞의 태그 저장
+	        speech(input.innerHTML, finishVoice);
+		}
+});
+
+$(document).on('mouseenter', '.button4', function(e){
+		if(voiceState == 0)
+		{
+			voiceState = 1;
+			console.log("hover");
+	        var t = e.target;	//포커스 이벤트가 발생한 해당태그 저장
+	        var input = t.previousElementSibling;	//포커스 잡힌 앞의 태그 저장
+	        speech(input.innerHTML, finishVoice);
+		}
+});
+
+*/
+/*const span = document.getElementById('voiceExplain');
+const result = document.getElementById('result');
+
+div.addEventListener('mousemove', (event) => {
+  result.innerHTML+= '<div>mousemove</div>';
+});*/
+
+
+
+
+
+
+
+
 
 
