@@ -3,61 +3,76 @@
 	margin: 0;
 	padding: 0;
 }
-li{
-	list-style: none;
-}
 a{
-	text-decoration: none;
+	text-decoration: none;/*a 관련 및줄 지우기*/
 }
-/*움직이게하는놈*/
-.wrapper{
-	width:1170px;
-	margin:0 auto;
+li{
+	list-style: none;/*점지우기*/
 }
-.clearfix{
-	content:'';
-	display: block;
-	clear: both;
-}
+
 /*머리*/
 header{
-	height: 75px;
+	height: 80px;
 	background-color: #006f84;
 	border: 1px;
 	border-color: #253342;
 	position: fixed;
 	width: 100%;
-	z-index: 9999;
+	z-index: 10;
 	top: 0px;
-	left: 0;
+	left: 0px;
 }
-h1{
+#HeaderMain{/*망할*/
+/*	background-color: red; /*확인용*/
+	width:1100px;
+	height: 60px;
+	margin:0 auto;
+}
+#HeaderMain h1 a{/*사조참치 수정*/
+	position: absolute;
 	color: white;
-	line-height: 75px;
-	float: left;
+	text-align: center;
+	bottom: 20px;
+	overflow: hidden;
+/*	background-color: greenyellow;   확인용*/
 }
-.Text{
+#HeaderMain input{ /*입력창 수정*/
+	width: 500px; /*사이즈*/
+	height: 30px; /*사이즈*/
 	position: relative;
-	top: 20px;
-	left: -100%;
-	width: 500px;
-	height: 30px;
+	left: 200px;
+	top: 25px;
+	overflow: hidden;
 }
-.TB{
-	width: 50px;
-	height: 30px;
+#HeaderMain button{
+	width: 50px; /*사이즈*/
+	height: 32px; /*사이즈*/
 	position: relative;
-	top: -12px;
+	top: 27px;
+	left:200px;
 }
-.menu{
-	float: right;
+/*  로그인 아웃 마이페이지   */
+nav{
+	position: relative;
+	top: -15px;
+	left: 800px;
+	height: 40px;
+	text-decoration: none;/*a 관련 및줄 지우기*/
+	
+/*	background-color: greenyellow;/*확인용*/
 }
-.menu li{
-	float: left;
+/*	list-style: none;/*점지우기*/
+
+.menu {
+	list-style:  none;
 }
-.menu a{
-	line-height: 40px;
-	color:white;
-	padding: 0 15px;
-	display: block;
+.menu div{
+	display: inline-flex; /*div 가로 정렬*/
+	margin: 0px;
+}
+.menu li a{
+	color: black;
+/*	background-color: greenyellow;/*확인용*/
+	float: left; /*li a 가로 정렬*/
+	margin:10px;
 }
