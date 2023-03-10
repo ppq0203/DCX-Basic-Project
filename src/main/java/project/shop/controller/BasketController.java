@@ -59,7 +59,9 @@ public class BasketController {
 	//장바구니 변경
 	@PostMapping("/changeBasket")
 	@ResponseBody
-	public void changeBasket(HttpSession session,@RequestParam("salesDto") SalesDto salesDto, @RequestParam("amount") int amount) throws Exception {
+	public void changeBasket(HttpSession session,@RequestParam("salesNo") int salesNo, @RequestParam("amount") int amount) throws Exception {
+		SalesDto salesDto = new SalesDto();
+		salesDto.setSalesNo(salesNo);
 		BasketDto basketDto = new BasketDto();	//basketDto 생성
 		basketDto.setSalesDto(salesDto);
 		ArrayList<BasketDto> baskets;
@@ -68,7 +70,6 @@ public class BasketController {
 		
 		int index = baskets.indexOf(basketDto);
 		baskets.get(index).setAmount(amount);
-		session.setAttribute("baskets", baskets);
 		return;
 	}
 	

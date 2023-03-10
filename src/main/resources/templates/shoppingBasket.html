@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-<meta charset="UTF-8">
-<title>장바구니 페이지</title>
+	<meta charset="UTF-8">
+	<title>장바구니 페이지</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script th:src="@{/js/shoppingBasket.js}"></script>
+	
+	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+	    var baskets = /*[[ ${baskets} ]]*/
+	    /*]]*/
+	</script>
+	
 </head>
 <!-- 장바구니 페이지 -->
 <body>
@@ -24,7 +34,11 @@
 	        <td th:text="${basket.salesDto.salesTitle}"></td>
 	        <td><img th:src="${'files/'+#strings.setSplit(basket.salesDto.salesImg, '$%$')[0]}"></img></td>
 	        <td th:text="${basket.salesDto.salesPrice}"></td>
-	        <td th:text="${basket.amount}"></td>
+	        <td>
+	        	<!-- js에서 사용하기위해 input hidden 과 input number 같이 있어야함 -->
+	        	<input hidden="hidden" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}"/>
+	        	<input type="number" th:value="${basket.amount}" min="1" max="99" onchange="amounChange(this)">
+        	</td>
 	        <td><button type = "submit" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}">X</button></td>
 	        
 	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
@@ -33,7 +47,11 @@
 	    </tr>
 	    </tbody>
 	</table>
+	<span class="totalPrice"></span>
 	<p><a href=paymentPage.html>결제하러가기</a></p>
 </form>
+<script>
+	totalPriceFix();
+</script>
 </body>
 </html>
