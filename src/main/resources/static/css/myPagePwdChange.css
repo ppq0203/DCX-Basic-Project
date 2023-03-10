@@ -19,6 +19,9 @@ label{ /*비밀번호 확인 조정*/
 	text-align: left; /*text위치*/
 	font-size: 20px; /*사이즈*/
 }
+.text{
+	height: 30px;
+}
 .pwdtext{
 	height: 30px;
 	float: right;
@@ -32,6 +35,7 @@ label{ /*비밀번호 확인 조정*/
 	border-radius: 5px;
 	position: absolute;
 	left: 90px;
+	bottom: 5px;
 }
 .button1{
 	font-size:17px;
@@ -42,4 +46,5 @@ label{ /*비밀번호 확인 조정*/
 	border-radius: 5px;
 	position: absolute;
 	right: 90px;
+	bottom: 5px;
 }
