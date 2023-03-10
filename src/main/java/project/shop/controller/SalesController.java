@@ -58,11 +58,12 @@ public class SalesController {
 	
 	//판매정보 호출 기반
 		@GetMapping("/listprod")
-		public ModelAndView prodlist(SalesDto sales) throws Exception
+		public ModelAndView prodlist(@RequestParam("productCategory") String cate) throws Exception
 		{
 			System.out.println("/listprod");
+			System.out.println(cate);
 	    	ModelAndView mv = new ModelAndView("test/dbtest");
-	        List<SalesDto> list = salesService.selectProdList(sales);
+	    	List<SalesDto> list = salesService.selectCateList(cate);
 	        
 	        mv.addObject("list", list);
 			System.out.println(mv);
