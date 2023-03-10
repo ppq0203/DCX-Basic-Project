@@ -87,4 +87,18 @@ public class BasketController {
 		mv.addObject("baskets", session.getAttribute("baskets"));
 		return mv;
 	}
+	
+	@PostMapping("/basketUpdate")
+	public String basketUpdate(HttpSession session, SalesDto salesDto) throws Exception
+	{
+		SalesDto sales = salesService.findProd(salesDto.getSalesNo());
+		BasketDto basketDto = new BasketDto(); 
+		basketDto.setSalesDto(salesDto);
+		
+		ArrayList<BasketDto> baskets;
+		baskets = (ArrayList<BasketDto>)session.getAttribute("baskets");
+		
+		baskets.remove(basketDto);
+		return "redirect:/showBasket";
+	}
 }

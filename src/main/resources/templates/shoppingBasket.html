@@ -8,7 +8,7 @@
 <body>
 
 
-<form id="listfrm" name="listfrm" method = "post" action="/paymentPage">
+<form id="listfrm" name="listfrm" method = "post" action="/basketUpdate">
 	<table border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}">
 	    <thead>
 	    <tr>
@@ -16,6 +16,7 @@
 			<td  class="td1">썸네일</td>
 			<td  class="td1">가격</td>
 			<td  class="td1">수량</td>
+			<td  class="td1">삭제</td>
 		</tr>
 	    </thead>
 	    <tbody>
@@ -24,6 +25,7 @@
 	        <td><img th:src="${'files/'+#strings.setSplit(basket.salesDto.salesImg, '$%$')[0]}"></img></td>
 	        <td th:text="${basket.salesDto.salesPrice}"></td>
 	        <td th:text="${basket.amount}"></td>
+	        <td><button type = "submit" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}">X</button></td>
 	        
 	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
 				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
