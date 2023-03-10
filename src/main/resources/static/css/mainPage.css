@@ -6,7 +6,7 @@
 
 .wrapper{ /*창을 줄여도 따라옴*/
 	width:1170px;
-	margin:0 auto;
+	margin:0 auto; /*대칭*/
 }
 
 /*머리*/
