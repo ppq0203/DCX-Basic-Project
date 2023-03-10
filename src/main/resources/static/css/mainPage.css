@@ -26,6 +26,7 @@
 	top: 0px;
 	bottom: 0px;
 	overflow: hidden;/*박스를 넘으면 안보임*/
+	text-align: center;
 	background-color:white;
 }
 #main ul li{
@@ -33,10 +34,8 @@
 	/*background-color: #2d2d2d; /*박스 색상*/
 	text-align: center; /*박스 안 글 위치*/
 	list-style: none; /*점 지움*/
-	display:  inline-block;
-	position: relative;
-	left: 25%;
-
+	display:  inline-block; /*박스 나열하기*/
+	margin-right: auto;
 }
 #main ul li a{
 	text-decoration: none; /*밑줄 지움*/
