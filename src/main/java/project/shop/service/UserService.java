@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.UserDto;
 import project.shop.mapper.ShopMapper;
 
@@ -13,12 +12,6 @@ import project.shop.mapper.ShopMapper;
 public class UserService {
 	@Autowired //Mapper와 연결
 	private ShopMapper shopMapper;
-	
-//	public int select() throws Exception {
-//		// TODO Auto-generated method stub
-//		System.out.println("UserService::"+shopMapper);
-//		return shopMapper.select();
-//	}
 	
 	public List<UserDto> selectUserList(UserDto user) throws Exception {
 		System.out.println("UserService::"+shopMapper);

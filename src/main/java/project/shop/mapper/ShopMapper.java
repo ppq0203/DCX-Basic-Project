@@ -13,13 +13,10 @@ import project.shop.dto.UserDto;
 @Mapper //Mapper라고 선언함
 public interface ShopMapper {
 	// 여기서 지정한 메서드의 이름은 쿼리의 이름과 동일해야 함 (selectBoardList)
-//	List<BoardDto> selectBoardList() throws Exception;
 	List<UserDto> findAllUser(UserDto user) throws Exception; //모든 유저 정보받기
 	List<ReviewDto> findReviewList(ReviewDto review)throws Exception; //모든 리뷰 정보 받
 	List<SalesDto> findAllProd(SalesDto sales) throws Exception; //모든 상품 정보받기
 	List<CustomerServiceDto> findCustomerList(CustomerServiceDto customer); // 문의사항 정보받기
-//	int select() throws Exception;
-//	void insertBoard(BoardDto board);
 	void insertReview(ReviewDto review); //리뷰등록
 	void insertUser(UserDto user); //회원가입
 	void insertProduct(SalesDto sales); //상품등록
