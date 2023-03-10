@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>비밀번호 수정</title>
+	<!--css-->
+	<link rel="stylesheet" th:href="@{/css/myPagePwdChange.css}"></link>
 	<!-- 음성 -->
 	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
 	<!-- 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
@@ -13,21 +15,22 @@
 		</th:block>
 </head>
 <body>
+<div id="Test">
 	<div id="myPwdChange">
 	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">
 		<h1>비밀번호 변경</h1>
 			<div class="form-group">
 				<label>비밀번호 확인</label>
+				<input type="password" th:id="userPwCheck" th:name="userPwCheck" class="focusVoice text pwdtext" placeholder="비밀번호 확인"/>
 				<span class="voiceExplain">비밀번호를 확인해주세요</span>
-				<input type="password" th:id="userPwCheck" th:name="userPwCheck" class="focusVoice text" placeholder="비밀번호 확인"/>
 			</div>
-			
 		<span class="voiceExplain">확인 버튼입니다</span>
-		<input type="button" id="change-btn" value="확인" class="hoverVoice button2">
+		<input type="button" id="change-btn" value="확인" class="hoverVoice button">
 		<span class="voiceExplain">취소 버튼입니다</span>
-		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button">
+		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button1">
 	</form>
 	</div>
+</div>
 </body>
 </html>
 

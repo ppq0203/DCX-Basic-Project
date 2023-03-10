@@ -1,0 +1,45 @@
+@charset "UTF-8";
+#Test{ /*센터로*/
+	width:400px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /*모든 컨탠츠 가운데로*/
+	align-items:center; /*컨탠츠 가운데로*/
+	position: absolute; /*위치*/
+	top: 50%;  /*위쪽 끝단부터 박스까지 거리*/
+	left: 50%; /*왼쪽 끝단부터 박스까지 거리*/
+	transform: translate(-50%,-50%); /*정밀 중앙으로*/
+}
+h1{ /*위치조정*/
+	padding-bottom: 20px;
+}
+label{ /*비밀번호 확인 조정*/
+	flex: 1; /*공간맞추기*/
+	text-align: left; /*text위치*/
+	font-size: 20px; /*사이즈*/
+}
+.pwdtext{
+	height: 30px;
+	float: right;
+}
+.button{
+	font-size:17px;
+	width:90px;
+	height:45px;
+	background-color: #ff7f00;
+	border: none;
+	border-radius: 5px;
+	position: absolute;
+	left: 90px;
+}
+.button1{
+	font-size:17px;
+	width:90px;
+	height: 45px;
+	background-color: #50bcdf;
+	border: none;
+	border-radius: 5px;
+	position: absolute;
+	right: 90px;
+}
