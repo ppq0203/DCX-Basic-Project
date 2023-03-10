@@ -76,3 +76,18 @@ label{
 	position: absolute;
 	right : -5px;
 }
+.IdText{
+	position: fixed;
+	top: 2px;
+	right: -350px;
+	width: 300px;
+	height: 15px;
+	
+}
+.EmailText{
+	position: fixed;
+	bottom: 59px;
+	right: -420px;
+	width: 300px;
+	height: 15px;
+}
