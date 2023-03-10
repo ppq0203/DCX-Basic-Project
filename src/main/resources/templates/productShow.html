@@ -3,12 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>상품 리스트</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" th:href="@{/css/productShow.css}"></link>
+	
+	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+	    var salesNo = /*[[ ${sales.salesNo} ]]*/
+	    /*]]*/
+	</script>
+	
+	<script type="text/javascript" th:src="@{/js/addBasket.js}"></script>
+	
 </head>
 <body>
+
 <h1>상품 리스트</h1>
 <table border="1">
     <thead>
+	<tr>
+		<td colspan = "2" >
+			<button type="button" id="Btn2" onclick="a">즉시구매</button>
+		</td>
+		<td colspan = "2" >
+			<button type="button" id="Btn2" onclick="addBasket()">장바구니 담기</button>
+		</td>
+	</tr>
     <tr>
 		<td  class="td1">판매제목</td>
 		<td th:text="${sales.salesTitle}"></td>
