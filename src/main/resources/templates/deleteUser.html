@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
+	<!-- css -->
+	<link rel="stylesheet" th:href="@{/css/deleteUser.css}"></link>
 <!-- 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
 	<th:block th:if="${alertOption == 1}">
 		<script>
@@ -13,6 +15,7 @@
 	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
 </head>
 <body>
+<div id="Test">
 	<form id="cpwd" name="cpwd" method="post" action="/deleteUser" class="submitForm">
 		<h1>회원탈퇴</h1>
 		 <div class="form-group">
@@ -21,11 +24,11 @@
 			<input type="password" th:id="userPw" th:name="userPw" class="focusVoice text" placeholder="비밀번호 입력">		 	
 		 </div>
 		 <span class="voiceExplain">탈퇴 버튼입니다</span>
-		 <input type="button" value="탈퇴" id="change-btn" onclick="submitCheck()" class="hoverVoice button2">
+		 <input type="button" value="탈퇴" id="change-btn" onclick="submitCheck()" class="hoverVoice button1">
 		 <span class="voiceExplain">취소 버튼입니다</span>
-		 <input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button3">
+		 <input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button2">
 	</form>
-	
+</div>	
 <script type="text/javascript" th:src="@{/js/deleteUser.js}"></script>
 </body>
 </html>
