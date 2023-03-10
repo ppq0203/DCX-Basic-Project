@@ -132,6 +132,8 @@
 	<!-- 상품 찾기 쿼리문 -->
 	<select id="findProd" resultType="SalesDto">
 		SELECT * FROM Sales 
+		LEFT OUTER JOIN
+		product ON sales.product_no = product.product_no
 		WHERE sales_no = #{num}
 	</select>
 	
