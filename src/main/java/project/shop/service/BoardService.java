@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import project.shop.dto.BoardDto;
 import project.shop.mapper.ShopMapper;
 
 @Service //서비스임을 선언

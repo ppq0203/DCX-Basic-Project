@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.OrderDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;

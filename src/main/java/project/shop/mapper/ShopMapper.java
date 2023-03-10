@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.CustomerServiceDto;
 import project.shop.dto.OrderDto;
 import project.shop.dto.ReviewDto;
