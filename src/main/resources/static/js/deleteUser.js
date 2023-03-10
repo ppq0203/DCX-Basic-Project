@@ -19,25 +19,19 @@ $(document).ready(function() {
   
 });
 
-
 function submitCheck() {
 	var frmFind = document.cpwd;
 	if(frmFind.userPw.value.length < 1 )
 	{
 		alert("비밀번호를 입력해주세요");
 		return;
-	}
-	
-	
-var result = confirm("회원 탈퇴를 하시겠습니까?");
-        if(result) {
-            alert("탈퇴 처리되었습니다.");
-        } else {
-            alert("탈퇴 취소되었습니다.");
-        }
-       	
-$('.submitForm').submit();
-
+	}	
+	var result = confirm("회원 탈퇴를 하시겠습니까?");
+	if(result) { // 비밀번호와 일치하면 넣기!
+	    alert("탈퇴 처리되었습니다.");
+	} else {
+	    alert("탈퇴 취소되었습니다.");
+	    location.href = "/myPage";
+	}       	
+	$('.submitForm').submit();
 }        
-
-
