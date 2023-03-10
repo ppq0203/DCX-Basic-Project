@@ -32,4 +32,10 @@ public class SalesService {
 	{
 		return shopMapper.findProd(num);
 	}
+
+	public List<SalesDto> selectCateList(String cate) 
+	{
+		List<SalesDto> resultList = shopMapper.findCate(cate);
+		return resultList;
+	}
 }

@@ -15,31 +15,65 @@
 	<nav id="main">
 		<ul>
 			<li>
-				<a href="" class="Line">의류</a>
+				<a href="/listprod?productCategory=cloth" class="Line">의류</a>
 			</li>
 			<li>
-				<a href="" class="Line1">뷰티/잡화</a>
+				<a href="/listprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
 			</li>
 			<li>
-				<a href="" class="Line2">식품/생필품</a>
+				<a href="/listprod?productCategory=food" class="Line2">식품/생필품</a>
 			</li>
 			<li>
-				<a href="" class="Line3">가구</a>
+				<a href="/listprod?productCategory=tools" class="Line3">가구</a>
 			</li>
 			<li>
-				<a href="" class="Line4">가전제품</a>
+				<a href="/listprod?productCategory=it" class="Line4">가전제품</a>
 			</li>
 			<li>
-				<a href="" class="Line5">스포츠 장비</a>
+				<a href="/listprod?productCategory=sports" class="Line5">스포츠 장비</a>
 			</li>
 			<li>
 				<a href="" class="Line6">상품권</a>
 			</li>
 		</ul>
 	</nav>
-	
 	<div>
 		사진(광고) 넣을수있는공간 예정중
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	<form id="listfrm" name="listfrm" method = "post" action="/showprod">
+	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	    <thead>
+	    <tr>
+			<td  class="td1">판매제목</td>
+			<td  class="td1">썸네일</td>
+		</tr>
+	    </thead>
+	    <tbody>
+	    <tr>
+			<td th:text="${list.salesTitle}"></td>
+			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></td>
+		</tr>
+		<tr>
+			<td  class="td1">상품명</td>
+	        <td  class="td1">상품설명</td>
+	        <td  class="td1">가격</td>
+		</tr>
+		<tr>
+	        <td th:text="${list.productName}"></td>
+	        <td th:text="${list.salesContent}"></td>
+	        <td th:text="${list.salesPrice}"></td>
+	        
+	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
+				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
+			</th:block-->
+	    </tr>
+	    </tbody>
+	</table>
 	</div>
 <footer include-html="/footer"></footer>
 <script>includeHTML();</script>

@@ -98,7 +98,7 @@
 		SELECT * FROM Sales 
 		RIGHT OUTER JOIN
 		product ON sales.product_no = product.product_no
-		WHERE product_category = #{category}
+		WHERE product_category = #{cate} and sales_no != 0
 	</select>
 	
 	<!-- 상품 찾기 쿼리문 -->

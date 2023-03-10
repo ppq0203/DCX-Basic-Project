@@ -16,6 +16,7 @@ public interface ShopMapper {
 	List<UserDto> findAllUser(UserDto user) throws Exception; //모든 유저 정보받기
 	List<ReviewDto> findReviewList(ReviewDto review)throws Exception; //모든 리뷰 정보 받
 	List<SalesDto> findAllProd(SalesDto sales) throws Exception; //모든 상품 정보받기
+	List<SalesDto> findCate(String cate); //카테고리로 상품정보 받기.
 	List<CustomerServiceDto> findCustomerList(CustomerServiceDto customer); // 문의사항 정보받기
 	void insertReview(ReviewDto review); //리뷰등록
 	void insertUser(UserDto user); //회원가입
@@ -28,9 +29,11 @@ public interface ShopMapper {
 	UserDto findUser(UserDto user); //회원 정보받기
 	SalesDto findProd(int num); //상품정보 받기.
 	
+	
 	UserDto loginUser(UserDto user) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
 //	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
 //	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return
+	
 	
 	
 	
