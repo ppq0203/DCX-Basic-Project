@@ -11,23 +11,18 @@ html, body{
 	bottom: 0;
 	left: 0;
 }
-.wrapper{
+.wrapper{	/*하단 영역 box만들기*/
 	position: relative;
 	min-height: 100%;
 	padding: 0px;
 }
-.pass{
-	margin-top: 100px;
-	padding-bottom: 999px;
+.wrapperfooter{   /* wrapper영역이랑 비슷함 */
+	margin-top: 500px;	/*hearder와 거리*/
+	padding-bottom: 500px; /*footer의 영역*/
 }
-.text{
-	width:100px;
-	height:30px;
-	background-color: #50bcdf;
-	border: none;
-	border-radius: 5px;
-	position: absolute;
-	left: 50%;
+.footerUL{
+	display: table;
+	margin-left: auto;
 	margin-right: auto;
 	background-color: #fff;
 } 
@@ -51,3 +46,6 @@ li a:hover {
 	background:#099; 
 	text-decoration:none;
 } */
+.footerUL li{
+	text-align: center;
+}

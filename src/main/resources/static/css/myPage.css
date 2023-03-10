@@ -1,0 +1,21 @@
+@charset "UTF-8";
+*{   /*전체 해당사항*/
+	text-decoration: none; /*글 꾸미기: 없다.*/
+	list-style: none;      /*글 앞 점지우기*/
+}
+#Test{
+	width:400px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	transform: translate(-50%,-50%); /*원하는 위치로 가게해줌*/
+	background-color: goldenrod;
+}
+.ma
+.mainbar ul li a{
+}
