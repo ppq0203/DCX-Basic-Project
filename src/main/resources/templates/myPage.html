@@ -3,16 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<!-- css-->
+	<link rel="stylesheet" th:href="@{/css/myPage.css}"></link>
 <!-- 마이페이지 -->
 
 </head>
 <body>
-<p>작성글 조회</p>
-<p><a href= "/userInfoChange">회원 정보변경</a></p>
-<p><a href= "myPagePwdChange">비밀번호 변경</a></p>
-<p><a href= "/productWrite">상품등록</a></p>
-<p><a href= "#">주문 내역 조회</a></p>
-<p><a href= "/deleteUser">회원탈퇴</a></p>
-<p><a href= "#">문의 조회</a></p>
+<div id="Test">
+	<nav class="mainbar">
+		<ul>
+			<li><a href= "#">작성글 조회</a></li>
+			<li><a href= "/userInfoChange">회원 정보변경</a></li>
+			<li><a href= "myPagePwdChange">비밀번호 변경</a></li>
+			<li><a href= "/productWrite">상품등록</a></li>
+			<li><a href= "#">주문 내역 조회</a></li>
+			<li><a href= "/deleteUser">회원탈퇴</a></li>
+			<li><a href= "#">문의 조회</a></li>
+		</ul>
+	</nav>
+</div>
 </body>
 </html>
