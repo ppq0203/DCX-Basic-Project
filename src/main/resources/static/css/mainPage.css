@@ -27,7 +27,6 @@
 	bottom: 0px;
 	overflow: hidden;/*박스를 넘으면 안보임*/
 	text-align: center;
-	background-color:white;
 }
 #main ul li{
 	/*float: left;/*박스들 왼쪽부터 나열*/

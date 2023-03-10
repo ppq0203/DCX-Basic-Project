@@ -3,19 +3,28 @@
 	text-decoration: none; /*글 꾸미기: 없다.*/
 	list-style: none;      /*글 앞 점지우기*/
 }
+a{
+	color: inherit;
+}
 #Test{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items:center;
 	position: absolute;
-	top: 40%;
+	top: 50%;
 	left: 30%;
 	transform: translate(-50%,-50%); /*원하는 위치로 가게해줌*/
-	background-color: goldenrod;
 }
-.ma
-.mainbar ul li a{
+.mainbar ul li {
+	text-align: center;
+}
+a.mainbarBT{
+	background-color: tan;
+	width: 120px;
+	height: 30px;
+	
+}
+a.withdrawal{
+	width: 120px;
+	height: 50px;
+	background-color: red;
+	display: inline-block;
+	text-align: center;
 }
