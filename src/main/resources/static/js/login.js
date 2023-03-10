@@ -16,7 +16,7 @@ function loginFunc() {
 	$('.submitForm').submit();
 }
 /*
-$(document).on('mouseenter', '.button2,.button3.button4', function(e){
+$(document).on('mouseenter', '.button2', function(e){
 		if(voiceState == 0)
 		{
 			voiceState = 1;
