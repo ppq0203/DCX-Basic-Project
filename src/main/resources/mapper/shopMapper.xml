@@ -129,6 +129,14 @@
 		ORDER BY sales_no asc
 	</select>
 	
+	<!-- 카테고리로 찾기 쿼리문 -->
+	<select id="findCate" resultType="SalesDto">
+		SELECT * FROM Sales 
+		RIGHT OUTER JOIN
+		product ON sales.product_no = product.product_no
+		WHERE product_category = #{category}
+	</select>
+	
 	<!-- 상품 찾기 쿼리문 -->
 	<select id="findProd" resultType="SalesDto">
 		SELECT * FROM Sales 
