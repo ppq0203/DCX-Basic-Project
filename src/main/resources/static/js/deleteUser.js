@@ -27,11 +27,12 @@ function submitCheck() {
 		return;
 	}	
 	var result = confirm("회원 탈퇴를 하시겠습니까?");
-	if(result) { // 비밀번호와 일치하면 넣기!
+	if(result) {
 	    alert("탈퇴 처리되었습니다.");
 	} else {
 	    alert("탈퇴 취소되었습니다.");
-	    location.href = "/myPage";
+	    window.location.href='/myPage'
+	    return;
 	}       	
 	$('.submitForm').submit();
 }        

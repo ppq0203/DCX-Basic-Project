@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" th:href="@{/css/userInfoChange.css}"></link>
 	<!-- 음성 스크립트 -->
@@ -10,7 +15,8 @@
 
 <!-- 회원정보 변경 -->
 </head>
-<body>	
+<body>
+<div include-html="/header" class="up"></div>	
 	<div id="userChange">
 	<form name="userInfoChange" method="post" action="/userInfoChange" class="uc">
 	<h1>회원정보 변경</h1>
@@ -32,7 +38,10 @@
 		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button2">
 	</form>
 	</div>
-	<script type="text/javascript" th:src="@{/js/userInfoChange.js}"></script>	
+	
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>	
+<script type="text/javascript" th:src="@{/js/userInfoChange.js}"></script>	
 </body>
 </html>
 

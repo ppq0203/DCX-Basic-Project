@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 	<!-- css-->
 	<link rel="stylesheet" th:href="@{/css/myPage.css}"></link>
 <!-- 마이페이지 -->
-
 </head>
 <body>
-<div id="Test">
+<div include-html="/header" class="up"></div>
+
 	<nav class="mainbar">
 		<ul>
 			<li><a href= "#">작성글 조회</a></li>
@@ -21,6 +27,8 @@
 			<li><a href= "#">문의 조회</a></li>
 		</ul>
 	</nav>
-</div>
+	
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>	
 </body>
 </html>

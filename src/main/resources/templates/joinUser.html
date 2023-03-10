@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"> 
 <head>
-	<meta charset="UTF-8">
-	<title>회원가입</title>
+<meta charset="UTF-8">
+<title>회원가입</title>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/login.css}"></link>
 	<!-- jquery 라이브러리 -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- 중복체크 CSS -->
@@ -20,6 +25,7 @@
 </head>
 <!-- 사용자 CSS 추가 -->
 <body>
+<div include-html="/header" class="up"></div>
 	<div id= "Test" >
 	<div class="container">
 		<form id="frm" name="frm" method="post" action="/postregi" class="join confirm">
@@ -83,6 +89,9 @@
 		</form>
 	</div>
 	</div>
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>
+	
 <script type="text/javascript" th:src="@{/js/idOverlap.js}"></script>
 <script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 <script type="text/javascript" th:src="@{/js/joinUser.js}"></script>
