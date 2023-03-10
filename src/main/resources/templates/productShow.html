@@ -19,7 +19,7 @@
     <tbody>
 	<tr>
 		<td  class="td1">상품이미지</td>
-		<td colspan = "3"><center><img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[0]}"></img></center></td>
+		<td colspan = "3"><center><img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[0]}" style="width: 600px; height:auto;"></img></center></td>
 	</tr>
     <tr>
         <td  class="td1">상품설명</td>
@@ -35,7 +35,8 @@
 	<tr>
 		<td colspan = "4"  style="vertical-align:top">
 		    <th:block th:if="${#lists.size(sales)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(sales.salesImg, '$%$')))}">
-				<img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[i.count]}">
+				<br>
+				<img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[i.count]}" style="display:inline-block; width: 500px; height:auto; vertical-align:middle; margin: 0px auto;">
 			</th:block>
 		</td>
 	</tr>

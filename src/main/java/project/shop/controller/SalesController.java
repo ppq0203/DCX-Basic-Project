@@ -85,7 +85,7 @@ public class SalesController {
 			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
 			String path = "";//파일이 저장될 디렉토리 url
 			
-			Path imagePath = Paths.get(path + imageFileName);
+			Path imagePath = Paths.get(path + file.getOriginalFilename());
 			
 			try {
 				System.out.println("try");
@@ -103,7 +103,7 @@ public class SalesController {
 		System.out.println(" [+] post :: "+sales);
 		salesService.insertProduct(sales);
 		
-		return "redirect:/showprod";
+		return "redirect:/main";
 	}
 	
 	@PostMapping("/orderdate")
