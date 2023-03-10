@@ -36,7 +36,6 @@ var result = confirm("회원 탈퇴를 하시겠습니까?");
             alert("탈퇴 취소되었습니다.");
         }
        	
-
 $('.submitForm').submit();
 
 }        
