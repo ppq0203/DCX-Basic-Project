@@ -10,15 +10,15 @@
 <table border="1">
     <thead>
     <tr>
-        <td  class="td1">판매제목</td>
-        <td  class="td1">상품명</td>
+		<td  class="td1">판매제목</td>
+		<td  class="td1">상품명</td>
         <td  class="td1">상품설명</td>
         <td  class="td1">가격</td>
         <td  class="td1">이미지</td>
-    </tr>
+	</tr>
     </thead>
     <tbody>
-    <tr th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+    <tr th:if="${#lists.size(sales)} > 0" th:each="list, i : ${sales}">
 		<td th:text="${list.salesTitle}"></td>
         <td th:text="${list.productName}"></td>
         <td th:text="${list.salesContent}"></td>

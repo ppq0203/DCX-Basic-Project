@@ -116,17 +116,23 @@
 			#{salesTitle}, 
 			#{salesContent}, 
 			#{salesCount},
-			(SELECT user_no FROM users WHERE user_id = '3e'), 
+			#{userNo}, 
 			prod_seq.CURRVAL)
 		SELECT * FROM dual
 	</insert>
 	
-	<!-- 상품 찾기 쿼리문 -->
+	<!-- 모든 상품 찾기 쿼리문 -->
 	<select id="findAllProd" resultType="SalesDto">
 		SELECT * FROM Sales 
 		LEFT OUTER JOIN
 		product ON sales.product_no = product.product_no
 		ORDER BY sales_no asc
+	</select>
+	
+	<!-- 상품 찾기 쿼리문 -->
+	<select id="findProd" resultType="SalesDto">
+		SELECT * FROM Sales 
+		WHERE sales_no = #{num}
 	</select>
 	
 	<!-- 리뷰 작성 쿼리문 -->

@@ -38,12 +38,35 @@
 			<td><textarea type="text" th:name="serviceContent"></textarea></td>
 		</tr>
 	</tr-->
-<form id="reviewfrm" name="reviewfrm" method="post" action="/upload" enctype="multipart/form-data">
-	<table>
-		<input type="file" multiple="multiple" accept="image/*" th:name="files">
+<form id="listfrm" name="listfrm" method = "post" action="/showprod">
+	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	    <thead>
+	    <tr>
+			<td  class="td1">판매제목</td>
+			<td  class="td1">썸네일</td>
+		</tr>
+	    </thead>
+	    <tbody>
+	    <tr>
+			<td th:text="${list.salesTitle}"></td>
+			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}"></img></button></td>
+		</tr>
+		<tr>
+			<td  class="td1">상품명</td>
+	        <td  class="td1">상품설명</td>
+	        <td  class="td1">가격</td>
+		</tr>
+		<tr>
+	        <td th:text="${list.productName}"></td>
+	        <td th:text="${list.salesContent}"></td>
+	        <td th:text="${list.salesPrice}"></td>
+	        
+	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
+				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
+			</th:block-->
+	    </tr>
+	    </tbody>
 	</table>
-<input type="submit" value="작성">
-<input type="submit" value="취소"> 
 </form>
 </body>
 </html>

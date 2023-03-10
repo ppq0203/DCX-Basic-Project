@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import project.shop.dto.BoardDto;
 import project.shop.dto.CustomerServiceDto;
 import project.shop.dto.OrderDto;
 import project.shop.dto.ReviewDto;
@@ -30,10 +29,12 @@ public interface ShopMapper {
 	void changeUser(UserDto user); //유저 정보 변경
 	void deleteUser(UserDto user); //유저 제거
 	UserDto findUser(UserDto user); //회원 정보받기
+	SalesDto findProd(int num); //상품정보 받기.
 	
 	UserDto loginUser(UserDto user) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
 //	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
 //	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return
+	
 	
 	
 	
