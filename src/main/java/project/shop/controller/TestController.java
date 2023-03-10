@@ -187,7 +187,10 @@ public class TestController {
 		return "/userInfoChange";
 	}
 	
-	
+	@GetMapping("/productSearch.css")
+	public String productSearch() {
+		return "productSearch";
+	}
 	
 }
 
