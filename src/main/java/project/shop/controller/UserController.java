@@ -202,6 +202,9 @@ public class UserController {
 		user.setUserNo((int)session.getAttribute("userNo"));
 		System.out.println(user);
 		userService.changePw(user);
+		UserDto userDto = (UserDto)session.getAttribute("userDto");
+		userDto.setUserPw(user.getUserPw());
+		session.setAttribute("session", userDto);
 		System.out.println("changed");
 		session.removeAttribute("userNo");	//세션에 저장된 유저넘버 삭제
 		
@@ -291,6 +294,7 @@ public class UserController {
 		user.setUserAddress(userDto.getUserAddress());
 		System.out.println(user);
 		userService.changeUser(user);	//유저정보 갱신
+		session.setAttribute("session", user);
 		return "redirect:/myPage";
 	}
 	
