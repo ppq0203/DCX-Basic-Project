@@ -32,6 +32,7 @@ html, body{
 	background-color: #fff;
 } 
 
+/*  커서 올렸을때 색변경으로 해주시면 감사하겠습니다. 밑은 예시입니다.
 li {
 	float:left; 
 	list-style:none; 
@@ -49,4 +50,4 @@ li a {
 li a:hover {
 	background:#099; 
 	text-decoration:none;
-}
+} */
