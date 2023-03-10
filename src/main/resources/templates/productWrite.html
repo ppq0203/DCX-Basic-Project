@@ -7,7 +7,7 @@
 </head>
 <!-- 상품등록-->
 <body>
-<form id="addprod" name="addprod" method="post" action="/addprod.do" enctype="multipart/form-data">
+<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>판매제목</td>
@@ -19,11 +19,15 @@
 		</tr>
 		<tr>
 			<td>상품사진</td>
-			<td><input type="file" accept="image/*" multiple="multiple" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
+			<td><input type="file" accept="image/*" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
 		</tr>
 		<tr>
 			<td>상세설명</td>
 			<td><textarea type="text" th:name="salesContent" placeholder="상세설명"class= "text"></textarea></td>
+		</tr>
+		<tr>
+			<td>상세사진</td>
+			<td><input type="file" accept="image/*" multiple="multiple" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
 		</tr>
 		<tr>
 			<td>상품가격</td>

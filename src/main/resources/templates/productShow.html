@@ -10,24 +10,35 @@
 <table border="1">
     <thead>
     <tr>
-        <td  class="td1">판매제목</td>
-        <td  class="td1">상품명</td>
-        <td  class="td1">상품설명</td>
-        <td  class="td1">가격</td>
-        <td  class="td1">이미지</td>
-    </tr>
+		<td  class="td1">판매제목</td>
+		<td th:text="${sales.salesTitle}"></td>
+		<td  class="td1">상품명</td>
+		<td th:text="${sales.productName}"></td> 
+	</tr>
     </thead>
     <tbody>
-    <tr th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
-		<td th:text="${list.salesTitle}"></td>
-        <td th:text="${list.productName}"></td>
-        <td th:text="${list.salesContent}"></td>
-        <td th:text="${list.salesPrice}"></td>
-        <td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}"></img></td>
-        <th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
-			<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
-		</th:block>
+	<tr>
+		<td  class="td1">상품이미지</td>
+		<td colspan = "3"><center><img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[0]}"></img></center></td>
+	</tr>
+    <tr>
+        <td  class="td1">상품설명</td>
+        <td colspan = "4" th:text="${sales.salesContent}"></td>
     </tr>
+    <tr>
+		<td  class="td1">가격</td>
+        <td colspan = "4" th:text="${sales.salesPrice}"></td>
+	</tr>
+	<tr>
+		<td colspan = "4">상세이미지</td>
+	</tr>
+	<tr>
+		<td colspan = "4"  style="vertical-align:top">
+		    <th:block th:if="${#lists.size(sales)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(sales.salesImg, '$%$')))}">
+				<img th:src="${'files/'+#strings.setSplit(sales.salesImg, '$%$')[i.count]}">
+			</th:block>
+		</td>
+	</tr>
     </tbody>
 </table>
 </body>
