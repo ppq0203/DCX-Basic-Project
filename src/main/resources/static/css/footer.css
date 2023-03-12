@@ -17,8 +17,9 @@ html, body{
 	padding: 0px;
 }
 .wrapperfooter{   /* wrapper영역이랑 비슷함 */
-	margin-top: 500px;	/*hearder와 거리*/
-	padding-bottom: 500px; /*footer의 영역*/
+	margin-top: 999px;	/*hearder와 거리*/
+	padding-bottom: 1px; /*footer의 영역*/
+	background-color: black;
 }
 .footerUL{
 	display: table;

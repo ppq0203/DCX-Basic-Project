@@ -3,19 +3,25 @@
 	text-decoration: none; /*글 꾸미기: 없다.*/
 	list-style: none;      /*글 앞 점지우기*/
 }
+a{
+	color: inherit;
+}
 #Test{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items:center;
 	position: absolute;
-	top: 40%;
+	top: 50%;
 	left: 30%;
 	transform: translate(-50%,-50%); /*원하는 위치로 가게해줌*/
-	background-color: goldenrod;
+	background-color: yellow;
+	width: 150px;
+	height: 250px;
 }
-.ma
-.mainbar ul li a{
+.mainbar nav ul li{
+	padding: 3px;
+	float: left;
+}
+.mainbar nav ul li a{
+	width: 120px;
+	height: 50px;
+	background-color: antiquewhite;
+	
 }
