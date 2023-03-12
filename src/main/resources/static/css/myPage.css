@@ -11,20 +11,17 @@ a{
 	top: 50%;
 	left: 30%;
 	transform: translate(-50%,-50%); /*원하는 위치로 가게해줌*/
+	background-color: yellow;
+	width: 150px;
+	height: 250px;
 }
-.mainbar ul li {
-	text-align: center;
+.mainbar nav ul li{
+	padding: 3px;
+	float: left;
 }
-a.mainbarBT{
-	background-color: tan;
-	width: 120px;
-	height: 30px;
-	
-}
-a.withdrawal{
+.mainbar nav ul li a{
 	width: 120px;
 	height: 50px;
-	background-color: red;
-	display: inline-block;
-	text-align: center;
+	background-color: antiquewhite;
+	
 }
