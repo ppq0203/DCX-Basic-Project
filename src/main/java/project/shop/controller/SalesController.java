@@ -114,11 +114,5 @@ public class SalesController {
 		System.out.println("date inputed");
 		return "redirect:/main";
 	}
-	
-	@PostMapping("/goPaymentPage")
-	public String goPaymentPage(HttpSession session)
-	{
-		return "";
-	}
-	
+
 }
