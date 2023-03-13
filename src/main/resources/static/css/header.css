@@ -96,7 +96,8 @@ fieldset {
 .search_box {
 	width: 520px;
 	height: 50px;
-	border: 2px solid #f3c901;
+	border: 3px solid #f3c901;
+	border-radius: 50px;
 	display: flex;
 	align-items: center;
 }
@@ -107,6 +108,7 @@ fieldset {
 	padding-left: 12px;
 	padding-right: 12px;
 	border: none;
+	border-radius: 50px;
 	outline: none;
 	font-size: 18px;
 }
@@ -117,6 +119,7 @@ fieldset {
 	margin: 0;
 	padding: 0;
 	border: none;
+	border-radius: 50px;
 	outline: none;
 	background: #f3c901;
 	color: #ffffff;

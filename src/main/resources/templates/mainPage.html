@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>메인페이지</title>
 <script th:src="@{/js/includeHTML.js}"></script>
+<script type="text/javascript" th:src="@{/js/header.js}"></script>
    <link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
 <!--    <link rel="stylesheet" th:href="@{/css/header.css}"></link>
    <link rel="stylesheet" th:href="@{/css/footer.css}"></link> -->
@@ -13,11 +14,12 @@
 <body>
 	<div include-html="/header"></div>
 	
-	<div>사진(광고) 넣을수있는공간 예정중</div>
+	
 	
 
 	<div include-html="/footer"></div>
 	
 	<script>includeHTML();</script>
+	<script type="text/javascript" th:src="@{/js/header.js}"></script>	
 </body>
 </html>
