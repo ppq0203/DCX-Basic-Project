@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>상품 리스트</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script th:src="@{/js/includeHTML.js}"></script>
 </head>
 <body>
@@ -37,5 +38,11 @@
 
 <div include-html="/footer"></div>
 <script>includeHTML();</script>
+
+	<!-- 로그인 로그아웃 세션확인 코드 -->
+	<script th:src="@{/js/isLoginCheck.js}"></script>
+	<script>
+		isLoginCheck();
+	</script>
 </body>
 </html>

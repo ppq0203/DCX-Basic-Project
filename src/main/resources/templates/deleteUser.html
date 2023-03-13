@@ -38,5 +38,11 @@
 <footer include-html="/footer"></footer>
 <script>includeHTML();</script>
 <script type="text/javascript" th:src="@{/js/deleteUser.js}"></script>
+
+	<!-- 로그인 로그아웃 세션확인 코드 -->
+	<script th:src="@{/js/isLoginCheck.js}"></script>
+	<script>
+		isLoginCheck();
+	</script>
 </body>
 </html>
