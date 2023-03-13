@@ -7,6 +7,8 @@ import lombok.Data;
 @Data
 public class OrderDto {
 	private Date orderDate;
+	private String orderNo;
+	private int salesCount;
 	private int salesNo;
 	private int userNo;
 }

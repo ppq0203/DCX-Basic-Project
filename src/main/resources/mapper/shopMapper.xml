@@ -147,10 +147,12 @@
 	</select>
 	
 	<insert id="insertOrder" parameterType="OrderDto">
-		INSERT INTO orders(user_no, sales_no, order_date)
+		INSERT INTO orders(user_no, sales_no, order_date, order_no, sales_count)
 		VALUES(
-			#{uesrNo},
+			#{userNo},
 			#{salesNo},
-			(to_date(SYSDATE,'YYYY-MM-DD HH24:mi:SS')))
+			SYSDATE,
+			#{orderNo},
+			#{salesCount})
 	</insert>
 </mapper>

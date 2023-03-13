@@ -3,7 +3,8 @@ package project.shop.controller;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.BasketDto;
 import project.shop.dto.OrderDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
@@ -58,14 +60,12 @@ public class SalesController {
 	
 	//판매정보 호출 기반
 		@GetMapping("/listprod")
-		public ModelAndView prodlist(@RequestParam("productCategory") String cate) throws Exception
+		public ModelAndView prodlist(HttpSession session) throws Exception
 		{
 			System.out.println("/listprod");
-			System.out.println(cate);
 	    	ModelAndView mv = new ModelAndView("test/dbtest");
-	    	List<SalesDto> list = salesService.selectCateList(cate);
 	        
-	        mv.addObject("list", list);
+	        mv.addObject("baskets", session.getAttribute("baskets"));
 			System.out.println(mv);
 			
 			return mv;
@@ -107,10 +107,30 @@ public class SalesController {
 		return "redirect:/main";
 	}
 	
-	@PostMapping("/orderdate")
-	public String insertOrder(OrderDto order)
+	@GetMapping("/orderdate")
+	public String insertOrder(OrderDto order, HttpSession session)
 	{
-		salesService.insertOrder(order);
+		ArrayList<BasketDto> basket = (ArrayList<BasketDto>) session.getAttribute("baskets");
+		Object userO = session.getAttribute("userDto");
+		
+		order.setUserNo(((UserDto) userO).getUserNo());
+		
+		String uuid = UUID.randomUUID().toString();
+		String[] test = uuid.split("-");
+		String orderNo = "";
+		for(int i = 0; i < 3; i++)
+		{
+			orderNo = orderNo + test[i];
+		}
+		
+		order.setOrderNo(orderNo);
+		
+		for(int i = 0; i < basket.size(); i++)
+		{
+			order.setSalesCount(basket.get(i).getAmount());
+			order.setSalesNo(basket.get(i).getSalesDto().getSalesNo());
+			salesService.insertOrder(order);
+		}
 		System.out.println("date inputed");
 		return "redirect:/main";
 	}
