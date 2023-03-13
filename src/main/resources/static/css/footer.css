@@ -6,13 +6,13 @@ html, body {
 	height: 100%;
 }
 /* 영복님 코드 시작점 */ 
- .footer{
+/*  .footer{
 	width: 100%;
 	height: 45px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-}
+} */
 .wrapper{	/*하단 영역 box만들기*/
 	position: relative;
 	min-height: 100%;
@@ -30,6 +30,8 @@ html, body {
 	background-color: #fff;
 } 
 /* 영복님 코드 끝점 */
+
+/* 은정 코드 시작 */
 #body-wrapper {
 	min-height: 100%;
 	position: relative;
@@ -58,8 +60,11 @@ html, body {
 }
 
 footer {
-	 bottom: 0;
-	 position: fixed;
+	width: 100%;
+ /*   height: 99999px;   footer의 높이 */
+    position: relative;  
+    bottom: 0;
+    left: 0;
 	 }
 
 /* .footer {

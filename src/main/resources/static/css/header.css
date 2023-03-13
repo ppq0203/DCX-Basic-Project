@@ -42,17 +42,6 @@ fieldset {
 	white-space: nowrap;
 }
 
-.links { /* 링크들을 상단 우측에 위치시킵니다. */
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.link_text {
-	font-size: 18px;
-	margin-left: 5px;
-}
-
 .img_logo {
 	margin-bottom: 12px;
 	width: 150px;
