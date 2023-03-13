@@ -107,9 +107,9 @@ public class TestController {
 		return "/footer";
 	}
 	
-	@GetMapping("/headear.css")
-	public String headearCSS() {
-		return "/headear";
+	@GetMapping("/header.css")
+	public String headerCSS() {
+		return "/header";
 	}
 	
 	@GetMapping("/idFind.css")

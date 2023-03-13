@@ -6,9 +6,12 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- 음성안내를 위한 스크립트 -->
 	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
+	<script th:src="@{/js/includeHTML.js}"></script>
 	
 </head>
 <body>
+<div include-html="/header"></div>
+
 [[${ID}]]
 <br>
 <span class="voiceExplain">로그인하러가기 버튼입니다</span>
@@ -16,5 +19,7 @@
 <span class="voiceExplain">비밀번호찾기 버튼입니다</span>
 <input type="button" value="비밀번호 찾기" onClick="location.href='/passwordFind'" class="hoverVoice button1">
 
+<div include-html="/footer"></div>
+<script>includeHTML();</script>
 </body>
 </html>
