@@ -1,14 +1,14 @@
 @charset "UTF-8";
 #login{
 	flex-direction: column;
-	justify-content: center;
-	align-items:center;
+	/* justify-content: center; 
+	align-items:center; */
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 30%;
 	transform: translate(-50%,-50%);
 }
-#ligih h1{
+#login h1{
 	font-size: 25px;
 	padding-bottom: 20px;
 }

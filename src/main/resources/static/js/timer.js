@@ -8,18 +8,17 @@ function confirmTimer()  {
 	var leftSec = 300, //남은 시간 5분
 	display = document.querySelector('#timer');
 	// 이미 타이머가 작동중이면 중지
-	if (isRunning){
+/*	if (isRunning){
 	   clearInterval(timer);
 	   alert("인증시간이 초과하였습니다. 다시 인증해주시기 바랍니다.");
 	   window.close();
        window.opener.location = "/index.do"
 	} else {
     	isRunning = true;
-    }
+    }*/
      startTimer(leftSec, display);
 }		 
 
- 
 function startTimer(count, display) {
         var minutes, seconds;
         timer = setInterval(function () {

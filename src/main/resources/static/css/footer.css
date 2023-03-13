@@ -13,14 +13,14 @@ html, body {
    bottom: 0;
    left: 0;
 } */
-.wrapper{   /*하단 영역 box만들기*/
+/* .wrapper{   하단 영역 box만들기
    position: relative;
    min-height: 100%;
    padding: 0px;
 }
-.wrapperfooter{   /* wrapper영역이랑 비슷함 */
-   margin-top: 999px;   /*hearder와 거리*/
-   padding-bottom: 1px; /*footer의 영역*/
+.wrapperfooter{   wrapper영역이랑 비슷함
+   margin-top: 999px;   hearder와 거리
+   padding-bottom: 1px; footer의 영역
    background-color: black;
 }
 .footerUL{
@@ -28,7 +28,7 @@ html, body {
    margin-left: auto;
    margin-right: auto;
    background-color: #fff;
-} 
+}  */
 /* 영복님 코드 끝점 */
 
 /* 은정 코드 시작 */

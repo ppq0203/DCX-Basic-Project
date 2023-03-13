@@ -4,11 +4,11 @@
 	height: 250px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items:center;
+/* 	justify-content: center;
+	align-items:center; */
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 30%;
 	transform: translate(-50%,-50%);
 }
 h1{
@@ -20,15 +20,7 @@ label{
 	text-align: left;
 	font-size: 20px;
 }
-.secession{
-	width: 320px;
-}
-.secession > div{
-	display: flex;
-	justify-content: center;
-	padding-bottom: 7px;
-	align-items: center;
-}
+
 .text{
 	height: 30px;
 }
