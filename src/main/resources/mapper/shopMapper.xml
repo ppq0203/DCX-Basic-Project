@@ -109,6 +109,11 @@
 		WHERE sales_no = #{num}
 	</select>
 	
+	<!-- 상품 삭제 -->
+	<delete id="deleteProd">
+		
+	</delete>
+	
 	<!-- 리뷰 작성 쿼리문 -->
 	<insert id="insertReview" parameterType="ReviewDto">
 		INSERT INTO Review(user_no, sales_no, review_title, review_content, review_score)
@@ -181,7 +186,7 @@
 	<!-- 검색으로 찾기 -->
 	<select id="searchProd" resultType="SalesDto">
 		SELECT * FROM sales
-		WHERE sales_title = '_#{salesTitle}_'
+		WHERE sales_title like '%'||#{sProd}||'%'
 	</select>
 	
 </mapper>

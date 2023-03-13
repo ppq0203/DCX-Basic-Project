@@ -12,9 +12,10 @@
 			<h1>
 				<a href="/main">사조참치</a>
 			</h1>
-				<input type = "text" placeholder= "검색어 입력">
-				<button type="button" onclick="location.href">검색</button>
-				
+			<form method="get" action="/searchP">
+				<input type = "text" th:id="keyword" th:name="keyword" placeholder= "검색어 입력">
+				<button type="submit">검색</button>
+			</form>
 				<ul class="menu">
 					<li>
 						<div class ="my">
@@ -31,22 +32,22 @@
 			<nav id="main">
 		<ul>
 			<li>
-				<a href="" class="Line">의류</a>
+				<a href="/cateprod?productCategory=cloth" class="Line">의류</a>
 			</li>
 			<li>
-				<a href="" class="Line1">뷰티/잡화</a>
+				<a href="/cateprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
 			</li>
 			<li>
-				<a href="" class="Line2">식품/생필품</a>
+				<a href="/cateprod?productCategory=food" class="Line2">식품/생필품</a>
 			</li>
 			<li>
-				<a href="" class="Line3">가구</a>
+				<a href="/cateprod?productCategory=tools" class="Line3">가구</a>
 			</li>
 			<li>
-				<a href="" class="Line4">가전제품</a>
+				<a href="/cateprod?productCategory=it" class="Line4">가전제품</a>
 			</li>
 			<li>
-				<a href="" class="Line5">스포츠 장비</a>
+				<a href="/cateprod?productCategory=sports" class="Line5">스포츠 장비</a>
 			</li>
 			<li>
 				<a href="" class="Line6">상품권</a>
