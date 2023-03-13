@@ -38,4 +38,9 @@ public class SalesService {
 		List<SalesDto> resultList = shopMapper.findCate(cate);
 		return resultList;
 	}
+
+	public List<Object> getOrder(Object user) {
+		List<Object> resultList = shopMapper.getOrder(user);
+		return resultList;
+	}
 }

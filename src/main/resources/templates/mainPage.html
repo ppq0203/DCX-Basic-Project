@@ -14,42 +14,31 @@
 <!-- 영복님 코드 시작 -->
 <!-- 
 <div include-html="/header" class="up"></div>
-	<nav id="main">
+	<nav id="main"> 해당 nav부분은 header로 이동
 		<ul>
 			<li>
-				<a href="/listprod?productCategory=cloth" class="Line">의류</a>
+				<a href="/cateprod?productCategory=cloth" class="Line">의류</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
+				<a href="/cateprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=food" class="Line2">식품/생필품</a>
+				<a href="/cateprod?productCategory=food" class="Line2">식품/생필품</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=tools" class="Line3">가구</a>
+				<a href="/cateprod?productCategory=tools" class="Line3">가구</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=it" class="Line4">가전제품</a>
+				<a href="/cateprod?productCategory=it" class="Line4">가전제품</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=sports" class="Line5">스포츠 장비</a>
+				<a href="/cateprod?productCategory=sports" class="Line5">스포츠 장비</a>
 			</li>
 			<li>
 				<a href="" class="Line6">상품권</a>
 			</li>
 		</ul>
 	</nav>
-	<div>
-		사진(광고) 넣을수있는공간 예정중
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-	</div>
-<footer include-html="/footer"></footer>
-<script>includeHTML();</script>
  -->
 <!-- 영복님 코드 끝 -->
 <!-- 은정님 코드 시작 -->
@@ -58,7 +47,7 @@
 	<div>사진(광고) 넣을수있는공간 예정중</div>
 	
 	<!-- 메인화면 디폴트 상품리스트 -->
-	<form id="listfrm" name="listfrm" method = "post" action="/showprod">
+	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
 	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <thead>
 	    <tr>
@@ -84,10 +73,10 @@
 	    </tr>
 	    </tbody>
 	</table>
+<!-- 은정님 코드 끝 -->
 
 	<div include-html="/footer"></div>
 	
 	<script>includeHTML();</script>
-<!-- 은정님 코드 끝 -->
 </body>
 </html>
