@@ -109,6 +109,11 @@
 		WHERE sales_no = #{num}
 	</select>
 	
+	<!-- 상품 삭제 -->
+	<delete id="deleteProd">
+		
+	</delete>
+	
 	<!-- 리뷰 작성 쿼리문 -->
 	<insert id="insertReview" parameterType="ReviewDto">
 		INSERT INTO Review(user_no, sales_no, review_title, review_content, review_score)
@@ -160,6 +165,8 @@
 	<!-- 주문내역 보기 -->
 	<resultMap id="salesMap" type="SalesDto">
 		<result column="sales_price" property="salesPrice"/>
+		<result column="sales_title" property="salesTitle"/>
+		<result column="sales_img" property="salesImg"/>
 	</resultMap>
 	<resultMap id="orderMap" type="OrderDto">
 		<result column="sales_no" property="salesNo"/>
@@ -174,6 +181,12 @@
 		LEFT OUTER JOIN
 		sales on orders.sales_no = sales.sales_no
 		where orders.user_no = #{userNo}
+	</select>
+	
+	<!-- 검색으로 찾기 -->
+	<select id="searchProd" resultType="SalesDto">
+		SELECT * FROM sales
+		WHERE sales_title like '%'||#{sProd}||'%'
 	</select>
 	
 </mapper>

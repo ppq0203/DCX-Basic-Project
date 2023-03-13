@@ -145,12 +145,26 @@ public class SalesController {
 		Object user = session.getAttribute("userDto");
 		int userNo = ((UserDto) user).getUserNo();
 		System.out.println("/myOrder");
-    	ModelAndView mv = new ModelAndView("test/dbtest");
+    	ModelAndView mv = new ModelAndView("myOrder");
         List<Object> list = salesService.getOrder(userNo);
+        
         mv.addObject("list", list);
 		System.out.println(mv);
 		
 		return mv;
 	}
 	
+	//검색기능
+	@GetMapping("/searchP")
+	public ModelAndView searchProd(@RequestParam("keyword") String sProd)
+	{
+		ModelAndView mv = new ModelAndView("/searchResult");
+		System.out.println(sProd);
+		List<SalesDto> list = salesService.searchProd(sProd);
+		
+		mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
 }
