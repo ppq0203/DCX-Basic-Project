@@ -11,4 +11,6 @@ public class OrderDto {
 	private int salesCount;
 	private int salesNo;
 	private int userNo;
+	
+	private SalesDto salesDto;
 }

@@ -15,22 +15,22 @@
 	<nav id="main">
 		<ul>
 			<li>
-				<a href="/listprod?productCategory=cloth" class="Line">의류</a>
+				<a href="/cateprod?productCategory=cloth" class="Line">의류</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
+				<a href="/cateprod?productCategory=beauty" class="Line1">뷰티/잡화</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=food" class="Line2">식품/생필품</a>
+				<a href="/cateprod?productCategory=food" class="Line2">식품/생필품</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=tools" class="Line3">가구</a>
+				<a href="/cateprod?productCategory=tools" class="Line3">가구</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=it" class="Line4">가전제품</a>
+				<a href="/cateprod?productCategory=it" class="Line4">가전제품</a>
 			</li>
 			<li>
-				<a href="/listprod?productCategory=sports" class="Line5">스포츠 장비</a>
+				<a href="/cateprod?productCategory=sports" class="Line5">스포츠 장비</a>
 			</li>
 			<li>
 				<a href="" class="Line6">상품권</a>
@@ -45,7 +45,7 @@
 		<br>
 		<br>
 		<br>
-	<form id="listfrm" name="listfrm" method = "post" action="/showprod">
+	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
 	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <thead>
 	    <tr>
