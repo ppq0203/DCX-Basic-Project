@@ -9,64 +9,42 @@
 </head>
 <!-- 메인페이지 -->
 <body>
-<!--  영복님코드 시작 -->
-<!-- 
-<header>
-		<div id="HeaderMain">			
-			<h1>
-				<a href="/main">사조참치</a>
-			</h1>
-			<form method="get" action="/searchP">
-				<input type = "text" th:id="keyword" th:name="keyword" placeholder= "검색어 입력">
-				<button type="submit">검색</button>
-			</form>
-				<ul class="menu">
-					<li>
-						<div class ="my">
-							<a href="/myPage">마이 페이지</a>
-							<a href="/showBasket">장바구니</a>
-						</div>
-						<div class ="login">
-							<a href=/login class="loginLink" >로그인</a>
-							<a href=/logout class="logoutLink">로그아웃</a>
-						</div>
-					</li>
- -->
-<!--  영복님코드 끝 -->
 	<header>
-		<a href="/main"><img src="img/sajo.jpg" class="img_logo" /></a>
-		<div>
+		<a href="/main" class="spass"><img src="img/sajo.jpg" class="img_logo" /></a>
+		
+		<div >
 			<form>
 				<fieldset>
 					<legend class="visually-hidden">검색</legend>
-					<div class="search_box">
-						<input type="text" placeholder="사조참치 추가 할인 중" maxlength="50"
-							tabindex="1">
+					<div class="search_box  jump">
+						<input type="text" placeholder="사조참치 추가 할인 중" maxlength="50" tabindex="1">
 						<button type="button" tabindex="2">검색</button>
 					</div>
 				</fieldset>
 			</form>
 		</div>
 		<div class="header-menu">
-			<a href="/myPage">마이 페이지</a> <a href=/login class="loginLink">로그인</a> <a href=/logout class="logoutLink">로그아웃</a> <a
-				href="/joinUser">회원가입</a> <a href="/showBasket">장바구니</a>
+			<a href="/myPage">마이 페이지</a>
+			<a href=/login class="loginLink">로그인</a>
+			<a href=/logout class="logoutLink">로그아웃</a>
+			<a href="/joinUser">회원가입</a>
+			<a href="/showBasket">장바구니</a>
 		</div>
 
 		<nav id="main">
 			<!-- <div class="nav_items"> -->
 			<div class="top-menu">
 				<ul>
-					<li><a href="/cateprod?productCategory=cloth" class="Line">의류</a></li>
-					<li><a href="/cateprod?productCategory=beauty" class="Line1">뷰티/잡화</a></li>
-					<li><a href="/cateprod?productCategory=food" class="Line2">식품/생필품</a></li>
-					<li><a href="/cateprod?productCategory=tools" class="Line3">가구</a></li>
-					<li><a href="/cateprod?productCategory=it" class="Line4">가전제품</a></li>
-					<li><a href="/cateprod?productCategory=sports" class="Line5">스포츠 장비</a></li>
+					<li><a href="/cateprod?productCategory=cloth" class="Line chagebutton btnBorder btnBlueGreen">의류</a></li>
+					<li><a href="/cateprod?productCategory=beauty" class="Line1 chagebutton btnBorder btnBlueGreen">뷰티/잡화</a></li>
+					<li><a href="/cateprod?productCategory=food" class="Line2 chagebutton btnBorder btnBlueGreen">식품/생필품</a></li>
+					<li><a href="/cateprod?productCategory=tools" class="Line3 chagebutton btnBorder btnBlueGreen">가구</a></li>
+					<li><a href="/cateprod?productCategory=it" class="Line4 chagebutton btnBorder btnBlueGreen">가전제품</a></li>
+					<li><a href="/cateprod?productCategory=sports" class="Line5 chagebutton btnBorder btnBlueGreen">스포츠 장비</a></li>
 				</ul>
-				<!-- 			<div class="keyword"> 
-				<span class="color_sajo">1</span> <span>사조참치</span> -->
 			</div>
 		</nav>
 	</header>
 </body>
+
 </html>
