@@ -1,67 +1,71 @@
 @charset "UTF-8";
 
 html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+   margin: 0;
+   padding: 0;
+   height: 100%;
 }
-/* 영복님 코드 시작점 */
-.footer{
-	width: 100%;
-	height: 45px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background-color: yellow;
-}
-.wrapper{	/*하단 영역 box만들기*/
-	position: relative;
-	min-height: 100%;
-	padding: 0px;
+/* 영복님 코드 시작점 */ 
+/*  .footer{
+   width: 100%;
+   height: 45px;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+} */
+.wrapper{   /*하단 영역 box만들기*/
+   position: relative;
+   min-height: 100%;
+   padding: 0px;
 }
 .wrapperfooter{   /* wrapper영역이랑 비슷함 */
-	margin-top: 999px;	/*hearder와 거리*/
-	padding-bottom: 1px; /*footer의 영역*/
-	background-color: black;
+   margin-top: 999px;   /*hearder와 거리*/
+   padding-bottom: 1px; /*footer의 영역*/
+   background-color: black;
 }
 .footerUL{
-	display: table;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #fff;
+   display: table;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: #fff;
 } 
 /* 영복님 코드 끝점 */
+
+/* 은정 코드 시작 */
 #body-wrapper {
-	min-height: 100%;
-	position: relative;
-	padding-bottom: 60px;
+   min-height: 100%;
+   position: relative;
+   padding-bottom: 60px;
 }
 
-#body-wrapper {
-	min-height: 100%;
-	position: relative;
-}
+/* #body-wrapper {
+   min-height: 100%;
+   position: relative;
+} */
 
 #body-wrapper ul {
-	list-style: none;
-	padding: 0px;
-	margin: 0px;
+   list-style: none;
+   padding: 0px;
+   margin: 0px;
 }
 
 #body-wrapper li {
-	display: inline-block;
-	padding: 0px 10px;
-	border-right: 1px solid #e0e0e0;
+   display: inline-block;
+   padding: 0px 10px;
+   border-right: 1px solid #e0e0e0;
 }
 
 #body-wrapper li:last-child {
-	border-right: 0px;
+   border-right: 0px;
 }
 
 footer {
-	 bottom: 0;
-	 position: fixed;
-	 }
+   width: 100%;
+ /*   height: 99999px;   footer의 높이 */
+    position: relative;  
+    bottom: 0;
+    left: 0;
+    }
 
 /* .footer {
     width: 100%;

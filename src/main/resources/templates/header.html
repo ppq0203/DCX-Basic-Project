@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
-
+	<script type="text/javascript" th:src="@{/js/header.js}"></script>
 <link rel="stylesheet" th:href="@{/css/header.css}"></link>
 
 </head>
 <!-- 메인페이지 -->
 <body>
 	<header>
-		<a href="/main" class="spass"><img src="img/sajo.jpg" class="img_logo" /></a>
-		<div >
+		<a href="/main"><img src="img/sajo.jpg" class="img_logo" /></a>
+		<div>
 			<form method="get" action="/searchP">
 				<fieldset>
 					<legend class="visually-hidden">검색</legend>
-					<div class="search_box  jump">
-						<input type="text" th:name="keyword"placeholder="사조참치 추가 할인 중" maxlength="50" tabindex="1">
+					<div class="search_box">
+						<input type="text" th:name="keyword" placeholder="오늘의 특가 사조참치!" maxlength="50" tabindex="1">
 						<button type="button" tabindex="2">검색</button>
 					</div>
 				</fieldset>
@@ -43,6 +43,7 @@
 			</div>
 		</nav>
 	</header>
+<script type="text/javascript" th:src="@{/js/header.js}"></script>	
 </body>
 
 </html>

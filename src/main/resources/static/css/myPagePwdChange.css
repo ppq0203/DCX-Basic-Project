@@ -12,39 +12,44 @@
 	transform: translate(-50%,-50%); /*정밀 중앙으로*/
 }
 h1{ /*위치조정*/
-	padding-bottom: 20px;
+   padding-bottom: 20px;
 }
 label{ /*비밀번호 확인 조정*/
-	flex: 1; /*공간맞추기*/
-	text-align: left; /*text위치*/
-	font-size: 20px; /*사이즈*/
+   flex: 1; /*공간맞추기*/
+   text-align: left; /*text위치*/
+   font-size: 20px; /*사이즈*/
+}
+.text{
+   height: 30px;
 }
 .text{
 	height: 30px;
 }
 .pwdtext{
-	height: 30px;
-	float: right;
+   height: 30px;
+   float: right;
 }
 .button{
-	font-size:17px;
-	width:90px;
-	height:45px;
-	background-color: #ff7f00;
-	border: none;
-	border-radius: 5px;
-	position: absolute;
-	left: 90px;
-	bottom: 5px;
+   font-size:17px;
+   width:90px;
+   height:45px;
+   background-color: #ff7f00;
+   border: none;
+   border-radius: 5px;
+   position: absolute;
+   left: 90px;
+   bottom: 5px;
+
 }
 .button1{
-	font-size:17px;
-	width:90px;
-	height: 45px;
-	background-color: #50bcdf;
-	border: none;
-	border-radius: 5px;
-	position: absolute;
-	right: 90px;
-	bottom: 5px;
+
+   font-size:17px;
+   width:90px;
+   height: 45px;
+   background-color: #50bcdf;
+   border: none;
+   border-radius: 5px;
+   position: absolute;
+   right: 90px;
+   bottom: 5px;
 }
