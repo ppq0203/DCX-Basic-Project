@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-	<meta charset="UTF-8">
-	<title>ID 찾기</title>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<meta charset="UTF-8">
+<title>ID 찾기</title>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>	
 	<link rel="stylesheet" th:href="@{/css/idFind.css}"></link>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- 음성 -->
 	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
 	<!-- 알람 --> 
@@ -16,6 +21,7 @@
 <!-- id찾기 -->
 </head>
 <body>
+<div include-html="/header" class="up"></div>
 	<div class= "idFind1" id="Test">
 		<form id="idFindscreen"  name="idFindscreen" method="post" action="/postIdFind" class="idFind confirm id">
 		<h1>아이디 찾기</h1>
@@ -39,6 +45,9 @@
 			<input type="button" value="취소" onClick="location.href='/login'" class="hoverVoice button2"> 
 		</form>
 	</div>
+
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>	
 <script type="text/javascript" th:src="@{/js/mailConfirm.js}"></script>
 <script type="text/javascript" th:src="@{/js/idFind.js}"></script>
 <script type="text/javascript" th:src="@{/js/timer.js}"></script>

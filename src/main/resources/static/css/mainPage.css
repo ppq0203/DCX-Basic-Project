@@ -10,6 +10,7 @@
 }
 
 /*머리*/
+
 #main{
 	z-index: 2; /*보여주는 화면순서*/
 	position: relative; /*위치 속성*/

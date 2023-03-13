@@ -3,25 +3,45 @@
 	text-decoration: none; /*글 꾸미기: 없다.*/
 	list-style: none;      /*글 앞 점지우기*/
 }
-a{
-	color: inherit;
+#myPage{
+	position: relative;/*바꿔줘야하는놈들*/
+	top: 0%;
+	left: 30%; /*원하는 위치로 가게해줌*/
+	width: 150px; /*사이즈*/
+	height: 500px;
 }
-#Test{
-	position: absolute;
-	top: 50%;
-	left: 30%;
-	transform: translate(-50%,-50%); /*원하는 위치로 가게해줌*/
-	background-color: yellow;
-	width: 150px;
-	height: 250px;
+
+/*버튼 변화*/
+.custom-btn {
+  width: 130px;
+  height: 20px;
+  color: #000;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500; /*글 굵기*/
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none; 
 }
-.mainbar nav ul li{
-	padding: 3px;
-	float: left;
+.mainbar {
+	width: 90%;
+	margin: 40px auto;
+	text-align: center;
 }
-.mainbar nav ul li a{
-	width: 120px;
-	height: 50px;
-	background-color: antiquewhite;
-	
+.btn-1 {
+  background: greenyellow;
+  background: linear-gradient(0deg, greenyellow 0%,greenyellow 100%);
+  border: none;
+}
+.btn-1:hover {
+   background: rgb(0,3,255);
+background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%); 
 }

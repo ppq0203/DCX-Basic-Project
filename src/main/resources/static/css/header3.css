@@ -1,0 +1,112 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;/*a 관련 및줄 지우기*/
+}
+li{
+	list-style: none;/*점지우기*/
+}
+
+/*머리*/
+header{
+	height: 80px;
+	border: 1px;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	top: 0px;
+	left: 0px;
+}
+#HeaderMain{
+/*	background-color: red; /*확인용*/
+	width:1100px;
+	height: 60px;
+	margin:0 auto;
+}
+#HeaderMain h1 a{/*사조참치 수정*/
+	position: absolute;
+	color: white;
+	text-align: center;
+	bottom: 20px;
+	overflow: hidden;
+	font-size: 35px;
+/*	background-color: greenyellow;   확인용*/
+}
+#HeaderMain input{ /*입력창 수정*/
+	width: 500px; /*사이즈*/
+	height: 30px; /*사이즈*/
+	position: relative;
+	left: 200px;
+	top: 25px;
+	overflow: hidden;
+}
+#HeaderMain button{
+	width: 50px; /*사이즈*/
+	height: 32px; /*사이즈*/
+	position: relative;
+	top: 27px;
+	left:200px;
+}
+/*  로그인 아웃 마이페이지   */
+#HeaderMain .menu{
+	position: relative;
+	top: -15px;
+	left: 800px;
+	height: 40px;
+	text-decoration: none;/*a 관련 및줄 지우기*/
+	
+/*	background-color: greenyellow;/*확인용*/
+}
+/*	list-style: none;/*점지우기*/
+.menu div{
+	display: inline-flex; /*div 가로 정렬*/
+	margin: 0px;
+}
+.menu li a{
+	color: black;
+/*	background-color: greenyellow;/*확인용*/
+	position: relative; /*li a 가로 정렬*/
+	margin:10px;
+	right: -50%;
+}
+/*머리*/
+#main{
+	z-index: 2; /*보여주는 화면순서*/
+	position: relative; /*위치 속성*/
+	display: block;
+	top: 5px; /*header거리*/
+	width: 100%; /*가로 채우기*/
+	height: 40px; /*세로 길이*/
+	left: 0px;   /*왼쪽부터 채우기*/
+}
+#main ul {
+	position: absolute; /*굴저 칸 위치 조정*/
+	left: 0%; /*왼쪽 부터*/
+	right: 0%; /*오른쪽까지 박스*/
+	top: 0px;
+	bottom: 0px;
+	overflow: hidden;/*박스를 넘으면 안보임*/
+	text-align: center;
+}
+#main ul li{
+	/*float: left;/*박스들 왼쪽부터 나열*/
+	/*background-color: #2d2d2d; /*박스 색상*/
+	text-align: center; /*박스 안 글 위치*/
+	list-style: none; /*점 지움*/
+	display:  inline-block; /*박스 나열하기*/
+	margin-right: auto;
+}
+#main ul li a{
+	text-decoration: none; /*밑줄 지움*/
+	color: black; /*글자색*/
+	display: block ;/*박스 영역 만들기*/
+	width: 120px; /*박스 영역 가로넓이*/
+	height: 20px; /*박스영역 높이넓이*/
+	font-size: 17px; /*글자 크기*/
+	/*margin: 10 20px; /*상단바간격*/
+	/*padding: 10px; /*박스 글사이 간격*/
+	position: relative;/*고정 안끌고옴*/
+}

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-	<meta charset="UTF-8">
-	<title>비밀번호 수정</title>
+<meta charset="UTF-8">
+<title>비밀번호 수정</title>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
 	<!--css-->
 	<link rel="stylesheet" th:href="@{/css/myPagePwdChange.css}"></link>
 	
@@ -17,11 +21,9 @@
 		</th:block>
 </head>
 <body>
-<div id="Test">
+<div include-html="/header" class="up"></div>
 	<div id="myPwdChange">
-	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">
-		<h1>비밀번호 변경</h1>
-		
+	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">			<h1>비밀번호 변경</h1>
 			<div class="form-group">
 				<label>비밀번호 확인</label>
 				<!-- 
@@ -36,7 +38,10 @@
 		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button1">
 	</form>
 	</div>
-	<script type="text/javascript" th:src="@{/js/pwdChange.js}"></script>
-</div>
+	
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>	
+<script type="text/javascript" th:src="@{/js/pwdChange.js}"></script>
+
 </body>
 </html>

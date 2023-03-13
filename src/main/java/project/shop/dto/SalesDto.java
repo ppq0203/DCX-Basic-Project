@@ -21,8 +21,8 @@ public class SalesDto {
 	private int salesCount;
 	private int userNo;
 	private int productNo;
-	private String ProductName;
-	private String ProductCategory;
+	private String productName;
+	private String productCategory;
 	private List<MultipartFile> imageFile;
 	
 }

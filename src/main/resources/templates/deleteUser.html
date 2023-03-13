@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 탈퇴</title>
-	<!-- css -->
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
 	<link rel="stylesheet" th:href="@{/css/deleteUser.css}"></link>
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
+	
 <!-- 비밀번호 잘못 입력하였을때 알람을 주기위한 코드 --> 
 	<th:block th:if="${alertOption == 1}">
 		<script>
 			top.alert("[[${message}]]");
 		</script>
 	</th:block>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script type="text/javascript" th:src="@{/js/voice.js}"></script>
-</head>
+	</head>
 <body>
+<div include-html="/header" class="up"></div>
 <div id="Test">
 	<form id="cpwd" name="cpwd" method="post" action="/deleteUser" class="submitForm">
 		<h1>회원탈퇴</h1>
@@ -29,6 +35,8 @@
 		 <input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button2">
 	</form>
 </div>	
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>
 <script type="text/javascript" th:src="@{/js/deleteUser.js}"></script>
 </body>
 </html>
