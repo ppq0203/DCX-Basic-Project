@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.BasketDto;
@@ -36,7 +38,7 @@ public class ShopController {
     }
 	
 	@GetMapping("/header")
-	public String header()
+	public String header(HttpSession session)
 	{
 		return "/header";
 	}
@@ -121,5 +123,13 @@ public class ShopController {
 		}
 		session.removeAttribute("baskets");	//결제완료시 장바구니 내역 제거
 		return "redirect:/myPage";
+	}
+	@PostMapping("/isLoginCheck")
+	@ResponseBody
+	public int idCheck(HttpSession session) throws Exception {
+		if(session.getAttribute("userDto") != null)
+			return 1;
+		else
+			return 0;
 	}
 }
