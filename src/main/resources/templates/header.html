@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
-	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+
+<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+
 </head>
 <!-- 메인페이지 -->
 <body>
+<!--  영복님코드 시작 -->
+<!-- 
 <header>
 		<div id="HeaderMain">			
 			<h1>
@@ -26,35 +30,49 @@
 							<a href=/logout class="logoutLink">로그아웃</a>
 						</div>
 					</li>
+ -->
+<!--  영복님코드 끝 -->
+<!--  은정님 코드 시작 -->
+	<header>
+		<div class="links">
+			<a href="#" class="link_text">즐겨찾기 추가</a>
+		</div>
+		<a href="/main"><img src="img/sajo.jpg" class="img_logo" /></a>
+		<div>
+			<form>
+				<fieldset>
+					<legend class="visually-hidden">검색</legend>
+					<div class="search_box">
+						<input type="text" placeholder="사조참치 추가 할인 중" maxlength="50"
+							tabindex="1">
+						<button type="button" tabindex="2">검색</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="header-menu">
+			<a href="/myPage">마이 페이지</a> <a href=/login>로그인</a> <a
+				href="/joinUser">회원가입</a> <a href="/shoppingBasket">장바구니</a>
+		</div>
+
+		<nav>
+			<!-- <div class="nav_items"> -->
+			<div class="top-menu">
+				<ul>
+					<li><a href="/listprod?productCategory=cloth">의류</a></li>
+					<li><a href="/listprod?productCategory=beauty">뷰티/잡화</a></li>
+					<li><a href="/listprod?productCategory=food">식품/생필품</a></li>
+					<li><a href="/listprod?productCategory=tools">가구</a></li>
+					<li><a href="/listprod?productCategory=it">가전제품</a></li>
+					<li><a href="/listprod?productCategory=sports">스포츠 장비</a></li>
+					<li><a href="">상품권</a></li>
+					<li><a href="#" class="color_sajo">1<span class="color_cham">사조참치</span></a></li>
+<!--  은정님 코드 끝 -->
 				</ul>
-
-			<nav id="main">
-		<ul>
-			<li>
-				<a href="" class="Line">의류</a>
-			</li>
-			<li>
-				<a href="" class="Line1">뷰티/잡화</a>
-			</li>
-			<li>
-				<a href="" class="Line2">식품/생필품</a>
-			</li>
-			<li>
-				<a href="" class="Line3">가구</a>
-			</li>
-			<li>
-				<a href="" class="Line4">가전제품</a>
-			</li>
-			<li>
-				<a href="" class="Line5">스포츠 장비</a>
-			</li>
-			<li>
-				<a href="" class="Line6">상품권</a>
-			</li>
-		</ul>
-	</nav>
-	</div>
-</header>
-
+				<!-- 			<div class="keyword"> 
+				<span class="color_sajo">1</span> <span>사조참치</span> -->
+			</div>
+		</nav>
+	</header>
 </body>
 </html>

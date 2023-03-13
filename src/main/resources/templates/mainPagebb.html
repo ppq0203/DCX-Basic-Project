@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+<meta charset="UTF-8">
+<title>메인페이지 - 중간 카테고리</title>
+   <script th:src="@{/js/includeHTML.js}"></script>
+   <link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+   <link rel="stylesheet" th:href="@{/css/header.css}"></link>
+   <link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+</head>
+<!-- 중간 메뉴칸 -->
+
+<body>
+<div include-html="/header" class="up"></div>
+   <nav id="main">
+      <ul>
+         <li>
+            <a href="" class="Line">의류</a>
+         </li>
+         <li>
+            <a href="" class="Line1">뷰티/잡화</a>
+         </li>
+         <li>            
+            <a href="" class="Line2">식품/생필품</a>
+         </li>
+         <li>
+            <a href="" class="Line3">가구</a>
+         </li>
+         <li>
+            <a href="" class="Line4">가전제품</a>
+         </li>
+         <li>
+            <a href="" class="Line5">스포츠 장비</a>
+         </li>
+         <li>
+            <a href="" class="Line6">상품권</a>
+         </li>
+      </ul>
+   </nav>
+<script>includeHTML();</script>
+   </body>

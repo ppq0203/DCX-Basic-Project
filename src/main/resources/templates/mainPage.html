@@ -2,15 +2,17 @@
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
 <meta charset="UTF-8">
-<title>메인페이지 - 중간 카테고리</title>
-	<script th:src="@{/js/includeHTML.js}"></script>
-	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
-	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
-	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+<title>메인페이지</title>
+<script th:src="@{/js/includeHTML.js}"></script>
+   <link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+<!--    <link rel="stylesheet" th:href="@{/css/header.css}"></link>
+   <link rel="stylesheet" th:href="@{/css/footer.css}"></link> -->
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <!-- 중간 메뉴칸 -->
-
 <body>
+<!-- 영복님 코드 시작 -->
+<!-- 
 <div include-html="/header" class="up"></div>
 	<nav id="main">
 		<ul>
@@ -45,6 +47,17 @@
 		<br>
 		<br>
 		<br>
+	</div>
+<footer include-html="/footer"></footer>
+<script>includeHTML();</script>
+ -->
+<!-- 영복님 코드 끝 -->
+<!-- 은정님 코드 시작 -->
+	<div include-html="/header"></div>
+	
+	<div>사진(광고) 넣을수있는공간 예정중</div>
+	
+	<!-- 메인화면 디폴트 상품리스트 -->
 	<form id="listfrm" name="listfrm" method = "post" action="/showprod">
 	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <thead>
@@ -68,14 +81,13 @@
 	        <td th:text="${list.salesContent}"></td>
 	        <td th:text="${list.salesPrice}"></td>
 	        
-	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
-				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
-			</th:block-->
 	    </tr>
 	    </tbody>
 	</table>
-	</div>
-<footer include-html="/footer"></footer>
-<script>includeHTML();</script>
+
+	<div include-html="/footer"></div>
+	
+	<script>includeHTML();</script>
+<!-- 은정님 코드 끝 -->
 </body>
 </html>

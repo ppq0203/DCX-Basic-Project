@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+<meta charset="UTF-8">
+<title>메인 페이지</title>
+   <link rel="stylesheet" th:href="@{/css/header.css}"></link>
+</head>
+<!-- 메인페이지 -->
+<body>
+<header>
+   <div id="HeaderMain">         
+      <h1>
+         <a href="/main">사조참치</a>
+      </h1>
+         <input type = "text" placeholder= "검색어 입력">
+         <button>검색</button>
+      <nav>   
+         <ul class="menu">
+            <li>
+               <div class ="my">
+                  <a href="/myPage">마이 페이지</a>
+                  <a href="/showBasket">장바구니</a>
+               </div>
+               <div class ="login">
+                  <a href=/login class="loginLink" >로그인</a>
+                  <a href=/logout class="logoutLink">로그아웃</a>
+               </div>
+            </li>
+         </ul>
+      </nav>
+	</div>
+</header>
+
+</body>
+</html>
