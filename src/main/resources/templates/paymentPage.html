@@ -3,16 +3,95 @@
 <head>
 	<meta charset="UTF-8">
 	<title>결제 페이지</title>
+	<link rel="stylesheet" th:href="@{/css/cardForm.css}"></link>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script th:src="@{/js/cardForm.js}"></script>
+	<script th:src="@{/js/paymentPage.js}"></script>
+	<script th:src="@{/js/shoppingBasket.js}"></script>
+	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+	    var baskets = /*[[ ${baskets} ]]*/
+	    /*]]*/
+	</script>
 </head>
 <!-- 결제 페이지 -->
 <body>
+	<table border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}">
+	    <thead>
+	    <tr>
+			<td  class="td1">판매제목</td>
+			<td  class="td1">가격</td>
+			<td  class="td1">수량</td>
+		</tr>
+	    </thead>
+	    <tbody>
+		<tr>
+	        <td th:text="${basket.salesDto.salesTitle}"></td>
+	        <td th:text="${basket.salesDto.salesPrice}"></td>
+	        <td th:text="${basket.amount}"></td>	        
+	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
+				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
+			</th:block-->
+	    </tr>
+	    </tbody>
+	</table>
+	<span class="totalPrice"></span>
+	<script>
+		totalPriceFix();
+	</script>
+	<div>
+		<label>이름</label>
+		<div th:text="${userDto.userName}"></div>
+		<label>휴대폰 번호</label>
+		<div th:text="${userDto.userPhone}"></div>
+		<label>주소</label>
+		<div th:text="${userDto.userAddress}"></div>
+		<button type="button" onclick="showCardForm()">결제</button>
+		<button type="button" onclick="paymentCancle()">취소</button>
+	</div>
+	<!-- 카드 결제정보 입력 -->
+	<div class="cardForm">
+		<div class="tips">
+		결제카드 번호: (4) VISA, (51 -> 55) MasterCard, (36-38-39) DinersClub, (34-37) American Express, (65) Discover, (5019) dankort
+		</div>
+		
+		<div class="container">
+		  <div class="col1">
+		    <div class="card">
+		      <div class="front">
+		        <div class="type">
+		          <img class="bankid"/>
+		        </div>
+		        <span class="chip"></span>
+		        <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+		        <div class="date"><span class="date_value">MM / YYYY</span></div>
+		        <span class="fullname">FULL NAME</span>
+		      </div>
+		      <div class="back">
+		        <div class="magnetic"></div>
+		        <div class="bar"></div>
+		        <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+		        <span class="chip"></span><span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col2">
+		  <form>
+		    <label>카드 번호</label>
+		    <input class="number" type="text" ng-model="ncard" maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+		    <label>카드 소유자 이름</label>
+		    <input class="inputname" type="text" placeholder=""/>
+		    <label>유효 기간</label>
+		    <input class="expire" type="text" placeholder="MM / YYYY"/>
+		    <label>CVC 번호</label>
+		    <input class="ccv" type="text" placeholder="CVC" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+		    <button class="buy" type="button" th:onclick="paymentSubmit( [[${#lists.size(baskets)}]], [[${baskets[0].salesDto.salesNo}]], [[${baskets[0].amount}]] )"> 결제 </button>
+		    <button type="reset" class="buy" onclick="cardCancle()"> 취소 </button>
+		  </form>
+		  </div>
+		</div>
+	</div>
 
-이름 : <span th:text="${userDto.userName}"></span>
-<br>
-이메일 :<span th:text="${userDto.userEmail}"></span>
-<br>
-주소 : <span th:text="${userDto.userAddress}"></span>
-<br>
-<input type="submit" value="결제 진행 ">
 </body>
 </html>
