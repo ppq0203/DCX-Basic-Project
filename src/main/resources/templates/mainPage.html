@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <title>메인페이지</title>
 <script th:src="@{/js/includeHTML.js}"></script>
-   <link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
-   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <!-- 중간 메뉴칸 -->
 <body>
-	<div include-html="/header" class="up"></div>
-	
-	<div>사진(광고) 넣을수있는공간 예정중</div>
+	<div include-html="/header"></div>
 	
 	<!-- 메인화면 디폴트 상품리스트 -->
 	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
-	<div style = "float:left; margin: 0px auto;" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	<!-- 제거함 style = "float:left; margin: 0px auto;" -->
+	<div th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <li style="list-style: none;">
 			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
 		</li>
@@ -29,5 +28,6 @@
 </form>
 	<div include-html="/footer"></div>
 	<script>includeHTML();</script>
+	<script type="text/javascript" th:src="@{/js/header.js}"></script>	
 </body>
 </html>
