@@ -87,8 +87,8 @@ public class SalesController {
 		for(MultipartFile file : sales.getImageFile())
 		{
 			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
-			String path = "";//파일이 저장될 디렉토리 url
-			
+			String path = System.getProperty("user.dir")+"/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
+			System.out.println(path);
 			Path imagePath = Paths.get(path + file.getOriginalFilename());
 			
 			try {
@@ -145,6 +145,7 @@ public class SalesController {
 		Object user = session.getAttribute("userDto");
 		int userNo = ((UserDto) user).getUserNo();
 		System.out.println("/myOrder");
+		System.out.println("path :: " + System.getProperty("user.dir")+"/src/main/resources/static/files");
     	ModelAndView mv = new ModelAndView("myOrder");
         List<Object> list = salesService.getOrder(userNo);
         
