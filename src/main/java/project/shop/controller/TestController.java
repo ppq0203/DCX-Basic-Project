@@ -162,6 +162,16 @@ public class TestController {
 		return "/paymentPage";
 	}
 	
+	@GetMapping("/productCate.css")
+	public String productCateCSS() {
+		return "/productCate";
+	}
+	
+	@GetMapping("/productSearch.css")
+	public String productSearchCSS() {
+		return "/productSearch";
+	}
+	
 	@GetMapping("/productShow.css")
 	public String productShowCSS() {
 		return "/productShow";
@@ -186,11 +196,5 @@ public class TestController {
 	public String userInfoChangeCSS() {
 		return "/userInfoChange";
 	}
-	
-	@GetMapping("/productSearch.css")
-	public String productSearch() {
-		return "productSearch";
-	}
-	
 }
 
