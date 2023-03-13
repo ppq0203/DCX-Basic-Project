@@ -8,7 +8,7 @@
 </head>
 <!-- 상품등록-->
 <body>
-<div></div>
+<div>
 <div include-html="/header"></div>
 	<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
 		<table>
@@ -53,9 +53,11 @@
 				    <option value="sports">스포츠 장비</option>
 				</select></td>
 			</tr>
+			<tr>
+				<td><input type="submit" value="등록" class="productWritebutton"></td>
+				<td><input type="reset" value="취소" class="productWritebutton1"></td>
+			</tr>
 		</table>
-	<input type="submit" value="등록" class="productWritebutton">
-	<input type="reset" value="취소" class="productWritebutton1">
 </div>
 <div include-html="/footer"></div>
 <script>includeHTML();</script>
