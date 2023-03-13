@@ -6,6 +6,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script th:src="@{/js/shoppingBasket.js}"></script>
 	<script type="text/javascript" th:src="@{/js/goPaymentPage.js}"></script>
+	<script th:src="@{/js/includeHTML.js}"></script>
 	
 	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
 	<script th:inline="javascript">
@@ -17,7 +18,7 @@
 </head>
 <!-- 장바구니 페이지 -->
 <body>
-
+<div include-html="/header"></div>
 
 <form id="listfrm" name="listfrm" method = "post" action="/basketUpdate">
 	<table border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}">
@@ -54,5 +55,8 @@
 <script>
 	totalPriceFix();
 </script>
+
+<div include-html="/footer"></div>
+<script>includeHTML();</script>
 </body>
 </html>

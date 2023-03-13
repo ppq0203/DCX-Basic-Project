@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <title>상품 등록 페이지</title>
 	<link rel="stylesheet" th:href="@{/css/productWrite.css}"></link>
+	<script th:src="@{/js/includeHTML.js}"></script>
 </head>
 <!-- 상품등록-->
 <body>
+<div include-html="/header"></div>
+
 <form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
 	<table>
 		<tr>
@@ -52,6 +55,9 @@
 	</table>
 <input type="submit" value="등록">
 <input type="reset" value="취소">
+
+<div include-html="/footer"></div>
+<script>includeHTML();</script>
 </form>
 </body>
 </html>
