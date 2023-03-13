@@ -38,10 +38,10 @@ html, body {
 	padding-bottom: 60px;
 }
 
-#body-wrapper {
+/* #body-wrapper {
 	min-height: 100%;
 	position: relative;
-}
+} */
 
 #body-wrapper ul {
 	list-style: none;
