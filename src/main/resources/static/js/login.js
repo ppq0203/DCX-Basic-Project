@@ -15,6 +15,14 @@ function loginFunc() {
 	}
 	$('.submitForm').submit();
 }
+
+$('.submitForm').keypress(function(e){
+	if(e.keyCode == 13)
+	{
+		loginFunc();
+	}
+});
+
 /*
 $(document).on('mouseenter', '.button2', function(e){
 		if(voiceState == 0)

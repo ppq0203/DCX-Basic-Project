@@ -3,7 +3,9 @@ package project.shop.controller;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.BasketDto;
 import project.shop.dto.OrderDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
@@ -42,7 +45,7 @@ public class SalesController {
 	}
 	
 	//판매정보 호출 기반
-	@PostMapping("/showprod")
+	@GetMapping("/showprod")
 	public ModelAndView prodPage(@RequestParam("salesNo") int num) throws Exception
 	{
 		System.out.println("/showprod");
@@ -57,18 +60,19 @@ public class SalesController {
 	}
 	
 	//판매정보 호출 기반
-		@GetMapping("/listprod")
-		public ModelAndView prodlist(SalesDto sales) throws Exception
-		{
-			System.out.println("/listprod");
-	    	ModelAndView mv = new ModelAndView("test/dbtest");
-	        List<SalesDto> list = salesService.selectProdList(sales);
-	        
-	        mv.addObject("list", list);
-			System.out.println(mv);
-			
-			return mv;
-		}
+	@GetMapping("/cateprod")
+	public ModelAndView catelist(@RequestParam("productCategory") String cate) throws Exception
+	{
+		System.out.println("/cateprod");
+    	ModelAndView mv = new ModelAndView("/productCate");
+        
+    	List<SalesDto> list = salesService.selectCateList(cate);
+        
+        mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
 	
 	//판매정보 및 상품등록
 	@PostMapping("/productWrite.do")
@@ -85,7 +89,7 @@ public class SalesController {
 			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
 			String path = "";//파일이 저장될 디렉토리 url
 			
-			Path imagePath = Paths.get(path + imageFileName);
+			Path imagePath = Paths.get(path + file.getOriginalFilename());
 			
 			try {
 				System.out.println("try");
@@ -103,14 +107,50 @@ public class SalesController {
 		System.out.println(" [+] post :: "+sales);
 		salesService.insertProduct(sales);
 		
-		return "redirect:/showprod";
+		return "redirect:/main";
 	}
 	
-	@PostMapping("/orderdate")
-	public String insertOrder(OrderDto order)
+	@GetMapping("/orderdate")
+	public String insertOrder(OrderDto order, HttpSession session)
 	{
-		salesService.insertOrder(order);
+		ArrayList<BasketDto> basket = (ArrayList<BasketDto>) session.getAttribute("baskets");
+		Object userO = session.getAttribute("userDto");
+		
+		order.setUserNo(((UserDto) userO).getUserNo());
+		
+		String uuid = UUID.randomUUID().toString();
+		String[] test = uuid.split("-");
+		String orderNo = "";
+		for(int i = 0; i < 3; i++)
+		{
+			orderNo = orderNo + test[i];
+		}
+		
+		order.setOrderNo(orderNo);
+		
+		for(int i = 0; i < basket.size(); i++)
+		{
+			order.setSalesCount(basket.get(i).getAmount());
+			order.setSalesNo(basket.get(i).getSalesDto().getSalesNo());
+			salesService.insertOrder(order);
+		}
 		System.out.println("date inputed");
 		return "redirect:/main";
 	}
+	
+	//판매정보 호출 기반
+	@GetMapping("/myOrder")
+	public ModelAndView orderlist(HttpSession session) throws Exception
+	{
+		Object user = session.getAttribute("userDto");
+		int userNo = ((UserDto) user).getUserNo();
+		System.out.println("/myOrder");
+    	ModelAndView mv = new ModelAndView("test/dbtest");
+        List<Object> list = salesService.getOrder(userNo);
+        mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
+	
 }

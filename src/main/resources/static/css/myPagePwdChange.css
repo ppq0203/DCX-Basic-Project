@@ -22,11 +22,15 @@ label{ /*비밀번호 확인 조정*/
 .text{
    height: 30px;
 }
+.text{
+	height: 30px;
+}
 .pwdtext{
    height: 30px;
    float: right;
 }
 .button{
+<<<<<<< HEAD
    font-size:17px;
    width:90px;
    height:45px;
@@ -36,8 +40,20 @@ label{ /*비밀번호 확인 조정*/
    position: absolute;
    left: 90px;
    bottom: 5px;
+=======
+	font-size:17px;
+	width:90px;
+	height:45px;
+	background-color: #ff7f00;
+	border: none;
+	border-radius: 5px;
+	position: absolute;
+	left: 90px;
+	bottom: 5px;
+>>>>>>> refs/remotes/origin/master
 }
 .button1{
+<<<<<<< HEAD
    font-size:17px;
    width:90px;
    height: 45px;
@@ -47,4 +63,15 @@ label{ /*비밀번호 확인 조정*/
    position: absolute;
    right: 90px;
    bottom: 5px;
+=======
+	font-size:17px;
+	width:90px;
+	height: 45px;
+	background-color: #50bcdf;
+	border: none;
+	border-radius: 5px;
+	position: absolute;
+	right: 90px;
+	bottom: 5px;
+>>>>>>> refs/remotes/origin/master
 }

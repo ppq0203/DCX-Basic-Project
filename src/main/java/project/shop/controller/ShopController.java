@@ -1,27 +1,40 @@
 package project.shop.controller;
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import project.shop.service.ShopService;
+import project.shop.dto.BasketDto;
+import project.shop.dto.OrderDto;
+import project.shop.dto.SalesDto;
+import project.shop.dto.UserDto;
+import project.shop.service.SalesService;
 
 @Controller // 컨트롤러라고 선언함
 public class ShopController {
 	@Autowired
-	private ShopService shopService; //서비스와 연결
+	private SalesService salesService; //서비스와 연결
 	
 	@GetMapping("/main") //노테이션의 값으로 주소 지정
-    public ModelAndView mainPage() throws Exception{
-    	//templates 폴더 아래있는 /boardList.html을 의미함. Thymeleaf와 같은 템플릿엔진을 사용할 경우 스프링 부트의 자동 설정 기능으로 '.html'과 같은 접미사 생략 가능
-    	ModelAndView mv = new ModelAndView("/mainPage"); 
-//    	System.out.println(shopService.select());
-        //메인페이지 상품을 띄우기 위해 SalesService 클래스의 selectSalesList 메서드 호출
-//        List<SalesDto> list = shopService.selectSalesList();  
-//        mv.addObject("list", list);
-        return mv;
+    public ModelAndView mainPage(SalesDto sales) throws Exception{
+    	ModelAndView mv = new ModelAndView("/mainPage");
+        List<SalesDto> list = salesService.selectProdList(sales);
+        
+        mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
     }
 	
 	@GetMapping("/header")
@@ -34,5 +47,68 @@ public class ShopController {
 	public String footer()
 	{
 		return "/footer";
+	}
+	
+	
+	@PostMapping("goPaymentPage")
+	public ModelAndView goPaymentPage(HttpSession session, int salesNo) throws Exception
+	{
+		System.out.println("paymentPage");
+		ModelAndView mv = new ModelAndView("paymentPage");
+		ArrayList<BasketDto> baskets;
+		if (salesNo > 0)	//즉시구매시 상품번호전달
+		{
+			SalesDto salesDto = salesService.findProd(salesNo);
+			BasketDto basketDto;
+			basketDto = new BasketDto();
+			basketDto.setSalesDto(salesDto);	//즉시구매 데이터 전송
+			basketDto.setAmount(1);
+			System.out.println(basketDto);
+			baskets = new ArrayList<BasketDto>();
+			baskets.add(basketDto);
+		}
+		else	//장바구니 구매시 -1 전달
+		{
+			System.out.println(session.getAttribute("baskets"));
+			if(session.getAttribute("baskets") == null || ((ArrayList<BasketDto>)session.getAttribute("baskets")).size() <= 0 )
+				return new ModelAndView("redirect:/showBasket");
+			
+			baskets = (ArrayList<BasketDto>)session.getAttribute("baskets");	//장바구니 데이터 전송
+		}
+		System.out.println(baskets);
+		mv.addObject("baskets", baskets);
+		mv.addObject("userDto", session.getAttribute("userDto"));
+		return mv;
+	}
+	
+	@PostMapping("postPaymentPage")
+	public String postPaymentPage(HttpSession session,int salesNo, int amount) throws Exception
+	{
+		System.out.println("postPaymentPage");
+		UserDto user = (UserDto)session.getAttribute("userDto");
+		if (salesNo > 0)	//즉시구매시 상품번호전달
+		{
+			OrderDto orderDto = new OrderDto();
+			orderDto.setUserNo(user.getUserNo());
+			orderDto.setSalesNo(salesNo);
+			System.out.println(orderDto);
+//			orderDto.getAmount(amount);	//수량 저장
+//			orderservice.setOrder(orderDto);	// 주문정보 저장
+		}
+		else	//장바구니 구매시 -1 전달
+		{
+			ArrayList<BasketDto> baskets = (ArrayList<BasketDto>)session.getAttribute("baskets");
+			for (BasketDto basket : baskets)
+			{
+				OrderDto orderDto = new OrderDto();
+				orderDto.setUserNo(user.getUserNo());
+				orderDto.setSalesNo(basket.getSalesDto().getSalesNo());
+				System.out.println(orderDto);
+//				orderDto.getAmount(basket.getAmount);	//수량 저장
+//				orderservice.setOrder(orderDto);	// 주문정보 저장
+			}
+		}
+		session.removeAttribute("baskets");	//결제완료시 장바구니 내역 제거
+		return "redirect:/myPage";
 	}
 }

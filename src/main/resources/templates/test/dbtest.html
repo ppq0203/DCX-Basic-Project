@@ -1,65 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
-    <meta charset="UTF-8">
-    <title>상품 리스트</title>
+	<meta charset="UTF-8">
+	<title>장바구니 페이지</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script th:src="@{/js/shoppingBasket.js}"></script>
+	
+	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+	    var baskets = /*[[ ${baskets} ]]*/
+	    /*]]*/
+	</script>
+	
 </head>
+<!-- 장바구니 페이지 -->
 <body>
-<h1>db 테스트</h1>
-<!--table id = "dbtest" border="1">
-    <tr>
-        <td>순번</td>
-        <td>상품명</td>
-        <td>상품설명</td>
-        <td>가격</td>
-    </tr>
-	<tr th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
-		<td th:text="${list.salesNo}"></td>
-		<td th:text="${list.productName}"></td>
-		<td th:text="${list.salesContent}"></td>
-		<td th:text="${list.salesPrice}"></td>
-		<tr>
-			<td>평점</td>
-		</tr>
-		<tr>
-			<td><input type="radio" th:name="reviewScore" value=1 checked> 1점 </td>
-			<td><input type="radio" th:name="reviewScore" value=2 > 2점 </td>
-			<td><input type="radio" th:name="reviewScore" value=3 > 3점 </td>
-			<td><input type="radio" th:name="reviewScore" value=4 > 4점 </td>
-			<td><input type="radio" th:name="reviewScore" value=5 > 5점 </td>
-		</tr>
-		
-		<tr>
-			<td>제목 : </td>
-			<td><input type="text" th:name="serviceTitle"></input></td>
-		</tr>
-		<tr>
-			<td>내용 : </td>
-			<td><textarea type="text" th:name="serviceContent"></textarea></td>
-		</tr>
-	</tr-->
-<form id="listfrm" name="listfrm" method = "post" action="/showprod">
-	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+
+
+<form id="listfrm" name="listfrm" method = "post" action="/basketUpdate">
+	<table border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}">
 	    <thead>
 	    <tr>
 			<td  class="td1">판매제목</td>
 			<td  class="td1">썸네일</td>
+			<td  class="td1">가격</td>
+			<td  class="td1">수량</td>
+			<td  class="td1">삭제</td>
 		</tr>
 	    </thead>
 	    <tbody>
-	    <tr>
-			<td th:text="${list.salesTitle}"></td>
-			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}"></img></button></td>
-		</tr>
 		<tr>
-			<td  class="td1">상품명</td>
-	        <td  class="td1">상품설명</td>
-	        <td  class="td1">가격</td>
-		</tr>
-		<tr>
-	        <td th:text="${list.productName}"></td>
-	        <td th:text="${list.salesContent}"></td>
-	        <td th:text="${list.salesPrice}"></td>
+	        <td th:text="${basket.salesDto.salesTitle}"></td>
+	        <td><img th:src="${'files/'+#strings.setSplit(basket.salesDto.salesImg, '$%$')[0]}"></img></td>
+	        <td th:text="${basket.salesDto.salesPrice}"></td>
+	        <td>
+	        	<!-- js에서 사용하기위해 input hidden 과 input number 같이 있어야함 -->
+	        	<input hidden="hidden" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}"/>
+	        	<input type="number" th:value="${basket.amount}" min="1" max="99" onchange="amounChange(this)">
+        	</td>
+	        <td><button type = "submit" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}">X</button></td>
 	        
 	        <!--th:block th:if="${#lists.size(list)} > 0" th:each="image, i: ${#numbers.sequence(2, #lists.size(#strings.setSplit(list.salesImg, '$%$')))}">
 				<td><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[i.count]}"></td>
@@ -67,6 +47,11 @@
 	    </tr>
 	    </tbody>
 	</table>
+	<span class="totalPrice"></span>
+	<p><a href=paymentPage.html>결제하러가기</a></p>
 </form>
+<script>
+	totalPriceFix();
+</script>
 </body>
 </html>
