@@ -9,29 +9,26 @@
 
 
 <form id="listfrm" name="listfrm" method = "get" action="/showprod">
-	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
-	    <thead>
-	    <tr>
-			<td  class="td1">판매제목</td>
-			<td  class="td1">썸네일</td>
-		</tr>
-	    </thead>
-	    <tbody>
-	    <tr>
-			<td th:text="${list.salesTitle}"></td>
-			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></td>
-		</tr>
-		<tr>
-			<td  class="td1">상품명</td>
-	        <td  class="td1">상품설명</td>
-	        <td  class="td1">가격</td>
-		</tr>
-		<tr>
-	        <td th:text="${list.productName}"></td>
-	        <td th:text="${list.salesContent}"></td>
-	        <td th:text="${list.salesPrice}"></td>
-	    </tr>
-	    </tbody>
-	</table>
+	<div style = "float:left;" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	    <li>
+			<ul  class="td1">판매제목</ul>
+			<ul  class="td1">썸네일</ul>
+		</li>
+	    <li>
+			<ul th:text="${list.salesTitle}"></ul>
+			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
+		</li>
+		<li>
+			<ul  class="td1">상품명</ul> 
+	        <ul  class="td1">상품설명</ul>
+	        <ul  class="td1">가격</ul>
+		</li>
+		<li>
+	        <ul th:text="${list.productName}"></ul>
+	        <ul th:text="${list.salesContent}"></ul>
+	        <ul th:text="${list.salesPrice}"></ul>
+	    </li>
+	</div>
+</form>
 </body>
 </html>
