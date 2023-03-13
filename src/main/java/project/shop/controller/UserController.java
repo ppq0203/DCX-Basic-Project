@@ -339,5 +339,16 @@ public class UserController {
 		}
 		return mv;
 	}
+	
+	//이메일 전송
+	@PostMapping("/isLoginCheck")
+	@ResponseBody
+	public int isLoginCheck(HttpSession session) throws Exception {
+		System.out.println("isLoginCheck!");
+		if(session.getAttribute("userDto")!=null)
+			return 1;
+		else
+			return 0;
+	}
 
 }
