@@ -1,15 +1,8 @@
 @charset "UTF-8";
 #userChange{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items:center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	position: relative;
+	left: 30%;
 }
 h1{
 	font-size: 25px;
@@ -32,16 +25,6 @@ label{
 	text-align: left;
 	font-size: 20px;
 }
-.button{
-	width:100px;
-	height:30px;
-	background-color: #50bcdf;
-	border: none;
-	border-radius: 5px;
-	position: absolute;
-	right: -55px;
-	background-color: #ff7f00;
-}
 .button1{
 	font-size:17px;
 	width:120px;
@@ -49,8 +32,7 @@ label{
 	background-color: #ff7f00;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	left: 70px;
+	position: relative;;
 }
 .button2{
 	font-size:17px;
@@ -59,6 +41,5 @@ label{
 	background-color: #50bcdf;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	right: 80px;
+	position: relative;
 }
