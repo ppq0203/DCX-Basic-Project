@@ -15,34 +15,19 @@
 	
 	<!-- 메인화면 디폴트 상품리스트 -->
 	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
-	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
-	    <thead>
-	    <tr>
-			<td  class="td1">판매제목</td>
-			<td  class="td1">썸네일</td>
-		</tr>
-	    </thead>
-	    <tbody>
-	    <tr>
-			<td th:text="${list.salesTitle}"></td>
-			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></td>
-		</tr>
-		<tr>
-			<td  class="td1">상품명</td>
-	        <td  class="td1">상품설명</td>
-	        <td  class="td1">가격</td>
-		</tr>
-		<tr>
-	        <td th:text="${list.productName}"></td>
-	        <td th:text="${list.salesContent}"></td>
-	        <td th:text="${list.salesPrice}"></td>
-	        
-	    </tr>
-	    </tbody>
-	</table>
-
+	<div style = "float:left; margin: 0px auto;" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	    <li style="list-style: none;">
+			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
+		</li>
+		<li style="list-style: none;">
+			<ul th:text="${list.salesTitle}"></ul>
+			<ul th:text="${list.salesContent}"></ul>
+	        <ul th:text="${list.salesPrice}+'원'"></ul>
+	        <ul th:text="${list.productName}"></ul>
+		</li>
+	</div>
+</form>
 	<div include-html="/footer"></div>
-	
 	<script>includeHTML();</script>
 </body>
 </html>

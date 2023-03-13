@@ -168,4 +168,19 @@ public class SalesController {
 		
 		return mv;
 	}
+	
+	//div로 변경 테스트
+	@GetMapping("/dbtest")
+	public ModelAndView testProd(@RequestParam(value = "keyword", required = false) String tProd)
+	{
+		ModelAndView mv = new ModelAndView("test/dbtest");
+		tProd = "참치";
+		System.out.println(tProd);
+		List<SalesDto> list = salesService.searchProd(tProd);
+		
+		mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
 }
