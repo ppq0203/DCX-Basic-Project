@@ -7,51 +7,53 @@
 </head>
 <!-- 상품등록-->
 <body>
-<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
-	<table>
-		<tr>
-			<td>판매제목</td>
-			<td><input type="text" th:name="salesTitle" placeholder="제목"class= "text"></td>
-		</tr>
-		<tr>
-			<td>상품명</td>
-			<td><input type="text" th:name="productName" placeholder="상품명"class= "text"></td>
-		</tr>
-		<tr>
-			<td>상품사진</td>
-			<td><input type="file" accept="image/*" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
-		</tr>
-		<tr>
-			<td>상세설명</td>
-			<td><textarea type="text" th:name="salesContent" placeholder="상세설명"class= "text"></textarea></td>
-		</tr>
-		<tr>
-			<td>상세사진</td>
-			<td><input type="file" accept="image/*" multiple="multiple" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
-		</tr>
-		<tr>
-			<td>상품가격</td>
-			<td><input type="text" th:name="salesPrice" placeholder="가격"class= "text"></td>
-		</tr>
-		<tr>
-			<td>재고량</td>
-			<td><input type="text" th:name="salesCount" placeholder="재고"class= "text"></td>
-		</tr>
-		<tr>
-			<td>상품종류</td>
-			<td><select th:name="productCategory">
-				<option value="">선택</option>
-			    <option value="cloth">의류</option>
-			    <option value="beauty">뷰티/잡화</option>
-			    <option value="food">식품/생필품</option>
-			    <option value="tools">기구</option>
-			    <option value="it">가전제품</option>
-			    <option value="sports">스포츠 장비</option>
-			</select></td>
-		</tr>
-	</table>
-<input type="submit" value="등록">
-<input type="reset" value="취소">
+<div di="productWrite">
+	<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td><label>판매제목</label></td>
+				<td><input type="text" th:name="salesTitle" placeholder="제목"class= "text"></td>
+			</tr>
+			<tr>
+				<td><label>상품명</label></td>
+				<td><input type="text" th:name="productName" placeholder="상품명"class= "text"></td>
+			</tr>
+			<tr>
+				<td><label>상품사진</label></td>
+				<td><input type="file" accept="image/*" th:name="imageFile" placeholder="상품이미지" class= ""></td>
+			</tr>
+			<tr>
+				<td><label>상세설명</label></td>
+				<td><textarea type="text" th:name="salesContent" placeholder="상세설명"class= "tkdtptext"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>상세사진</label></td>
+				<td><input type="file" accept="image/*" multiple="multiple" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
+			</tr>
+			<tr>
+				<td><label>상품가격</label></td>
+				<td><input type="text" th:name="salesPrice" placeholder="가격"class= "text"></td>
+			</tr>
+			<tr>
+				<td><label>재고량</label></td>
+				<td><input type="text" th:name="salesCount" placeholder="재고"class= "text"></td>
+			</tr>
+			<tr>
+				<td><label>상품종류</label></td>
+				<td><select th:name="productCategory">
+					<option value="">선택</option>
+				    <option value="cloth">의류</option>
+				    <option value="beauty">뷰티/잡화</option>
+				    <option value="food">식품/생필품</option>
+				    <option value="tools">기구</option>
+				    <option value="it">가전제품</option>
+				    <option value="sports">스포츠 장비</option>
+				</select></td>
+			</tr>
+		</table>
+	<input type="submit" value="등록" class="productWritebutton">
+	<input type="reset" value="취소" class="productWritebutton1">
+</div>
 </form>
 </body>
 </html>

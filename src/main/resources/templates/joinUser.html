@@ -26,7 +26,7 @@
 <!-- 사용자 CSS 추가 -->
 <body>
 <div include-html="/header" class="up"></div>
-	<div id= "Test" >
+	<div id= "joinUser" >
 	<div class="container">
 		<form id="frm" name="frm" method="post" action="/postregi" class="join confirm">
 			<h1>회원가입</h1> 
@@ -35,7 +35,7 @@
 				<span class="voiceExplain">아이디를 20자 이내로 입력해주시고 중복확인 버튼을 클릭해주세요.</span>
 				<input type="text" th:id="userId" th:name="userId" class="focusVoice text" placeholder="20자 이내 입력"/>
 				<!-- 중복확인 -->
-				<button type="button" id="Btn1" onclick="checkId()" class="button" >중복 확인</button>
+				<button type="button" id="Btn1" onclick="checkId()" class="joinbutton" >중복 확인</button>
 				<span class="id_ok IdText">사용 가능한 아이디입니다.</span>
 				<span class="id_already IdText">누군가 이 아이디를 사용하고 있어요.</span>
 				
