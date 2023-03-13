@@ -13,11 +13,11 @@
 		<a href="/main" class="spass"><img src="img/sajo.jpg" class="img_logo" /></a>
 		
 		<div >
-			<form>
+			<form method="get" action="/searchP">
 				<fieldset>
 					<legend class="visually-hidden">검색</legend>
 					<div class="search_box  jump">
-						<input type="text" placeholder="사조참치 추가 할인 중" maxlength="50" tabindex="1">
+						<input type="text" th:name="keyword"placeholder="사조참치 추가 할인 중" maxlength="50" tabindex="1">
 						<button type="button" tabindex="2">검색</button>
 					</div>
 				</fieldset>
@@ -30,7 +30,6 @@
 			<a href="/joinUser">회원가입</a>
 			<a href="/showBasket">장바구니</a>
 		</div>
-
 		<nav id="main">
 			<!-- <div class="nav_items"> -->
 			<div class="top-menu">
