@@ -147,6 +147,7 @@ public class SalesController {
 		System.out.println("/myOrder");
     	ModelAndView mv = new ModelAndView("test/dbtest");
         List<Object> list = salesService.getOrder(userNo);
+        
         mv.addObject("list", list);
 		System.out.println(mv);
 		

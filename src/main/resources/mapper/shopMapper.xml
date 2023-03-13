@@ -160,6 +160,8 @@
 	<!-- 주문내역 보기 -->
 	<resultMap id="salesMap" type="SalesDto">
 		<result column="sales_price" property="salesPrice"/>
+		<result column="sales_title" property="salesTitle"/>
+		<result column="sales_img" property="salesImg"/>
 	</resultMap>
 	<resultMap id="orderMap" type="OrderDto">
 		<result column="sales_no" property="salesNo"/>
@@ -174,6 +176,12 @@
 		LEFT OUTER JOIN
 		sales on orders.sales_no = sales.sales_no
 		where orders.user_no = #{userNo}
+	</select>
+	
+	<!-- 검색으로 찾기 -->
+	<select id="searchProd" resultType="SalesDto">
+		SELECT * FROM sales
+		WHERE sales_title = '_#{salesTitle}_'
 	</select>
 	
 </mapper>
