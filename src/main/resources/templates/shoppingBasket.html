@@ -5,6 +5,7 @@
 	<title>장바구니 페이지</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script th:src="@{/js/shoppingBasket.js}"></script>
+	<script type="text/javascript" th:src="@{/js/goPaymentPage.js}"></script>
 	
 	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
 	<script th:inline="javascript">
@@ -48,7 +49,7 @@
 	    </tbody>
 	</table>
 	<span class="totalPrice"></span>
-	<p><a href=paymentPage.html>결제하러가기</a></p>
+	<p><button type="button" onclick="goPaymentPage(-1)">결제하러가기</button></p>
 </form>
 <script>
 	totalPriceFix();

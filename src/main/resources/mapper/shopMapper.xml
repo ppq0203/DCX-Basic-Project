@@ -146,11 +146,34 @@
 		users ON customer_service.writer = users.user_no
 	</select>
 	
+	<!-- 주문내역 입력 -->
 	<insert id="insertOrder" parameterType="OrderDto">
-		INSERT INTO orders(user_no, sales_no, order_date)
+		INSERT INTO orders(user_no, sales_no, order_date, order_no, sales_count)
 		VALUES(
-			#{uesrNo},
+			#{userNo},
 			#{salesNo},
-			(to_date(SYSDATE,'YYYY-MM-DD HH24:mi:SS')))
+			SYSDATE,
+			#{orderNo},
+			#{salesCount})
 	</insert>
+	
+	<!-- 주문내역 보기 -->
+	<resultMap id="salesMap" type="SalesDto">
+		<result column="sales_price" property="salesPrice"/>
+	</resultMap>
+	<resultMap id="orderMap" type="OrderDto">
+		<result column="sales_no" property="salesNo"/>
+		<result column="order_no" property="orderNo"/>
+		<result column="order_date" property="orderDate"/>
+		<result column="sales_count" property="salesCount"/>
+		<result column="user_no" property="userNo"/>
+		<collection property="salesDto" resultMap="salesMap"/>
+	</resultMap>
+	<select id="getOrder" resultMap="orderMap">
+		SELECT * FROM orders
+		LEFT OUTER JOIN
+		sales on orders.sales_no = sales.sales_no
+		where orders.user_no = #{userNo}
+	</select>
+	
 </mapper>

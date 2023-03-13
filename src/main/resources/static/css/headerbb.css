@@ -1,0 +1,99 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;/*a 관련 및줄 지우기*/
+}
+li{
+	list-style: none;/*점지우기*/
+}
+
+/*머리*/
+header{
+	height: 80px;
+	background-color: #006f84;
+	border: 1px;
+	border-color: #253342;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+	top: 0px;
+	left: 0px;
+}
+#HeaderMain{/*망할*/
+/*	background-color: red; /*확인용*/
+	width:1100px;
+	height: 60px;
+	margin:0 auto;
+}
+#HeaderMain h1 a{/*사조참치 수정*/
+	position: absolute;
+	color: white;
+	text-align: center;
+	bottom: 20px;
+	overflow: hidden;
+/*	background-color: greenyellow;   확인용*/
+}
+#HeaderMain input{ /*입력창 수정*/
+	width: 500px; /*사이즈*/
+	height: 30px; /*사이즈*/
+	position: relative;
+	left: 200px;
+	top: 25px;
+	overflow: hidden;
+}
+#HeaderMain button{
+	width: 50px; /*사이즈*/
+	height: 32px; /*사이즈*/
+	position: relative;
+	top: 27px;
+	left:200px;
+}
+/*  로그인 아웃 마이페이지   */
+nav{
+	position: relative;
+	top: -15px;
+	left: 800px;
+	height: 40px;
+	text-decoration: none;/*a 관련 및줄 지우기*/
+	
+/*	background-color: greenyellow;/*확인용*/
+}
+/*	list-style: none;/*점지우기*/
+
+.menu {
+	list-style:  none;
+}
+.menu div{
+	display: inline-flex; /*div 가로 정렬*/
+	margin: 0px;
+}
+.menu li a{
+	color: black;
+/*	background-color: greenyellow;/*확인용*/
+	float: left; /*li a 가로 정렬*/
+	margin:10px;
+}
+
+/*   커서 올렸을때 색변경으로 해주시면 감사하겠습니다. 밑은 예시입니다. 
+ */
+ /* li {
+	float:left; 
+	list-style:none; 
+	margin:1px;
+}
+li a {
+	display: none; 
+	width: 150px; 
+	height: 40px; 
+	background: #c00; 
+	color: #fff; 
+	border: 1px solid blue; 
+	font-size:12px;	
+}
+li a:hover {
+	background:#099; 
+	text-decoration:none;
+}  */
