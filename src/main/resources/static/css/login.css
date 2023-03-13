@@ -1,14 +1,10 @@
 @charset "UTF-8";
 #login{
-	flex-direction: column;
 	justify-content: center;
-	align-items:center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	position: relative;
+	left: 30%;
 }
-#ligih h1{
+h1{
 	font-size: 25px;
 	padding-bottom: 20px;
 }
@@ -38,45 +34,43 @@ label{
 	display:iline;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
+	position: relative;
+	margin: 5px;
 	background-color: #81c147;
 }
-.button2{
+#buttonTH .button2{
 	font-size:17px;
 	width:90px;
 	height:45px;
 	text-align : center;
-	display:iline;
+	display:inline;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
+	position: relative;
 	left: 0px;
-	bottom:-95px;
 	background-color: #50bcdf;
 }
-.button3{
+#buttonTH .button3{
 	font-size:17px;
 	width:100px;
 	height:45px;
 	text-align : center;
-	display:iline;
+	display:inline;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	left: 95px;
-	bottom:-95px;
+	position: relative;
+	left: 5px;
 	background-color: #50bcdf;
 }
-.button4{
+#buttonTH .button4{
 	font-size:17px;
 	width:120px;
 	height:45px;
 	text-align : center;
-	display:iline;
+	display:inline;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	right: 0px;
-	bottom:-95px;
+	position: relative;
+	left: 10px;
 	background-color: #50bcdf;
 }
