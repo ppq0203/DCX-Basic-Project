@@ -43,4 +43,9 @@ public class SalesService {
 		List<Object> resultList = shopMapper.getOrder(user);
 		return resultList;
 	}
+
+	public List<SalesDto> searchProd(String sProd) {
+		List<SalesDto> resultList = shopMapper.searchProd(sProd);
+		return resultList;
+	}
 }

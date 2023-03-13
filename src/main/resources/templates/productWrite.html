@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <title>상품 등록 페이지</title>
 	<link rel="stylesheet" th:href="@{/css/productWrite.css}"></link>
+	<script th:src="@{/js/includeHTML.js}"></script>
 </head>
 <!-- 상품등록-->
 <body>
+<div include-html="/header"></div>
 <div di="productWrite">
 	<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
 		<table>
@@ -20,7 +22,7 @@
 			</tr>
 			<tr>
 				<td><label>상품사진</label></td>
-				<td><input type="file" accept="image/*" th:name="imageFile" placeholder="상품이미지" class= ""></td>
+				<td><input type="file" accept="image/*" th:name="imageFile" placeholder="상품이미지" class= "text"></td>
 			</tr>
 			<tr>
 				<td><label>상세설명</label></td>
@@ -32,12 +34,13 @@
 			</tr>
 			<tr>
 				<td><label>상품가격</label></td>
-				<td><input type="text" th:name="salesPrice" placeholder="가격"class= "text"></td>
+				<td><input type="text" th:name="salesPrice" placeholder="가격" class= "text"></td>
 			</tr>
 			<tr>
 				<td><label>재고량</label></td>
-				<td><input type="text" th:name="salesCount" placeholder="재고"class= "text"></td>
+				<td><input type="text" th:name="salesCount" placeholder="재고" class= "text"></td>
 			</tr>
+			
 			<tr>
 				<td><label>상품종류</label></td>
 				<td><select th:name="productCategory">
@@ -54,6 +57,9 @@
 	<input type="submit" value="등록" class="productWritebutton">
 	<input type="reset" value="취소" class="productWritebutton1">
 </div>
+
+<div include-html="/footer"></div>
+<script>includeHTML();</script>
 </form>
 </body>
 </html>

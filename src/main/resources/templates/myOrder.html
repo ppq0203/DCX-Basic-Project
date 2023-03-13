@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+	<meta charset="UTF-8">
+	<title>주문 내역</title>
+</head>
+<!-- 주문내역 페이지 -->
+<body>
+
+
+<form id="listfrm" name="listfrm" method = "post" action="#">
+	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
+	   <tr>
+		   <td>주문번호</td>
+		   <td>상품사진</td>
+		   <td>상품제목</td>
+		   <td>상품 수량</td>
+	   </tr>
+	   <tr>
+		   <td th:text="${list.orderNo}"></td>
+		   <td><img th:src="${'files/'+#strings.setSplit(list.salesDto.salesImg, '$%$')[0]}" style="width: 80px; height:auto;"></img></td>
+		   <td th:text="${list.salesDto.salesTitle}"></td>
+		   <td th:text="${list.salesCount}"></td>
+	   </tr>
+	</table>
+</form>
+</body>
+</html>

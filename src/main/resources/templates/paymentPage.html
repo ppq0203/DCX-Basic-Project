@@ -8,6 +8,7 @@
 	<script th:src="@{/js/cardForm.js}"></script>
 	<script th:src="@{/js/paymentPage.js}"></script>
 	<script th:src="@{/js/shoppingBasket.js}"></script>
+	<script th:src="@{/js/includeHTML.js}"></script>
 	<!-- 타임리프 변수를 js변수에 넣기위한 코드 -->
 	<script th:inline="javascript">
 		/*<![CDATA[*/
@@ -17,6 +18,8 @@
 </head>
 <!-- 결제 페이지 -->
 <body>
+<div include-html="/header"></div>
+
 	<table border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}">
 	    <thead>
 	    <tr>
@@ -92,6 +95,8 @@
 		  </div>
 		</div>
 	</div>
-
+	
+<div include-html="/footer"></div>
+<script>includeHTML();</script>
 </body>
 </html>

@@ -87,8 +87,8 @@ public class SalesController {
 		for(MultipartFile file : sales.getImageFile())
 		{
 			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
-			String path = "";//파일이 저장될 디렉토리 url
-			
+			String path = System.getProperty("user.dir")+"/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
+			System.out.println(path);
 			Path imagePath = Paths.get(path + file.getOriginalFilename());
 			
 			try {
@@ -145,12 +145,27 @@ public class SalesController {
 		Object user = session.getAttribute("userDto");
 		int userNo = ((UserDto) user).getUserNo();
 		System.out.println("/myOrder");
-    	ModelAndView mv = new ModelAndView("test/dbtest");
+		System.out.println("path :: " + System.getProperty("user.dir")+"/src/main/resources/static/files");
+    	ModelAndView mv = new ModelAndView("myOrder");
         List<Object> list = salesService.getOrder(userNo);
+        
         mv.addObject("list", list);
 		System.out.println(mv);
 		
 		return mv;
 	}
 	
+	//검색기능
+	@GetMapping("/searchP")
+	public ModelAndView searchProd(@RequestParam("keyword") String sProd)
+	{
+		ModelAndView mv = new ModelAndView("/searchResult");
+		System.out.println(sProd);
+		List<SalesDto> list = salesService.searchProd(sProd);
+		
+		mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
 }
