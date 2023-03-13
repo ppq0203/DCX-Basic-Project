@@ -2,22 +2,22 @@
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
 <head>
 <meta charset="UTF-8">
-<title>메인페이지 - 중간 카테고리</title>
-	<script th:src="@{/js/includeHTML.js}"></script>
-	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
-	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
-	<link rel="stylesheet" th:href="@{/css/footer.css}"></link>
+<title>메인페이지</title>
+<script th:src="@{/js/includeHTML.js}"></script>
+   <link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+<!--    <link rel="stylesheet" th:href="@{/css/header.css}"></link>
+   <link rel="stylesheet" th:href="@{/css/footer.css}"></link> -->
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <!-- 중간 메뉴칸 -->
-
 <body>
-<div include-html="/header" class="up"></div>
-
+	<div include-html="/header"></div>
 	
-	<div>
-		사진(광고) 넣을수있는공간 예정중
-	</div>
-<footer include-html="/footer"></footer>
-<script>includeHTML();</script>
+	<div>사진(광고) 넣을수있는공간 예정중</div>
+	
+
+	<div include-html="/footer"></div>
+	
+	<script>includeHTML();</script>
 </body>
 </html>

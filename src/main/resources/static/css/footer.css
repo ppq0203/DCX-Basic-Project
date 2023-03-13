@@ -1,51 +1,47 @@
 @charset "UTF-8";
-html, body{
+
+html, body {
 	margin: 0;
 	padding: 0;
-	height: 100%
+	height: 100%;
 }
- .footer{
-	width: 100%;
-	height: 45px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
-.wrapper{	/*하단 영역 box만들기*/
-	position: relative;
-	min-height: 100%;
-	padding: 0px;
-}
-.wrapperfooter{   /* wrapper영역이랑 비슷함 */
-	margin-top: 500px;	/*hearder와 거리*/
-	padding-bottom: 500px; /*footer의 영역*/
-}
-.footerUL{
-	display: table;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #fff;
-} 
 
-/*  커서 올렸을때 색변경으로 해주시면 감사하겠습니다. 밑은 예시입니다.
-li {
-	float:left; 
-	list-style:none; 
-	margin:1px;
+#body-wrapper {
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 60px;
 }
-li a {
-	display: none; 
-	width: 150px; 
-	height: 40px; 
-	background: #c00; 
-	color: #fff; 
-	border: 1px solid blue; 
-	font-size:12px;	
+
+#body-wrapper {
+	min-height: 100%;
+	position: relative;
 }
-li a:hover {
-	background:#099; 
-	text-decoration:none;
-} */
-.footerUL li{
-	text-align: center;
+
+#body-wrapper ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
 }
+
+#body-wrapper li {
+	display: inline-block;
+	padding: 0px 10px;
+	border-right: 1px solid #e0e0e0;
+}
+
+#body-wrapper li:last-child {
+	border-right: 0px;
+}
+
+footer {
+	 bottom: 0;
+	 position: fixed;
+	 }
+
+/* .footer {
+    width: 100%;
+    height: 99999px; footer의 높이
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}   */

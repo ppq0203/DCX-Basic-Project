@@ -3,57 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
-	<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+
+<link rel="stylesheet" th:href="@{/css/header.css}"></link>
+
 </head>
 <!-- 메인페이지 -->
 <body>
-<header>
-		<div id="HeaderMain">			
-			<h1>
-				<a href="/main">사조참치</a>
-			</h1>
-				<input type = "text" placeholder= "검색어 입력">
-				<button>검색</button>
-				
-				<ul class="menu">
-					<li>
-						<div class ="my">
-							<a href="/myPage">마이 페이지</a>
-						</div>
-						<div class ="login">
-							<a href=/login class="loginLink" >로그인</a>
-							<a href=/logout class="logoutLink">로그아웃</a>
-						</div>
-					</li>
+	<header>
+		<div class="links">
+			<a href="#" class="link_text">즐겨찾기 추가</a>
+		</div>
+		<a href="/"><img src="img/sajo.jpg" class="img_logo" /></a>
+		<div>
+			<form>
+				<fieldset>
+					<legend class="visually-hidden">검색</legend>
+					<div class="search_box">
+						<input type="text" placeholder="사조참치 추가 할인 중" maxlength="50"
+							tabindex="1">
+						<button type="button" tabindex="2">검색</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="header-menu">
+			<a href="/myPage">마이 페이지</a> <a href=/login>로그인</a> <a
+				href="/joinUser">회원가입</a> <a href="/shoppingBasket">장바구니</a>
+		</div>
+		<!-- 		<div class="link-top">
+			<ul>
+				<li><a class="linkcolor" href="/myPage">마이 페이지</a></li>
+				<li><a class="linkcolor" href=/login>로그인</a></li>
+				<li><a class="linkcolor" href="/joinUser"><span>회원가입</a></li>
+				<li><a class="linkcolor" href="/shoppingBasket">장바구니</a></li>
+			</ul>
+		</div> -->
+		<nav>
+			<!-- <div class="nav_items"> -->
+			<div class="top-menu">
+				<ul>
+					<li><a href="#">의류</a></li>
+					<li><a href="#">뷰티/잡화</a></li>
+					<li><a href="#">식품/생필품</a></li>
+					<li><a href="#">가구</a></li>
+					<li><a href="#">가전제품</a></li>
+					<li><a href="#">스포츠 장비</a></li>
+					<li><a href="#">상품권</a></li>
 				</ul>
+				<!-- <div class="keyword"> -->
+					<span class="color_sajo">1</span> <span>사조참치</span>
 
-			<nav id="main">
-		<ul>
-			<li>
-				<a href="" class="Line">의류</a>
-			</li>
-			<li>
-				<a href="" class="Line1">뷰티/잡화</a>
-			</li>
-			<li>
-				<a href="" class="Line2">식품/생필품</a>
-			</li>
-			<li>
-				<a href="" class="Line3">가구</a>
-			</li>
-			<li>
-				<a href="" class="Line4">가전제품</a>
-			</li>
-			<li>
-				<a href="" class="Line5">스포츠 장비</a>
-			</li>
-			<li>
-				<a href="" class="Line6">상품권</a>
-			</li>
-		</ul>
-	</nav>
-	</div>
-</header>
-
+				</div>
+			</div>
+		</nav>
+	</header>
 </body>
 </html>

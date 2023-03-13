@@ -1,0 +1,52 @@
+@charset "UTF-8";
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#body-wrapper {
+	min-height: 100%;
+	position: relative;
+}
+footer {
+    width: 100%;
+    height: 99999px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+/* 
+.footer{
+order:9;
+}
+
+.footer p{
+padding-left:3.125%;
+30px ÷ 960px
+text-align:left;
+}
+ */
+/*   커서 올렸을때 색변경으로 해주시면 감사하겠습니다. 밑은 예시입니다. 
+ */
+ li {
+	float:left; 
+	list-style:none; 
+	margin:1px;
+}
+li a {
+	display: none; 
+	width: 150px; 
+	height: 40px; 
+	background: #c00; 
+	color: #fff; 
+	border: 1px solid blue; 
+	font-size:12px;	
+}
+li a:hover {
+	background:#099; 
+	text-decoration:none;
+} 
+.footerUL li{
+	text-align: center;
+}
+

@@ -8,50 +8,50 @@
 	width:1170px;
 	margin:0 auto; /*대칭*/
 }
-
-/*머리*/
+/* 
+머리
 #main{
-	z-index: 2; /*보여주는 화면순서*/
-	position: relative; /*위치 속성*/
+	z-index: 2; 보여주는 화면순서
+	position: relative; 위치 속성
 	display: block;
-	top: 80px; /*header거리*/
-	width: 100%; /*가로 채우기*/
-	height: 30px; /*세로 길이*/
-	left: 0;   /*왼쪽부터 채우기*/
+	top: 80px; header거리
+	width: 100%; 가로 채우기
+	height: 30px; 세로 길이
+	left: 0;   왼쪽부터 채우기
 }
 #main ul {
-	position: absolute; /*굴저 칸 위치 조정*/
-	left: 0%; /*왼쪽 부터*/
-	right: 0%; /*오른쪽까지 박스*/
+	position: absolute; 굴저 칸 위치 조정
+	left: 0%; 왼쪽 부터
+	right: 0%; 오른쪽까지 박스
 	top: 0px;
 	bottom: 0px;
-	overflow: hidden;/*박스를 넘으면 안보임*/
+	overflow: hidden;박스를 넘으면 안보임
 	text-align: center;
 	background-color:white;
 }
 #main ul li{
-	/*float: left;/*박스들 왼쪽부터 나열*/
-	/*background-color: #2d2d2d; /*박스 색상*/
-	text-align: center; /*박스 안 글 위치*/
-	list-style: none; /*점 지움*/
-	display:  inline-block; /*박스 나열하기*/
+	float: left;/*박스들 왼쪽부터 나열
+	background-color: #2d2d2d; /*박스 색상
+	text-align: center; 박스 안 글 위치
+	list-style: none; 점 지움
+	display:  inline-block; 박스 나열하기
 	margin-right: auto;
 }
 #main ul li a{
-	text-decoration: none; /*밑줄 지움*/
-	color: black; /*글자색*/
-	display: block ;/*박스 영역 만들기*/
-	width: 120px; /*박스 영역 가로넓이*/
-	height: 30px; /*박스영역 높이넓이*/
-	font-size: 17px; /*글자 크기*/
-	/*margin: 10 20px; /*상단바간격*/
-	/*padding: 10px; /*박스 글사이 간격*/
-	position: relative;/*고정 안끌고옴*/
+	text-decoration: none; 밑줄 지움
+	color: black; 글자색
+	display: block ;박스 영역 만들기
+	width: 120px; 박스 영역 가로넓이
+	height: 30px; 박스영역 높이넓이
+	font-size: 17px; 글자 크기
+	margin: 10 20px; /*상단바간격
+	padding: 10px; /*박스 글사이 간격
+	position: relative;고정 안끌고옴
 }
 .up{
-	z-index: 1; /*보여주는 화면순서 스크롤 내릴떄 머리 안쪽으로 들어가기*/
+	z-index: 1; 보여주는 화면순서 스크롤 내릴떄 머리 안쪽으로 들어가기
 }
-/*.Line{
+.Line{
 	background-color: green;
 }
 .Line1{
@@ -71,4 +71,4 @@
 }
 .Line6{
 	background-color: navajowhite;
-}*/
+} */
