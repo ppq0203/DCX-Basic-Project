@@ -30,7 +30,6 @@
 			<table class="subject_table">
 				<caption>표 제목 부분</caption>
 				<tbody>
-	
 					<tr>
 						<th class="td_width_1"></th>
 						<th class="td_width_3">판매제목</th>
@@ -41,42 +40,6 @@
 					</tr>
 				</tbody>
 			</table>
-			
-			<!-- 
-				<form id="listfrm" name="listfrm" method = "post" action="/basketUpdate">
-					<table>
-					    <thead>
-					    <tr>
-							<td  class="td1">판매제목</td>
-							<td  class="td1">썸네일</td>
-							<td  class="td1">가격</td>
-							<td  class="td1">수량</td>
-							<td  class="td1">삭제</td>
-						</tr>
-					    </thead>
-					    <tbody>
-						<tr border="1" th:if="${#lists.size(baskets)} > 0" th:each="basket : ${baskets}" >
-					        <td th:text="${basket.salesDto.salesTitle}"></td>
-					        <td><img th:src="${'files/'+#strings.setSplit(basket.salesDto.salesImg, '$%$')[0]}"></img></td>
-					        <td th:text="${basket.salesDto.salesPrice}"></td>
-					        <td>
-					        	<input hidden="hidden" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}"/>
-					        	<input type="number" th:value="${basket.amount}" min="1" max="99" onchange="amounChange(this)">
-				        	</td>
-					        <td><button type = "submit" th:name = "salesNo" th:value = "${basket.salesDto.salesNo}">X</button></td>
-					        
-					    </tr>
-					    </tbody>
-					</table>
-					<span class="totalPrice"></span>
-					<p><button type="button" onclick="goPaymentPage(-1)">결제하러가기</button></p>
-				</form>
-				<script>
-					totalPriceFix();
-				</script>
-			
-			 -->
-			
 			
 			<table class="cart_table">
 				<caption>표 내용 부분</caption>
