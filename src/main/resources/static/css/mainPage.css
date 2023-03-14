@@ -1,12 +1,9 @@
 @charset "UTF-8";
-*{
-	margin: 0;
-	padding: 0;
-}
 
 .wrapper{ /*창을 줄여도 따라옴*/
-	width:1170px;
-	margin:0 auto; /*대칭*/
+	justify-content: center;
+	position: relative;
+	left: 30%;
 }
 /* 
 머리

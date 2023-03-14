@@ -1,15 +1,11 @@
 @charset "UTF-8";
 #idFind{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items:center;
-	position: relative;
-	top: 30%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	position: relative;/*바꿔줘야하는놈들*/
+	top: 10%;
+	left: 0%; /*원하는 위치로 가게해줌*/
+	width: 150px; /*사이즈*/
+	height: 530px;
+	margin: auto;
 }
 h1{
 	font-size: 25px;
@@ -39,18 +35,18 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: absolute;
-	right: -55px;
+	right: -260px;
 	background-color: #ff7f00;
 }
 .button1{
 	font-size:17px;
 	width:90px;
 	height:45px;
-	background-color: #50bcdf;
+	background-color: #ff7f00;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	left: 90px;
+	position: relative;
+	left: 50px;
 }
 .button2{
 	font-size:17px;
@@ -59,10 +55,10 @@ label{
 	background-color: #50bcdf;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	right: 90px;
+	position: relative;
+	right: -100px;
 }
 .time{
 	position: absolute;
-	right : 5px;
+	right : -200px;
 }

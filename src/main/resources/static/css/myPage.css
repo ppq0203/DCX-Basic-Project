@@ -6,9 +6,10 @@
 #myPage{
 	position: relative;/*바꿔줘야하는놈들*/
 	top: 0%;
-	left: 40%; /*원하는 위치로 가게해줌*/
+	left: 0%; /*원하는 위치로 가게해줌*/
 	width: 150px; /*사이즈*/
-	height: 500px;
+	height: 530px;
+	margin: auto;
 }
 
 /*버튼 변화*/

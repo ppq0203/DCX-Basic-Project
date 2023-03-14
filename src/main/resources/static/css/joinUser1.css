@@ -1,8 +1,11 @@
 @charset "UTF-8";
 #joinUser{
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	position: relative;/*바꿔줘야하는놈들*/
+	top: 5%;
+	left: -5%; /*원하는 위치로 가게해줌*/
+	width: 150px; /*사이즈*/
+	height: 550px;
+	margin: auto;
 }
 h1{
 	font-size: 25px;
@@ -52,7 +55,7 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: relative;
-	left: 20px;
+	left: 50px;
 }
 .button2{
 	font-size:17px;
@@ -62,7 +65,7 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: relative;
-	left: 40px;
+	left: 100px;
 }
 .time{
 	position: absolute;

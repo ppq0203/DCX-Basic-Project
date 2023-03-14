@@ -9,8 +9,8 @@
 </head>
 <!-- 중간 메뉴칸 -->
 <body>
-	<div include-html="/header"></div>
-	
+	<div include-html="/header" ></div>
+<div id="wrapper">
 	<!-- 메인화면 디폴트 상품리스트 -->
 	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
 	<!-- 제거함 style = "float:left; margin: 0px auto;" -->
@@ -25,7 +25,8 @@
 	        <ul th:text="${list.productName}"></ul>
 		</li>
 	</div>
-</form>
+	</form>
+</div>
 	<div include-html="/footer"></div>
 	<script>includeHTML();</script>
 	<script type="text/javascript" th:src="@{/js/header.js}"></script>
