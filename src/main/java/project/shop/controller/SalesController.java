@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import project.shop.dto.BasketDto;
 import project.shop.dto.OrderDto;
+import project.shop.dto.ReviewDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
 import project.shop.service.SalesService;
@@ -171,7 +172,7 @@ public class SalesController {
 	
 	//등록 상품 조회
 	@GetMapping("/myProd")
-	public ModelAndView testProd(HttpSession session)
+	public ModelAndView myProd(HttpSession session)
 	{
 		Object user = session.getAttribute("userDto");
 		ModelAndView mv = new ModelAndView("/myProd");
@@ -183,4 +184,36 @@ public class SalesController {
 		
 		return mv;
 	}
+	
+	//리뷰 페이지
+	@GetMapping("/reviewWrite")
+	public String reviewWritepage(@RequestParam("No") int salesNo)
+	{	
+		return "writeReview";
+	}
+	
+	@PostMapping("/reviewWrite.do")
+	public String reviewWrite(ReviewDto review, @RequestParam("No") int salesNo, HttpSession session)
+	{
+		Object user = session.getAttribute("userDto");
+		review.setUserNo(((UserDto) user).getUserNo());
+		review.setSalesNo(salesNo);
+		System.out.println("tttset :: " + review);
+		salesService.insertReview(review);
+		
+		return "redirect:/main";
+	}
+	
+	@GetMapping("/reviewShow")
+	public ModelAndView reviewShow(@RequestParam("No") int salesNo)
+	{
+		ModelAndView mv = new ModelAndView("showReview");
+		List<ReviewDto> list = salesService.showReview(salesNo);
+		System.out.println(list);
+		mv.addObject("list", list);
+		System.out.println(mv);
+		
+		return mv;
+	}
+	
 }

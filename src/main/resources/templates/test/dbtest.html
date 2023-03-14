@@ -14,9 +14,9 @@
 			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
 		</li>
 		<li style="list-style: none;">
-			<ul th:text="${list.salesTitle}"></ul>
-			<ul th:text="${list.salesContent}"></ul>
-	        <ul th:text="${list.salesPrice}+'원'"></ul>
+			<ul th:text="${list.reviewTitle}"></ul>
+			<ul th:text="${list.reviewContent}"></ul>
+	        <ul th:text="${list.reviewScore}"></ul>
 	        <ul th:text="${list.productName}"></ul>
 		</li>
 	</div>

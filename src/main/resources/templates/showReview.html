@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+	<meta charset="UTF-8">
+	<title>리뷰보기</title>
+</head>
+<!-- 장바구니 페이지 -->
+<body>
+
+
+<form id="listfrm" name="listfrm" method = "get" action="/showprod">
+	<div th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	    <!--li style="list-style: none;">
+			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
+		</li-->
+		<ul style="display: inline-block;"> 리뷰제목
+			<li style="display: inline-block; list-style: none;" th:text="${list.reviewTitle}"></li>
+		</ui>
+		<ul style="display: inline-block;"> 리뷰내용
+			<li style="display: inline-block; list-style: none;" th:text="${list.reviewContent}"></li>
+		</ui>
+		<ul style="display: inline-block;"> 평점
+		    <li style="display: inline-block; list-style: none;" th:text="${list.reviewScore}+'점'"></li>
+		</ui>
+	</div>
+</form>
+</body>
+</html>

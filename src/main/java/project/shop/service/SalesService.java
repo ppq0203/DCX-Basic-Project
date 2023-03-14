@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.shop.dto.OrderDto;
+import project.shop.dto.ReviewDto;
 import project.shop.dto.SalesDto;
 import project.shop.mapper.ShopMapper;
 
@@ -52,5 +53,14 @@ public class SalesService {
 	public List<SalesDto> myProd(int userNo) {
 		List<SalesDto> resultList = shopMapper.myPord(userNo);
 		return resultList;
+	}
+
+	public List<ReviewDto> showReview(int salesNo) {
+		List<ReviewDto> resultList = shopMapper.showReview(salesNo);
+		return resultList;
+	}
+
+	public void insertReview(ReviewDto review) {
+		shopMapper.insertReview(review);
 	}
 }

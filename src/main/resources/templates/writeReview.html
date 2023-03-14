@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+<meta charset="UTF-8">
+<title>리뷰 페이지</title>
+	<link rel="stylesheet" th:href="@{/css/review.css}"></link>
+</head>
+<body>
+<div id="review">
+	<form  id="reviewfrm" name="reviewfrm" method="post" action="/reviewWrite.do">
+	<table>
+		<tr>
+			<td><label>제목 : </label></td>
+			<td colspan = "4"><input type="text" id="reviewTitle" name="reviewTitle" class="text"></input></td>
+		</tr>
+		<tr>
+			<td><label>리뷰 : </label></td>
+			<td colspan = "4"><textarea id="reviewContent" name="reviewContent" class="textarea"  rows="10"cols="40" ></textarea></td>
+		</tr>
+		<tr>
+			<td>평점</td>
+		</tr>
+		<tr>
+			<td><input type="radio" id="reviewScore" name="reviewScore" value="1" checked> 1점 </td>
+			<td><input type="radio" id="reviewScore" name="reviewScore" value="2" > 2점 </td>
+			<td><input type="radio" id="reviewScore" name="reviewScore" value="3" > 3점 </td>
+			<td><input type="radio" id="reviewScore" name="reviewScore" value="4" > 4점 </td>
+			<td><input type="radio" id="reviewScore" name="reviewScore" value="5" > 5점 </td>
+		</tr>
+		<input type="hidden" th:name="No" th:value="${param.No}">
+	</table> 
+	<button type="submit" class="button">작성</button>
+	<button type="button" onclick="location.href='/main'" class="button1">취소</button>
+</form>
+</div>
+</body>
+</html>
