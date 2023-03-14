@@ -2,7 +2,7 @@
 /*text 앞*/
 label{
 	flex: 1;
-	text-align: left;
+	text-align: right;
 	font-size: 20px;
 }
 /*text*/
@@ -11,14 +11,29 @@ label{
 }
 /*상세 text*/
 .tkdtptext{
-	height: 70px;
-	width: 200px;
-	resize: none;
+	height: 200px;
+	width: 300px;
+	resize: none;	
+}
+
+#PW{
+	width: 1080px;
+   height: 800px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
 	
 }
 table{ /*테이블 배치*/
-	margin : auto;
-	text-align: left;
+     width:100px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:40%;
+     top:10%;
+     margin:20px; 
+     border-collapse: separate;
 }
 select{
 	height: 30px;
@@ -45,4 +60,9 @@ select{
 	background-color: #ff7f00;
 	position: relative;
 	right: -50px;
+}
+
+h1{
+	position: absolute;
+	left: 450px;
 }

@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 등록 페이지</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" th:href="@{/css/productWrite.css}"></link>
 	<script th:src="@{/js/includeHTML.js}"></script>
+
+
+
 </head>
 <!-- 상품등록-->
 <body>
 <div>
 <div include-html="/header"></div>
 	<form id="addprod" name="addprod" method="post" action="/productWrite.do" enctype="multipart/form-data">
+	<div id="PW">
+		<h1>상품등록</h1>
 		<table>
 			<tr>
 				<td><label>판매제목</label></td>
@@ -53,11 +59,12 @@
 				    <option value="sports">스포츠 장비</option>
 				</select></td>
 			</tr>
-			<tr>
-				<td><input type="submit" value="등록" class="productWritebutton"></td>
-				<td><input type="reset" value="취소" class="productWritebutton1"></td>
-			</tr>
+			
+				<input type="submit" value="등록" class="productWritebutton">
+				<input type="reset" value="취소" class="productWritebutton1">
+			
 		</table>
+	</div>	
 </div>
 <div include-html="/footer"></div>
 <script>includeHTML();</script>

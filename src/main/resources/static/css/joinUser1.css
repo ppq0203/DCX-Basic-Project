@@ -1,15 +1,26 @@
 @charset "UTF-8";
 #joinUser{
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin: auto;
+   left: 0px;
+   top: 0px;
+}
+.joinUserdiv{
+     width:100px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:30%;
+     top: -5%;
 }
 h1{
 	font-size: 25px;
 	padding-bottom: 20px;
 }
 .join{
-	width: 320px;
+	width: 340px;
 }
 .join > div{
 	display: flex;
@@ -32,7 +43,7 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: absolute;
-	left: 330px;
+	left: 350px;
 }
 .emailbutton{
 	width:150px;
@@ -41,7 +52,7 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: absolute;
-	left: 330px;
+	left: 350px;
 	background-color: #ff7f00;
 }
 .button1{
@@ -52,7 +63,7 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: relative;
-	left: 20px;
+	left: 50px;
 }
 .button2{
 	font-size:17px;
@@ -62,11 +73,11 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: relative;
-	left: 40px;
+	left: 100px;
 }
 .time{
 	position: absolute;
-	left: 330px;
+	left: 350px;
 }
 .IdText{
 	position: fixed;

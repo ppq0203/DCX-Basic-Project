@@ -1,11 +1,26 @@
 @charset "UTF-8";
-#myPwdChange{ /*센터로*/
-	justify-content: center;
-	position: relative;
-	left: 30%;
+#myPwdChange{ /*머리,footer간격*/
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
 }
-h1{ /*위치조정*/
-   padding-bottom: 20px;
+.MPC{
+     width:1000px;
+     height:10px;
+     position: absolute;
+     float: left;
+     left:30%;
+     top:20%;
+}
+.MPC h1{ /*위치조정*/
+	width: 200px;
+	height: 100px;
+	position:absolute;
+	left:-40px;
+	top: -120px;
 }
 label{ /*비밀번호 확인 조정*/
    flex: 1; /*공간맞추기*/
@@ -14,13 +29,6 @@ label{ /*비밀번호 확인 조정*/
 }
 .text{
    height: 30px;
-}
-.text{
-	height: 30px;
-}
-.pwdtext{
-   height: 30px;
-   float: right;
 }
 .button{
    font-size:17px;

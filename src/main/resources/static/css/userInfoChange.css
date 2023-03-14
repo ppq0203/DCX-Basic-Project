@@ -1,8 +1,19 @@
 @charset "UTF-8";
 #userChange{
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
+}
+.uc{
+	width:100px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:30%;
+     top:10%;
 }
 h1{
 	font-size: 25px;

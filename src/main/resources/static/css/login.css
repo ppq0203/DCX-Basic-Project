@@ -1,8 +1,18 @@
 @charset "UTF-8";
 #login{
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	position: relative;/*바꿔줘야하는놈들*/
+	top: 0px;
+	left: 0px; /*원하는 위치로 가게해줌*/
+	width: 1080px; /*사이즈*/
+	height: 600px;
+	margin: auto;
+}
+.logindiv{
+     width:100px;
+     height:100px;
+     position: absolute;
+     left:35%;
+     top:10%;
 }
 h1{
 	font-size: 25px;

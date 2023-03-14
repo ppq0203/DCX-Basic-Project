@@ -24,10 +24,12 @@
 <body>
 <div include-html="/header" class="up"></div>
 	<div id="login">
+		<div class="logindiv">
 	<form name="login" action="/postLogin" method="post" class="submitForm gin">
 	<h1>로그인</h1>
 	<!-- <span class="voiceExplain">로그인화면입니다</span> -->
 	<!-- <input type="hidden" value="로그인화면" class= "focusVoice text"> -->
+	
 		<div class="form-group">
 			<label>아이디</label>
 			<!-- 포커스 잡히면 음성알림 voiceExplain 클래스는 display none을 설정해준다. focusVoice클래스는 해당태크가 포커스 잡혔을때 앞의 태그안 내용을 읽어준다.-->
@@ -55,6 +57,7 @@
 		<input type="button" value="비밀번호찾기" onClick="location.href='/passwordFind'" class="hoverVoice button4">
 		</div>
 	</form>
+	</div>
 	</div>
 
 <footer include-html="/footer"></footer>

@@ -89,7 +89,7 @@ public class SalesController {
 	public ModelAndView prodPage(UserDto user, @RequestParam("salesNo") int num) throws Exception
 	{
 		System.out.println("/showprod");
-    	ModelAndView mv = new ModelAndView("/productShow");
+    	ModelAndView mv = new ModelAndView("productShow");
         SalesDto sales = salesService.findProd(num);
         List<ReviewDto> list = salesService.showReview(num); 
         List<UserDto> users = new ArrayList();

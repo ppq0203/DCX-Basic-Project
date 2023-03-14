@@ -1,73 +1,105 @@
 @charset "UTF-8";
-*{
-	margin: 0;
-	padding: 0;
+* {
+  box-sizing: border-box;
 }
 
-.wrapper{ /*창을 줄여도 따라옴*/
-	width:1170px;
-	margin:0 auto; /*대칭*/
+body {
+  margin: 0;
+  min-width: 992px;
+  font-family: "Helvetica";
 }
-/* 
-머리
-#main{
-	z-index: 2; 보여주는 화면순서
-	position: relative; 위치 속성
-	display: block;
-	top: 80px; header거리
-	width: 100%; 가로 채우기
-	height: 30px; 세로 길이
-	left: 0;   왼쪽부터 채우기
+
+.navbar{
+  height: 60px;
+  padding-left: 30px;
 }
-#main ul {
-	position: absolute; 굴저 칸 위치 조정
-	left: 0%; 왼쪽 부터
-	right: 0%; 오른쪽까지 박스
-	top: 0px;
-	bottom: 0px;
-	overflow: hidden;박스를 넘으면 안보임
-	text-align: center;
+
+.logo{
+  line-height: 60px;
+  float: left;
 }
-#main ul li{
-	float: left;/*박스들 왼쪽부터 나열
-	background-color: #2d2d2d; /*박스 색상
-	text-align: center; 박스 안 글 위치
-	list-style: none; 점 지움
-	display:  inline-block; 박스 나열하기
-	margin-right: auto;
+
+.logo img{
+  vertical-align: middle;
 }
-#main ul li a{
-	text-decoration: none; 밑줄 지움
-	color: black; 글자색
-	display: block ;박스 영역 만들기
-	width: 120px; 박스 영역 가로넓이
-	height: 30px; 박스영역 높이넓이
-	font-size: 17px; 글자 크기
-	margin: 10 20px; /*상단바간격
-	padding: 10px; /*박스 글사이 간격
-	position: relative;고정 안끌고옴
+
+.navbar ul{
+  float: right;
 }
-.up{
-	z-index: 1; 보여주는 화면순서 스크롤 내릴떄 머리 안쪽으로 들어가기
+
+.navbar li{
+  list-style-type: none;
+  float: left;
+  margin-right: 30px;
 }
-.Line{
-	background-color: green;
+
+.navbar a{
+  text-decoration: none;
+  color: black;
+  font-style: bold;
+  font-size: 13px;
 }
-.Line1{
-	background-color: red;
+
+.hero_header{
+  height: 450px;
+  width: 100%;
 }
-.Line2{
-	background-color: greenyellow;
+
+body h1{
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 24px;
+  font-style: bold;
+  color: #545454;
 }
-.Line3{
-	background-color: yellow;
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1080px;
+  position: relative;
 }
-.Line4{
-	background-color: darkslategray;
+
+.products {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 740px;
+  text-align: center;
 }
-.Line5{
-	background-color: hotpink;
+
+.products img{
+  width: 225px;
+  height: 225px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
-.Line6{
-	background-color: navajowhite;
-} */
+
+.products a{
+  text-decoration: none;
+  color: black;
+  float: left;
+  font-size: 16px;
+}
+
+.price{
+  margin-top: 4px;
+  margin-bottom: 80px;
+}
+
+.clearfix{
+  clear: both;
+}
+
+.footer{
+  text-align: center;
+}
+
+.footer img{
+  margin-top: 40px;
+  height: 20px;
+  margin-bottom: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

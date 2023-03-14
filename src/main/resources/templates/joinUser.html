@@ -27,18 +27,19 @@
 <body>
 <div include-html="/header" class="up"></div>
 	<div id= "joinUser" >
-	<div class="container">
+	<div class="container joinUserdiv">
 		<form id="frm" name="frm" method="post" action="/postregi" class="join confirm">
 			<h1>회원가입</h1> 
+			<div class="form-group">
+				<span class="id_ok">사용 가능한 아이디입니다.</span>
+				<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>				
+			</div>
 			 <div class="form-group">
 				<label>아이디</label>
 				<span class="voiceExplain">아이디를 20자 이내로 입력해주시고 중복확인 버튼을 클릭해주세요.</span>
 				<input type="text" th:id="userId" th:name="userId" class="focusVoice text" placeholder="20자 이내 입력"/>
 				<!-- 중복확인 -->
 				<button type="button" id="Btn1" onclick="checkId()" class="joinbutton" >중복 확인</button>
-				<span class="id_ok IdText">사용 가능한 아이디입니다.</span>
-				<span class="id_already IdText">누군가 이 아이디를 사용하고 있어요.</span>
-				
 			</div>
 			<div class="form-group">
 				<label>비밀번호</label>
@@ -56,12 +57,14 @@
 				<input type="text" th:id="userName" th:name="userName" class="focusVoice text" placeholder="이름"/>
 			</div>
 			<div class="form-group">
+                <span class="mail_ok">사용 가능한 메일입니다.</span>
+				<span class="mail_already">이미 사용중인 메일입니다.</span>
+			</div>
+			<div class="form-group">
                 <label>이메일</label>
                 <span class="voiceExplain">이메일주소를 입력하시고 코드 발송 버튼을 클릭해주세요</span>
                 <input type="email" th:id="userEmail" th:name="userEmail" class="focusVoice text" placeholder="이메일">
                 <button type="button" id="Btn2" onclick="checkMail()"class="emailbutton">중복 확인 <br>인증코드 발송</button>
-                <span class="mail_ok EmailText">사용 가능한 메일입니다.</span>
-				<span class="mail_already EmailText">이미 사용중인 메일입니다.</span>
             </div>
          	<div class="form-group">
                 <label>인증코드</label>
