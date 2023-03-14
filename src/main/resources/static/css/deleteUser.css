@@ -1,33 +1,31 @@
 @charset "UTF-8";
 #Test{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items:center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
 }
-h1{
-	font-size: 25px;
-	padding-bottom: 20px;
+.deleteUser{
+     width:1000px;
+     height:10px;
+     position: absolute;
+     float: right;
+     left:40%;
+     top:20%;
+}
+#Test h1{
+	width: 200px;
+	height: 100px;
+	position:absolute;
+	left: -60px;
+	top: -120px;
 }
 label{
 	flex: 1;
 	text-align: left;
 	font-size: 20px;
-}
-.secession{
-	width: 320px;
-}
-.secession > div{
-	display: flex;
-	justify-content: center;
-	padding-bottom: 7px;
-	align-items: center;
 }
 .text{
 	height: 30px;
@@ -39,9 +37,9 @@ label{
 	background-color: #DB4455;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	left: 90px;
-	bottom: 10px;
+	position: relative;
+	left: 5px;
+	top: 10px;
 }
 .button2{
 	font-size:17px;
@@ -50,7 +48,7 @@ label{
 	background-color: #50bcdf;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	right: 90px;
-	bottom: 10px;
+	position: relative;
+	left: 30px;
+	top: 10px;
 }
