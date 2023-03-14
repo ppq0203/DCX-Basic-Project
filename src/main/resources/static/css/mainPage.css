@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 .wrapper{ /*창을 줄여도 따라옴*/
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	position: relative;/*바꿔줘야하는놈들*/
+	width: 400px; /*사이즈*/
+	height: 400px;
 }
 /* 
 머리

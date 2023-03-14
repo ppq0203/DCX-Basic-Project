@@ -1,11 +1,19 @@
 @charset "UTF-8";
 #joinUser{
-	position: relative;/*바꿔줘야하는놈들*/
-	top: 5%;
-	left: -5%; /*원하는 위치로 가게해줌*/
-	width: 150px; /*사이즈*/
-	height: 550px;
-	margin: auto;
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
+}
+.joinUserdiv{
+     width:100px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:30%;
+     top:10%;
 }
 h1{
 	font-size: 25px;

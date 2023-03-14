@@ -18,6 +18,7 @@
 <body>
 <div include-html="/header" class="up"></div>	
 	<div id="userChange">
+		<div class="uc">
 	<form name="userInfoChange" method="post" action="/userInfoChange" class="uc">
 	<h1>회원정보 변경</h1>
 		<div class="form-group">
@@ -38,7 +39,7 @@
 		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button2">
 	</form>
 	</div>
-	
+	</div>
 <footer include-html="/footer"></footer>
 <script>includeHTML();</script>	
 <script type="text/javascript" th:src="@{/js/userInfoChange.js}"></script>	

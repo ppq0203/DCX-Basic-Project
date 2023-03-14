@@ -16,9 +16,22 @@ label{
 	resize: none;
 	
 }
+#PW{
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
+	
+}
 table{ /*테이블 배치*/
-	margin : auto;
-	text-align: left;
+     width:100px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:40%;
+     top:10%;
 }
 select{
 	height: 30px;
