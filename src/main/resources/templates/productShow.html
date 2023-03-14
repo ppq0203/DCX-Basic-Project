@@ -25,11 +25,17 @@
 <table border="1">
     <thead>
 	<tr>
-		<td colspan = "2" >
+		<td>
 			<button type="button" id="Btn2" th:onclick="goPaymentPage([[ ${sales.salesNo} ]])">즉시구매</button>
 		</td>
-		<td colspan = "2" >
+		<td colspan="2">
 			<button type="button" id="Btn2" onclick="addBasket()">장바구니 담기</button>
+		</td>
+		<td>
+			<button type="button" id="Btn2" th:onclick="location.href='/reviewWrite?No=[[${sales.salesNo}]]'">리뷰 작성</button>
+			<br>
+			<br>
+			<button type="button" id="Btn2" th:onclick="location.href='/reviewShow?No=[[${sales.salesNo}]]'">리뷰 보기</button>
 		</td>
 	</tr>
     <tr>
