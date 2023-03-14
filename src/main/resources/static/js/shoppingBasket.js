@@ -56,11 +56,23 @@ function amounChange(my)
 	totalPriceFix();
 }
 
-$('button[type="submit"]').keydown(function() {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-  };
-});
+function deleteButton(salesNo)
+{
+	var form = document.createElement("form");
+
+	var obj;
+    obj = document.createElement('input');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('name', 'salesNo');
+    console.log(salesNo);
+    obj.setAttribute('value', parseInt(salesNo));
+    
+    form.appendChild(obj);
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', 'basketUpdate');
+    document.body.appendChild(form);
+    form.submit();
+}
 /*
 document.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
