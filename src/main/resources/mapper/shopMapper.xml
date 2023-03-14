@@ -187,6 +187,8 @@
 	<!-- 검색으로 찾기 -->
 	<select id="searchProd" resultType="SalesDto">
 		SELECT * FROM sales
+		LEFT OUTER JOIN
+		product on product.product_no = sales.product_no
 		WHERE sales_title like '%'||#{sProd}||'%'
 	</select>
 	
