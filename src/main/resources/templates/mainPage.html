@@ -1,32 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="<http://www.thymeleaf.org>">
+
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
-<script th:src="@{/js/includeHTML.js}"></script>
-	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
+	<script th:src="@{/js/includeHTML.js}"></script>
+	<script th:src="@{/js/mainPage.js}"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" th:href="@{/css/mainPage.css}"></link>
 </head>
-<!-- 중간 메뉴칸 -->
+
 <body>
-	<div include-html="/header"></div>
-	
-	<!-- 메인화면 디폴트 상품리스트 -->
-	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
-	<!-- 제거함 style = "float:left; margin: 0px auto;" -->
-	<div th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
-	    <li style="list-style: none;">
-			<ul><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></ul>
-		</li>
-		<li style="list-style: none;">
-			<ul th:text="${list.salesTitle}"></ul>
-			<ul th:text="${list.salesContent}"></ul>
-	        <ul th:text="${list.salesPrice}+'원'"></ul>
-	        <ul th:text="${list.productName}"></ul>
-		</li>
-	</div>
-</form>
-	<div include-html="/footer"></div>
+<div include-html="/header"></div>
+ 	<div class="main">
+ 	
+    <h1>Our new Products</h1>
+    <div class="products">
+    	<div th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+	      	<a href="javascript:void(0);" th:onclick="productClick([[${list.salesNo}]])">
+	        	<img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}">
+	        	<p th:text="${list.salesTitle}"></p>
+	        	<p th:text="${list.salesPrice}+'원'"></p>
+	      	</a>
+      	</div>
+      	<div class="clearfix"></div>
+    </div>
+    
+ 	</div>
+    
+    
+    <div include-html="/footer"></div>
 	<script>includeHTML();</script>
 	<script type="text/javascript" th:src="@{/js/header.js}"></script>
 	
@@ -35,5 +39,5 @@
 	<script>
 		isLoginCheck();
 	</script>
-</body>
+  </body>
 </html>
