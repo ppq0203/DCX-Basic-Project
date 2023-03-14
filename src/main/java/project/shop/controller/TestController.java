@@ -1,5 +1,6 @@
 package project.shop.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import project.shop.dto.BasketDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
 import project.shop.service.SalesService;
@@ -212,6 +214,22 @@ public class TestController {
         mv.addObject("list", list);
 		System.out.println(mv);
 		
+		return mv;
+	}
+	
+	@GetMapping("/testBasket")
+	public ModelAndView testBasket(HttpSession session)
+	{
+		Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+		if(userO == null)	//세션에 정보가 없으면
+			return new ModelAndView("/login");
+		if(session.getAttribute("baskets")==null)	//장바구니 리스트가 세션에 존재하는지 체크
+		{
+			ArrayList<BasketDto> baskets = new ArrayList<BasketDto>();
+			session.setAttribute("baskets", baskets);
+		}
+		ModelAndView mv = new ModelAndView("/test/shoppingBasket");
+		mv.addObject("baskets", session.getAttribute("baskets"));
 		return mv;
 	}
 }
