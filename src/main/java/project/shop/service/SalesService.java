@@ -48,4 +48,9 @@ public class SalesService {
 		List<SalesDto> resultList = shopMapper.searchProd(sProd);
 		return resultList;
 	}
+
+	public List<SalesDto> myProd(int userNo) {
+		List<SalesDto> resultList = shopMapper.myPord(userNo);
+		return resultList;
+	}
 }

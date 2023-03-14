@@ -20,6 +20,7 @@ public interface ShopMapper {
 	List<CustomerServiceDto> findCustomerList(CustomerServiceDto customer); // 문의사항 정보받기
 	List<Object> getOrder(Object user); //주문내역 보기
 	List<SalesDto> searchProd(String sProd); //검색으로 상품 찾기.
+	List<SalesDto> myPord(int userNo); //내 상품목록 보기.
 	void insertReview(ReviewDto review); //리뷰등록
 	void insertUser(UserDto user); //회원가입
 	void insertProduct(SalesDto sales); //상품등록
@@ -35,5 +36,6 @@ public interface ShopMapper {
 	UserDto loginUser(UserDto user) throws Exception;	//userDto의 where no = userNo or id = userId or email = userEmail 에 해당하는 userDto를 return 
 //	UserDto selectUserId(UserDto userDto) throws Exception;	//userDto의 where id = userID 에 해당하는 userDto를 return 
 //	UserDto selectUserEmail(UserDto userDto) throws Exception;	//userDto의 where id = userEmail 에 해당하는 userDto를 return
+	
 	
 }

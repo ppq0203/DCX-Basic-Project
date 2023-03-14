@@ -12,7 +12,7 @@
 	<div include-html="/header"></div>
 	
 	<!-- 메인화면 디폴트 상품리스트 -->
-	<form id="listfrm" name="listfrm" method = "get" action="/showprod">
+<form id="listfrm" name="listfrm" method = "get" action="/showprod">
 	<!-- 제거함 style = "float:left; margin: 0px auto;" -->
 	<div th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <li style="list-style: none;">

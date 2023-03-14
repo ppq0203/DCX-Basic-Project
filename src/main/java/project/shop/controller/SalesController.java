@@ -169,14 +169,14 @@ public class SalesController {
 		return mv;
 	}
 	
-	//div로 변경 테스트
-	@GetMapping("/dbtest")
-	public ModelAndView testProd(@RequestParam(value = "keyword", required = false) String tProd)
+	//등록 상품 조회
+	@GetMapping("/myProd")
+	public ModelAndView testProd(HttpSession session)
 	{
-		ModelAndView mv = new ModelAndView("test/dbtest");
-		tProd = "참치";
-		System.out.println(tProd);
-		List<SalesDto> list = salesService.searchProd(tProd);
+		Object user = session.getAttribute("userDto");
+		ModelAndView mv = new ModelAndView("/myProd");
+		System.out.println(((UserDto) user).getUserNo());
+		List<SalesDto> list = salesService.myProd(((UserDto) user).getUserNo());
 		
 		mv.addObject("list", list);
 		System.out.println(mv);
