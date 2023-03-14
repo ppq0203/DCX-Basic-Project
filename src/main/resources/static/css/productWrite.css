@@ -7,13 +7,16 @@ label{
 }
 /*text*/
 .text{
-	height: 30px;
+	height: 40px;
+	width: 200px;
+	font-size: 15px;
 }
 /*상세 text*/
 .tkdtptext{
 	height: 200px;
 	width: 300px;
 	resize: none;	
+	font-size: 1.2em;
 }
 
 #PW{
@@ -36,7 +39,9 @@ table{ /*테이블 배치*/
      border-collapse: separate;
 }
 select{
-	height: 30px;
+	height: 40px;
+	width: 205px;
+	font-size: 15px;
 }
 
 /*버튼*/
@@ -50,6 +55,7 @@ select{
 	background-color: #50bcdf;
 	position: relative;
 	left: 20px;
+	top: 5px
 }
 .productWritebutton1{
 	font-size:17px;
@@ -60,9 +66,11 @@ select{
 	background-color: #ff7f00;
 	position: relative;
 	right: -50px;
+	top: 5px
 }
 
 h1{
 	position: absolute;
 	left: 450px;
+	top: 20px;
 }
