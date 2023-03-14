@@ -5,10 +5,20 @@
 }
 #myPage{
 	position: relative;/*바꿔줘야하는놈들*/
-	top: 0%;
-	left: 40%; /*원하는 위치로 가게해줌*/
-	width: 150px; /*사이즈*/
-	height: 500px;
+	top: 0px;
+	left: 0px; /*원하는 위치로 가게해줌*/
+	width: 1080px; /*사이즈*/
+	height: 600px;
+	margin: auto;
+}
+.mainbar {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+     float: left;
+     left: 40%;
+     top: 10%;
 }
 
 /*버튼 변화*/
@@ -30,11 +40,6 @@
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none; 
-}
-.mainbar {
-	width: 90%;
-	margin: 40px auto;
-	text-align: center;
 }
 .btn-1 {
   background: greenyellow;

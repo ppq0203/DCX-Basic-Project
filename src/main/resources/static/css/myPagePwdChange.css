@@ -1,8 +1,19 @@
 @charset "UTF-8";
 #myPwdChange{ /*센터로*/
-	justify-content: center;
-	position: relative;
-	left: 30%;
+	width: 1080px;
+   height: 600px;
+   position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
+}
+.MPC{
+     width:1000px;
+     height:100px;
+     position: absolute;
+     float: left;
+     left:30%;
+     top:10%;
 }
 h1{ /*위치조정*/
    padding-bottom: 20px;

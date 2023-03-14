@@ -23,7 +23,9 @@
 <body>
 <div include-html="/header" class="up"></div>
 	<div id="myPwdChange">
-	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">			<h1>비밀번호 변경</h1>
+		<div class="MPC">
+	<form id="cpwd" name="cpwd" method="post" action="/myPagePwdChange" class="submitForm">
+		<h1>비밀번호 변경</h1>
 			<div class="form-group">
 				<label>비밀번호 확인</label>
 				<!-- 
@@ -37,6 +39,7 @@
 		<span class="voiceExplain">취소 버튼입니다</span>
 		<input type="button" value="취소" onClick="location.href='/myPage'" class="hoverVoice button1">
 	</form>
+	</div>
 	</div>
 	
 <footer include-html="/footer"></footer>

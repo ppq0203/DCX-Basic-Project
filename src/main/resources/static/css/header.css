@@ -29,6 +29,9 @@ header {
    display: flex;
    align-items: center; /* 하위 요소들 수직 가운데정렬 */
    position: relative;
+   margin:auto;
+   left: 0px;
+   top: 0px;
 }
 
 fieldset {

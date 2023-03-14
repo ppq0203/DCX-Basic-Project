@@ -35,7 +35,9 @@ html, body {
 #body-wrapper {
    min-height: 100%;
    position: relative;
-   padding-bottom: 60px;
+   margin:auto;
+   padding-bottom: 0px;
+   width: 1080px;
 }
 
 /* #body-wrapper {
@@ -66,7 +68,7 @@ footer {
    width: 1080px;
  /*   height: 99999px;   footer의 높이 */
     position: relative;  
-    bottom: 0;
+    bottom: 0px;
     }
 
 /* .footer {
