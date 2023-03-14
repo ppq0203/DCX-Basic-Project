@@ -1,15 +1,8 @@
 @charset "UTF-8";
 #joinUser{
-	width:400px;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items:center;
 	position: relative;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+	left: 30%;
 }
 h1{
 	font-size: 25px;
@@ -33,14 +26,13 @@ label{
 	font-size: 20px;
 }
 .joinbutton{
-	width:50px;
+	width:100px;
 	height:30px;
 	background-color: #ff7f00;
 	border: none;
 	border-radius: 5px;
 	position: absolute;
-	right: -35px;
-	background-color: #50bcdf;
+	left: 330px;
 }
 .emailbutton{
 	width:150px;
@@ -49,18 +41,18 @@ label{
 	border: none;
 	border-radius: 5px;
 	position: absolute;
-	right: -115px;
+	left: 330px;
 	background-color: #ff7f00;
 }
 .button1{
 	font-size:17px;
 	width:90px;
 	height:45px;
-	background-color: #50bcdf;
+	background-color: #ff7f00;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	left: 90px;
+	position: relative;
+	left: 20px;
 }
 .button2{
 	font-size:17px;
@@ -69,12 +61,12 @@ label{
 	background-color: #50bcdf;
 	border: none;
 	border-radius: 5px;
-	position: absolute;
-	right: 90px;
+	position: relative;
+	left: 40px;
 }
 .time{
 	position: absolute;
-	right : -5px;
+	left: 330px;
 }
 .IdText{
 	position: fixed;

@@ -41,9 +41,10 @@
 		</div>
 		
 		<!--   마우스가 해당태그 위로 올라가면 음성알림 hover 클래스는 해당태그에 마우스가 올라왔을때 앞태그의 내용을 음성으로 안내해준다 -->
+		
 		<span class="voiceExplain">로그인 버튼입니다</span>
 		<input type="button" value="로그인" id="login_btn" class="hoverVoice button">
-		
+		<div id="buttonTH">
 		<span class="voiceExplain">회원가입 버튼입니다</span>
 		<input type="button" value="회원가입" onClick="location.href='/joinUser'" class="hoverVoice button2">
 		
@@ -52,6 +53,7 @@
 		
 		<span class="voiceExplain">비밀번호찾기 버튼입니다</span>
 		<input type="button" value="비밀번호찾기" onClick="location.href='/passwordFind'" class="hoverVoice button4">
+		</div>
 	</form>
 	</div>
 
@@ -59,5 +61,10 @@
 <script>includeHTML();</script>
 <script type="text/javascript" th:src="@{/js/login.js}"></script>
 
+	<!-- 로그인 로그아웃 세션확인 코드 -->
+	<script th:src="@{/js/isLoginCheck.js}"></script>
+	<script>
+		isLoginCheck();
+	</script>
 </body>
 </html>

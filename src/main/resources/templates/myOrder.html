@@ -3,10 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>주문 내역</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script th:src="@{/js/includeHTML.js}"></script>
 </head>
 <!-- 주문내역 페이지 -->
 <body>
-
+	<div include-html="/header"></div>
+	
 
 <form id="listfrm" name="listfrm" method = "post" action="#">
 	<table border="1" th:if="${#lists.size(list)} > 0" th:each="list : ${list}">
@@ -24,5 +27,14 @@
 	   </tr>
 	</table>
 </form>
+
+	<div include-html="/footer"></div>
+	<script>includeHTML();</script>
+
+	<!-- 로그인 로그아웃 세션확인 코드 -->
+	<script th:src="@{/js/isLoginCheck.js}"></script>
+	<script>
+		isLoginCheck();
+	</script>
 </body>
 </html>
