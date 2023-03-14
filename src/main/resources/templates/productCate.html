@@ -14,8 +14,7 @@
 	<table class="type07" border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
 	    <thead>
 	    <tr>
-			<td  class="td1">판매제목</td>
-			<td th:text="${list.salesTitle}"></td>
+			<td colspan="2" style="text-align: center;" th:text="${list.salesTitle}"></td>
 		</tr>
 	    </thead>
 	    <tbody>
@@ -32,7 +31,7 @@
 		</tr>
 		<tr>
 	        <td  class="td1">가격</td>
-	        <td th:text="${list.salesPrice}"></td> 
+	        <td th:text="${list.salesPrice}+'원'"></td> 
 	    </tr>
 	    </tbody>
 	</table>
