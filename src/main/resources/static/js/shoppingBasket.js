@@ -10,14 +10,36 @@ function totalPriceFix()
 	$('.totalPrice').text(sum);
 }
 
+function plusBtn(my)
+{
+	var before = my.previousElementSibling;
+	console.log(before.value);
+	if(before.value<99)
+		before.value++;
+	amounChange(before);
+}
+
+function minusBtn(my)
+{
+	var before = my.previousElementSibling.previousElementSibling;
+	console.log(before.value);
+	if(before.value>1)
+		before.value--;
+	amounChange(before);
+}
+
 function amounChange(my)
 {
 	var before = my.previousElementSibling;
+	var price;
 	console.log(my.value);
 	console.log(before.value);
 	for(var i = 0; i < baskets.length; ++i)
 		if(baskets[i].salesDto.salesNo == before.value)
+		{
 			baskets[i].amount = my.value;
+			price = baskets[i].salesDto.salesPrice;
+		}
 	$.ajax({
 	    url:'./changeBasket', //Controller에서 요청 받을 주소
 	    type:'post', //POST 방식으로 전달
@@ -29,6 +51,8 @@ function amounChange(my)
 	        alert("에러입니다");
 	    }
 	});
+	console.log(my.parentElement.parentElement.nextElementSibling);
+	my.parentElement.parentElement.nextElementSibling.innerText = price*my.value+'원';
 	totalPriceFix();
 }
 
