@@ -15,6 +15,9 @@ body {
 
 .cardForm
 {
+	height: 450px;
+	position: relative;
+	z-index: 999;
 	display : none;
 }
 

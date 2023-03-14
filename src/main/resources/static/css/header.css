@@ -21,6 +21,9 @@ a:hover {
 
 header {
    /* margin: auto; header의 양쪽 여백(margin)을 동등하게 맞춤 -> 수평가운데정렬*/
+   
+  margin-left: auto;
+  margin-right: auto;
    width: 1080px;
    height: 215px;
    display: flex;

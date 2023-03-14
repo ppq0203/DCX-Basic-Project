@@ -49,7 +49,7 @@ public class SalesController {
 	public ModelAndView prodPage(@RequestParam("salesNo") int num) throws Exception
 	{
 		System.out.println("/showprod");
-    	ModelAndView mv = new ModelAndView("/productShow");
+    	ModelAndView mv = new ModelAndView("productShow");
         SalesDto sales = salesService.findProd(num);
         System.out.println(" [+] " + sales + num);
         
