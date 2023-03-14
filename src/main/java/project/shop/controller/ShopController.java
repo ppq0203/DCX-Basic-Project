@@ -30,7 +30,10 @@ public class ShopController {
     public ModelAndView mainPage(SalesDto sales) throws Exception{
     	ModelAndView mv = new ModelAndView("/mainPage");
         List<SalesDto> list = salesService.selectProdList(sales);
-        
+        while (list.size() > 9)
+        {
+        	list.remove(0);
+        }
         mv.addObject("list", list);
 		System.out.println(mv);
 		
