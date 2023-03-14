@@ -25,12 +25,15 @@ import project.shop.dto.ReviewDto;
 import project.shop.dto.SalesDto;
 import project.shop.dto.UserDto;
 import project.shop.service.SalesService;
+import project.shop.service.UserService;
 
 
 @Controller
 public class SalesController {
 	@Autowired
     private SalesService salesService; //서비스와 연결
+	@Autowired
+	private UserService userService;
 	
 	//상품등록 페이지
 	@GetMapping("/productWrite")
@@ -45,16 +48,66 @@ public class SalesController {
 		return "/productWrite";
 	}
 	
+	//판매정보 및 상품등록
+		@PostMapping("/productWrite.do")
+		public String insertProduct(@ModelAttribute SalesDto sales, HttpSession session) throws Exception
+		{
+			Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
+			if(userO == null)
+			{
+				return "/login";
+			}
+			String imageFileName = "";
+			for(MultipartFile file : sales.getImageFile())
+			{
+				imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
+				String path = System.getProperty("user.dir")+"/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
+				System.out.println(path);
+				Path imagePath = Paths.get(path + file.getOriginalFilename());
+				
+				try {
+					System.out.println("try");
+					Files.write(imagePath, file.getBytes());
+					System.out.println("tried");
+				} catch(Exception e) {
+					
+				}
+			}
+			sales.setSalesImg(imageFileName);
+			
+			int userNo = (int) ((UserDto) userO).getUserNo();
+			sales.setUserNo(userNo);
+			
+			System.out.println(" [+] post :: "+sales);
+			salesService.insertProduct(sales);
+			
+			return "redirect:/main";
+		}
+	
 	//판매정보 호출 기반
 	@GetMapping("/showprod")
-	public ModelAndView prodPage(@RequestParam("salesNo") int num) throws Exception
+	public ModelAndView prodPage(UserDto user, @RequestParam("salesNo") int num) throws Exception
 	{
 		System.out.println("/showprod");
     	ModelAndView mv = new ModelAndView("productShow");
         SalesDto sales = salesService.findProd(num);
-        System.out.println(" [+] " + sales + num);
+        List<ReviewDto> list = salesService.showReview(num); 
+        List<UserDto> users = new ArrayList();
+        for(int i = 0; i < list.size(); i++)
+        {
+        	int userNo = list.get(i).getUserNo();
+        	System.out.println(userNo);
+        	user.setUserNo(userNo);
+        	UserDto getUserDto = userService.findUser(user);
+        	users.add(getUserDto);
+        }
+        System.out.println(" [+] " + sales + list);
+        System.out.println(mv);
         
         mv.addObject("sales", sales);
+        mv.addObject("list", list);
+        mv.addObject("users", users);
+        
 		System.out.println(mv);
 		
 		return mv;
@@ -75,41 +128,6 @@ public class SalesController {
 		return mv;
 	}
 	
-	//판매정보 및 상품등록
-	@PostMapping("/productWrite.do")
-	public String insertProduct(@ModelAttribute SalesDto sales, HttpSession session) throws Exception
-	{
-		Object userO = session.getAttribute("userDto");	//세션에 저장된 유저정보 불러옮
-		if(userO == null)
-		{
-			return "/login";
-		}
-		String imageFileName = "";
-		for(MultipartFile file : sales.getImageFile())
-		{
-			imageFileName = imageFileName + file.getOriginalFilename() + "$%$";
-			String path = System.getProperty("user.dir")+"/src/main/resources/static/files/";//파일이 저장될 디렉토리 url
-			System.out.println(path);
-			Path imagePath = Paths.get(path + file.getOriginalFilename());
-			
-			try {
-				System.out.println("try");
-				Files.write(imagePath, file.getBytes());
-				System.out.println("tried");
-			} catch(Exception e) {
-				
-			}
-		}
-		sales.setSalesImg(imageFileName);
-		
-		int userNo = (int) ((UserDto) userO).getUserNo();
-		sales.setUserNo(userNo);
-		
-		System.out.println(" [+] post :: "+sales);
-		salesService.insertProduct(sales);
-		
-		return "redirect:/main";
-	}
 	
 	@GetMapping("/orderdate")
 	public String insertOrder(OrderDto order, HttpSession session)

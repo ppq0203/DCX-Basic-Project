@@ -25,17 +25,27 @@
 <table border="1">
     <thead>
 	<tr>
-		<td>
+		<td colspan="2">
 			<button type="button" id="Btn2" th:onclick="goPaymentPage([[ ${sales.salesNo} ]])">즉시구매</button>
 		</td>
 		<td colspan="2">
 			<button type="button" id="Btn2" onclick="addBasket()">장바구니 담기</button>
 		</td>
-		<td>
+		<td colspan="2" rowspan="2">
+			<h1>리뷰</h1>
+			<h1 th:if="${#lists.size(list)}<1" th:text="'리뷰가 존재하지 않습니다.'"></h1>
 			<button type="button" id="Btn2" th:onclick="location.href='/reviewWrite?No=[[${sales.salesNo}]]'">리뷰 작성</button>
-			<br>
-			<br>
-			<button type="button" id="Btn2" th:onclick="location.href='/reviewShow?No=[[${sales.salesNo}]]'">리뷰 보기</button>
+			<table style="width:500px" border="1" th:if="${#lists.size(list)} > 0" th:each="list, i : ${list}">
+			    <tr >
+					<td style="width:70px" th:text="${users[i.index].userName}"></td>
+					<td th:if="${#strings.isEmpty(list.ReviewContent)}" colspan="2" style="width:150px" th:text="${list.ReviewTitle}"></td>
+					<td th:if="${not #strings.isEmpty(list.ReviewContent)}" colspan="2" style="width:150px" th:text="${list.ReviewTitle}"></td>
+					<td th:if="${not #strings.isEmpty(list.ReviewContent)}" style="width:70px">리뷰 내용</td>
+					<td style="width:70px" th:if="${not #strings.isEmpty(list.ReviewContent)}" th:text="${list.ReviewContent}"></td>
+					<td style="width:70px">평점</td>
+					<td style="width:70px" th:text="${list.reviewScore}"></td>
+				</tr>
+			</table>
 		</td>
 	</tr>
     <tr>
@@ -52,11 +62,11 @@
 	</tr>
     <tr>
         <td  class="td1">상품설명</td>
-        <td colspan = "4" th:text="${sales.salesContent}"></td>
+        <td colspan = "3" th:text="${sales.salesContent}"></td>
     </tr>
     <tr>
 		<td  class="td1">가격</td>
-        <td colspan = "4" th:text="${sales.salesPrice}"></td>
+        <td colspan = "3" th:text="${sales.salesPrice}"></td>
 	</tr>
 	<tr>
 		<td colspan = "4">상세이미지</td>
