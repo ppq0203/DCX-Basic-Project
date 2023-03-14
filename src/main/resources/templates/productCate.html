@@ -20,8 +20,7 @@
 	    </thead>
 	    <tbody>
 	    <tr>
-			<td  class="td1">썸네일</td>
-			<td><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></td>			
+			<td colspan="2" style="text-align: center;"><button type = "submit" th:name = "salesNo" th:value = "${list.salesNo}"><img th:src="${'files/'+#strings.setSplit(list.salesImg, '$%$')[0]}" style="width: 300px; height:auto;"></img></button></td>			
 		</tr>
 		<tr>
 			<td  class="td1">상품명</td>
