@@ -22,11 +22,11 @@ public class UserController {
     private UserService userService; //서비스와 연결
 	
 	//로그인 페이지
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String loginPage(HttpSession session)
 	{
 		System.out.println(session.getAttribute("userDto"));	//로그인 세션이 남아있는지 확인
-		return "/login";
+		return "login";
 	}
 	//로그인 입력시 확인
 	@PostMapping("/postLogin")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
